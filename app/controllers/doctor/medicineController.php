@@ -1,8 +1,16 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+  //include "../../includes/init.php";
+  //include "../../includes/autoloader.php";
+  //include "../models/list.php";
+ 
+if ($_POST) {
+    
+} 
+else {
+    // display exist invices  
+    include '../../models/list.php';
+    $tablename = "items";
+    $displaybanner = new Display($tablename);
+    $BannerDataDisplay = $displaybanner->getAllData();
+}
+?>

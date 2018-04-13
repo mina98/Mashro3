@@ -64,50 +64,24 @@
 				<tr>
 					<th>id</th>
 					<th>item</th>
-                                        <th>uint price</th>
-                                        <th>description</th>
+          <th>uint price</th>
+          <th>description</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>fg</td>
-					<td>9</td>
-					<td>99</td>
-                                        
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>dfd</td>
-					<td>9876543210</td>
-					<td>349</td>
-                                       
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>rgggg</td>
-					<td>7542890</td>
-					<td>199</td>
-                                       
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>kbr</td>
-					<td>2345689</td>
-					<td>21399</td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>gftr</td>
-					<td>70</td>
-					<td>349</td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td>gftr</td>
-					<td>60</td>
-					<td>199S356</td>
-				</tr>
+				<?php
+        include "../../controllers/doctor/medicineController.php";
+    for ($i = 0; $i < count($BannerDataDisplay); $i++) {
+         echo "            
+                <tr>
+                    <td>{$BannerDataDisplay[$i]['id']}</td>
+                    <td>{$BannerDataDisplay[$i]['name']}</td>
+                    <td>{$BannerDataDisplay[$i]['unitPrice']}</td>
+                    <td>{$BannerDataDisplay[$i]['desription']}</td>
+                </tr>
+            ";
+        }
+    ?>
 			</tbody>
 		</table>
 	</section>
