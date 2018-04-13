@@ -77,7 +77,7 @@
                     <td>{$BannerDataDisplay[$i]['id']}</td>
                     <td>{$BannerDataDisplay[$i]['name']}</td>
                     <td>{$BannerDataDisplay[$i]['unitPrice']}</td>
-                    <td>{$BannerDataDisplay[$i]['desription']}</td>
+                    <td>{$BannerDataDisplay[$i]['description']}</td>
                 </tr>
             ";
         }
