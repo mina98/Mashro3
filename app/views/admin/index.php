@@ -189,8 +189,7 @@
           <section class="wrapper site-min-height">
           	
               <section id='page'>
-                  
-                  <?php
+                <?php
                     if (@$_GET['page']) {
                         $url = $_GET['page'] . ".php";
                         if (is_file($url)) {
@@ -199,7 +198,39 @@
                             echo 'requested file is not found !';
                         }
                     } else {
-                        echo 'lsa mfe4 7aga';
+                        
+                        include "../../controllers/admin/reportController.php";
+                        echo "
+                        
+                            
+                          
+                        <h1 Style='text-align:center';>Report page</h1>
+                        <div Style='text-align:center';>
+                            
+                            
+                  
+                        <table border='3' class='table' Style='text-align:center'>
+                        <tr>
+                        <th>Offer</th>
+                        <th>Vendor</th>
+                        <th>Lowset</th>
+                        </tr>
+                        ";
+                         for ($i = 0; $i < count($data); $i++)
+                     
+                         echo"
+                        <tr>
+                        <td>{$data[$i]['itemId']}</td>
+                        <td>{$data[$i]['vendor']}</td>   
+                        <td>{$data[$i]['low']}</td>
+                        </tr>";
+                        echo"
+                        </table>
+                        
+
+
+                        </div>
+                       " ;
                     }
                     ?>
               </section>

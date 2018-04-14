@@ -1,5 +1,5 @@
 <?php
-
+ include  "Database_2.php";
 
 class abastractConnect {  
     
@@ -10,7 +10,7 @@ class abastractConnect {
     //class methods or functions
     function connectToDb()
     {
-       include  "Database_2.php";
+      
         $this->db = new Database_2('localhost','root','project');
     }
     
