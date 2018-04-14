@@ -40,6 +40,11 @@ if ($_POST) {
     }
     header("location:../../views/vendor/index.php?page=listOffer");
     
+if (isset($_POST["submit"]) AND $_POST["submit"] == "confirm") {
+         
+    }
+    header("location:../../views/vendor/index.php?page=requested");
+    
 }
  else {
  echo "no post"   ;

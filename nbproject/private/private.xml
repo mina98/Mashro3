@@ -2,29 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/controllers/admin/ListControllers.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/views/vendor/addOffer.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/controllers/loginControllers.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/models/Supply_Models.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/controllers/employee/C_addMedicine.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/views/employee/listMedicine.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/models/Database.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/views/employee/addMedicine.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/controllers/vendor/Add&amp;deleteofferControler.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/models/abastractConnect.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/models/Database_2.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/controllers/employee/C_invoice.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/models/Addinvoice.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/views/employee/addInvoice.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/views/vendor/listOffer.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/models/Delete.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/models/addoffer.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/controllers/employee/C_update.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/controllers/employee/C_listmedicine.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/controllers/admin/makeController.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/models/list.php</file>
-            <file>file:/C:/xampp/htdocs/project%20clone%20git/project/app/models/Update.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

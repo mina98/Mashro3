@@ -70,7 +70,7 @@
 				</tr>
 			</thead>
                          <?php
-                         include '../../controllers/vendor/listoffercontroler.php';
+                         include '../../controllers/vendor/listoffers.php';
                          include '../../controllers/vendor/Add&deleteofferControler.php';
      for ($i = 0; $i < count($listoffers); $i++) 
      {

@@ -71,27 +71,25 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>profin</td>
-					<td>40</td>
-					<td>400</td>
-					<td><button class="delete">confirm</button></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>ay7aga</td>
-					<td>100</td>
-					<td>5000</td>
-					<td><button class="delete">confirm</button></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>ddd</td>
-					<td>100</td>
-					<td>4000</td>
-					<td><button class="delete">confirm</button></td>
-				</tr>
+			<?php
+        include "../../controllers/vendor/listorders.php";
+    for ($i = 0; $i < count($listreq); $i++) {
+         $Name= $listreqe->getRecordByID($listreq[$i]["itemId"],"items","name","id");
+         echo "            
+                <tr>
+                    <td>{$listreq[$i]['id']}</td>
+                    <td>{$Name}</td>
+                    <td>{$listreq[$i]['mount']}</td>
+                    <td>{$listreq[$i]['Price']}</td>
+                    <td>
+                     <form action='../../controllers/vendor/Add&deleteofferControler.php' method=post>
+                     <input type = 'submit' name='submit' value='confirm'>
+                     </form>
+                     </td>
+                </tr>
+            ";
+        }
+    ?>
 			</tbody>
 		</table>
 	</section>
