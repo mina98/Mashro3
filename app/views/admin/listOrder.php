@@ -8,7 +8,14 @@
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
   
-
+    <style>
+        .con{
+            width: 30%;
+	background-color: #E6FFFF;
+	height: 30px;
+	margin-right: 10px;
+        }
+    </style>
     <!-- Bootstrap core CSS -->
     <link href="../../../test-samer/assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
@@ -63,40 +70,41 @@
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>medicine</th>
+					<th>itemid</th>
 					<th> amount</th>
                                         <th>price</th>
-                                        <th>vendor</th>
+                                        <th>vendor Id</th>
+                                        <th>offer id</th>
 					<th>Confirm order Arrived</th>
+                                        
                                        
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td>profin</td>
-					<td>40</td>
-					<td>400</td>
-                                        <td>aa</td>
-					<td><button class="delete">confirm</button></td>
+                        <tbody>
+			<?php
+                        //`id`, `itemId`, `mount`, `Price`, `vendorId`, `offerId`
+                    include "../../controllers/admin/ListControllers.php";
+                        for ($i = 0; $i < count($data); $i++)
+                       echo "
+                           <tr>
+                      		<form action = '../../controllers/admin/ListControllers.php' method ='post'>			
+            
+                                        <td>{$data[$i]['id']}</td>
+					<td>{$data[$i]['itemId']}</td>
+					
+					<td>{$data[$i]['mount']}</td>
+                                        <td>{$data[$i]['Price']}</td>
+                                        <td>{$data[$i]['vendorId']}</td>
+                                        <td>{$data[$i]['offerId']}</td>
+                                        <td><input type='submit' class='con' name ='submit' value='confirm'><input type='submit' class='con' name  ='submit'value='unconfirm'></td>
+                                        <input type=text  style='display:none; ' name='Andrew' value= {$data[$i]['id']}>
+                                                 
+                                        </form>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>ay7aga</td>
-					<td>100</td>
-					<td>5000</td>
-                                        <td>aa</td>
-					<td><button class="delete">confirm</button></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>ddd</td>
-					<td>100</td>
-					<td>4000</td>
-                                        <td>aa</td>
-					<td><button class="delete">confirm</button></td>
-				</tr>
-			</tbody>
+			"
+                        	
+                        
+                        ?></tbody>
 		</table>
 	</section>
 	

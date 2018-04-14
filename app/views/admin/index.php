@@ -157,8 +157,10 @@
                           <span>Suplpy</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="?page=addOrder">make order</a></li>
-                          <li><a  href="?page=listOrder">List orders</a></li>
+                   <!--     <form action="../../controllers/admin/supplyController.php" method ="POST"/>-->
+                                                                                         <li><!-- <input type="submit" name="submit" value ="make order" style="border-style: dotted;" >--><a   href="?page=addOrder" -->make order</a></li>
+                          <li><!--<input type="submit" name="submit" value ="List order" >--> <a  href="?page=listOrder">List orders</a></li>
+           <!--             </form>-->
                          
                       </ul>
                   <li class="sub-menu">

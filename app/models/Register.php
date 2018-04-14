@@ -49,9 +49,9 @@ class Register extends abastractConnect
     function rgisterUser()
     {
          //`id`, `name`, `username`, `password`, `adress`, `email`, `image`, `type`
-        $sql = "INSERT INTO `users` (`id`, `name`, `username`, `password`, `adress` ,`email` ,`image`,`type`)
+        $sql = "INSERT INTO `users` (`id`, `name`, `username`, `password`, `adress` ,`email` ,`image`,`type`,`active`)
           VALUES 
-            ('','$this->name','$this->username','$this->password','$this->adress','$this->email','','5')";
+            ('','$this->name','$this->username','$this->password','$this->adress','$this->email','','5','active')";
         
         $this->db->conn->exec($sql);
         

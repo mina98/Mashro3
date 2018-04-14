@@ -38,6 +38,7 @@
 <h3 class="h3">Avalible offers</h3>
 
 <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer" /> <a class="button"><i class="fa fa-exclamation-circle"></i> Report Error</a>
+
 	<section class="table-box">
 		<table class="tabel table-box">
 			<thead>
@@ -51,45 +52,43 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>fg</td>
-					<td>9</td>
-					<td>99</td>
-                                        <td><input type ="text"></td>
-                                        <td><input type ="checkbox"><button class="button">order</button></td>
+                            
+                       
+
+			<?php
+                        include_once"../../controllers/admin/makeController.php";
+                        for ($i = 0; $i < count($data); $i++)
+                       echo "
+                           <tr>
+                      		<form action = '../../controllers/admin/makeController.php' method ='post'>			
+                                 
+                                        <td>{$data[$i]['id']}</td>
+					<td>{$data[$i]['itemId']}</td>
+					<td>{$data[$i]['unitPrice']}</td>
+					<td>{$data[$i]['description']}</td>
+                                        <td>{$data[$i]['vendorId']}</td>
+                                             <input type=text  style='display:none; ' name='Andrew' value= $i>
+                                                 <td><input type ='submit' name ='submit' value='order'></td>
+                                        </form>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>dfd</td>
-					<td>9876543210</td>
-					<td>349</td>
-                                        <td><input type ="text"></td>
-                                        <td><input type ="checkbox"><button class="button">order</button></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>rgggg</td>
-					<td>7542890</td>
-					<td>199</td>
-                                        <td><input type ="text"></td>
-                                        <td><input type ="checkbox"><button class="button">order</button></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>kbr</td>
-					<td>2345689</td>
-					<td>21399</td>
-                                        <td><input type ="text"></td>
-                                        <td><input type ="checkbox"><button class="button">order</button></td>
-				</tr>
-				
-			</tbody>
+			"
+                        	
+                        
+                        ?>
+                                </tbody>
 		</table>
 	</section>
 	
   </div>
 
+        <script>
+        function func(){
+            
+            ned= documents.getElmentById('mina').value;
+        }
+        
+        </script>
+        
     <script  src="../../../test-samer/js/index.js"></script>
 
 

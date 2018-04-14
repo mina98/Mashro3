@@ -70,6 +70,8 @@ class addd
             $this->db->conn->exec($sql1);
             echo '<h1>Done</h1>';
     }
+    
+    
 
     function close()
     {

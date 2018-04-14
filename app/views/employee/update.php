@@ -1,10 +1,16 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <div class="container">
 
-    <form class="wrapper form-horizontal " action="../../controllers/employee/C_addMedicine.php" method="post"  id="contact_form" id="myform">
+    <form class="wrapper form-horizontal " action=" " method="post"  id="contact_form" id="myform">
 <fieldset>
 
 <!-- Form Name -->
-<legend>Add medicine</legend>
+<legend>Update medicine</legend>
 <br/>
 
 <!-- Select Basic -->
@@ -24,6 +30,7 @@
 </div>
 </div>
 <!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label">Name</label>  
   <div class="col-md-4 inputGroupContainer">
@@ -88,13 +95,11 @@
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4">
-      <input type="submit" class="btn btn-warning" value="send" name="submit"> <span class="glyphicon glyphicon-send"></span>
-     
+      <button type="submit" class="btn btn-warning" value="update" name="update">Update <span class="glyphicon glyphicon-send"></span></button>
   </div>
 </div>
- 
+
 </fieldset>
 </form>
 </div>
-    </div><!-- /.container -->
-    
+<!------>

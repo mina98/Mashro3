@@ -1,6 +1,6 @@
 <?php
 
-
+include 'abastractConnect.php';
 class Delete extends abastractConnect {
     
     private $tablename;

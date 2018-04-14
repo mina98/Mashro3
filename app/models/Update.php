@@ -1,6 +1,6 @@
 <?php
 
-
+include "abastractConnect.php";
 class Update extends abastractConnect {
 
     private $tablename;

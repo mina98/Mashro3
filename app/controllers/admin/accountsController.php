@@ -34,6 +34,9 @@ if ($_POST) {
             $date["type"] = 4;
          
         }
+        
+        $date['active'] = "active";
+        
         $tablename = "users";
         try {
             $adduser = new Add($date, $tablename);
@@ -48,6 +51,17 @@ if ($_POST) {
         }
         
     }
+    
+    
+    // change staue
+    if (isset($_POST['submit']) AND $_POST['submit'] == "change statue")
+    {
+        include '../../models/list.php';
+        $tablename = "users";
+        $disblaybanner = new Display($tablename);
+        
+    }
+    
     
  }
 

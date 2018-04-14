@@ -67,10 +67,12 @@
 					<th> username</th>
                                         <th>name</th>
                                         <th>email</th>
+                                        <th>Statue</th>
 					<th>Actions</th>
                                        
 				</tr>
-			</thead>
+                       
+ 			</thead>
 			<tbody>
 				<?php
                                 include "../../controllers/admin/accountsController.php";
@@ -83,6 +85,12 @@
                                     <td>{$b[$i]['username']}</td>
                                     <td>{$b[$i]['name']}</td>
                                     <td>{$b[$i]['email']}</td>
+                                    <td>{$b[$i]['active']}</td>
+                                    <td><form action ='../../controllers/admin/accountsController.php' >
+                                            <input type = 'submit' name = 'submit'  value = 'change statue' >
+                                      <input name= 'userid'  hidden = '' value= '{$b[$i]['id']}' >
+                                      </form>
+                                    </td>
                                     </tr>
                                          ";
                                 }

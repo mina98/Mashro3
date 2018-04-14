@@ -10,6 +10,7 @@
 <!-- Select Basic -->
    
 
+	<!-- id 	itemId 	unitPrice 	description 	vendorId -->
 
 <!-- Text input-->
 
@@ -18,17 +19,18 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="name" placeholder="product name" class="form-control"  type="text">
+  <input  name="itemId" placeholder="item ID" class="form-control"  type="text">
     </div>
   </div>
 </div>
-
+<!--
 <div class="form-group"> 
-  <label class="col-md-4 control-label">item Type</label>
+  <label class="col-md-4 control-label" name="itemId">item Type</label>
     <div class="col-md-4 selectContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-    <select name="userType" class="form-control selectpicker" >
+    <select name="itemtype
+" class="form-control selectpicker" >
         <option >please select item type</option>
       <option >4arab </option>
       <option>2aras </option>
@@ -37,6 +39,7 @@
   </div>
 </div>
 </div>
+-->
 <!-- Text input-->
 
 <div class="form-group">
@@ -44,7 +47,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon-oi glyphicon-envelope"></i></span>
-        <input name="password" type="text" placeholder="unit price" class="form-control"  type="text">
+        <input name="unitPrice" type="text" placeholder="unit price" class="form-control"  type="text">
     </div>
   </div>
 </div>
@@ -54,7 +57,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon-oi glyphicon-envelope"></i></span>
-        <textarea class="form form-control" placeholder="item description here please"></textarea>
+        <textarea name="description" class="form form-control" placeholder="item description here please"></textarea>
         
     </div>
   </div>
@@ -69,7 +72,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4">
-    <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+    <input type="submit" name="submit" value ="ADD" class="btn btn-warning" >
   </div>
 </div>
 

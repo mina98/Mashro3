@@ -67,59 +67,29 @@
 					<th>exist amount</th>
                                         <th>sold amount</th>
 					<th>unit Price</th>
+                                        <th>discription</th>
 					<th>Update or delete</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>fg</td>
-					<td>9</td>
-					<td>99</td>
-                                        <td>199</td>
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>dfd</td>
-					<td>9876543210</td>
-					<td>349</td>
-                                        <td>199</td>
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>rgggg</td>
-					<td>7542890</td>
-					<td>199</td>
-                                        <td>199</td>
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>kbr</td>
-					<td>2345689</td>
-					<td>21399</td>
-                                        <td>199</td>
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>gftr</td>
-					<td>70</td>
-					<td>349</td>
-                                        <td>199</td>
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td>gftr</td>
-					<td>60</td>
-					<td>199S356</td>
-                                        <td>199</td>
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
-			</tbody>
+                            
+				<?php
+                                 include "../../controllers/employee/C_listmedicine.php";
+                                for($i=0;$i< count($allData);$i++){
+                                    echo '<tr action=" " method="post">';
+                                    echo "<td>". $allData[$i]['id'] ."</td>";
+                                    echo "<td>".$allData[$i]['name'] ."</td>";
+                                    echo "<td>".$allData[$i]['unitPrice'] ."</td>";
+                                    echo "<td>".$allData[$i]['existMount'] ."</td>";
+                                    echo "<td>".$allData[$i]['soldMount'] ."</td>";
+                                    echo "<td>".$allData[$i]['description'] ."</td>";
+                                    echo '<td><a href="?uppage=update"><button class="update" name ='. $allData[$i]['id'].'>Update</button></a><button class="delete">Delete</button></td>';
+                                    echo '</tr>';
+                                }
+                                ?>
+                        
+				
+                        </tbody> 
 		</table>
 	</section>
 	

@@ -69,53 +69,35 @@
 					<th>Actions</th>
 				</tr>
 			</thead>
+                         <?php
+                         include '../../controllers/vendor/listoffercontroler.php';
+                         include '../../controllers/vendor/Add&deleteofferControler.php';
+     for ($i = 0; $i < count($listoffers); $i++) 
+     {
+          $a = $listobject->getRecordByID($listoffers[$i]["itemId"],"items","name","id");
+        echo" 
 			<tbody>
+                          
+                           
+                           
+                             
 				<tr>
-					<td>1</td>
-					<td>fg</td>
-					<td>9</td>
-					<td>99</td>
-                                        
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
+					<td>{$listoffers[$i]['id']}</td>
+					<td>{$a}</td>
+					<td>{$listoffers[$i]['unitPrice']}</td>
+					<td>{$listoffers[$i]['description']}</td>
+					 <td>
+                                         <form action='../../controllers/vendor/Add&deleteofferControler.php' method=post>
+                                         <input hidden='' name = 'rmid' value = {$listoffers[$i]['id']}>
+                                           <input type = 'submit' name='submit' value='delete'>
+                                       </form>
+                                                </td>
+                                                
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>dfd</td>
-					<td>9876543210</td>
-					<td>349</td>
-                                       
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>rgggg</td>
-					<td>7542890</td>
-					<td>199</td>
-                                       
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>kbr</td>
-					<td>2345689</td>
-					<td>21399</td>
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>gftr</td>
-					<td>70</td>
-					<td>349</td>
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td>gftr</td>
-					<td>60</td>
-					<td>199S356</td>
-					<td><button class="update">Update</button><button class="delete">Delete</button></td>
-				</tr>
+    
 			</tbody>
+                        ";
+      } ?>
 		</table>
 	</section>
 	

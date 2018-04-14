@@ -64,7 +64,7 @@
 <input type="text"      name="name" placeholder="Name"required="required" />
 <input type="text"      name="username"  placeholder="User Name"required="required" />
 <input type="password"  name="password" placeholder="Password" required="required"/>
-<input type="password" placeholder="Confirm Password" required="required" />
+<input type="password"   placeholder="Confirm Password" required="required" />
 <input type="text"       name="adress"  placeholder="Your Adress" required="required"/>
 <input type="email"       name="email" placeholder="Your Email" required="required"/>
 <input type="submit" class="btn_sign_up" name="submit" value="Register"onclick="cambiar_sign_up()" style="text-align: center;" required="required"/>

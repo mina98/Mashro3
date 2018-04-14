@@ -35,7 +35,7 @@ if ($_POST) {
             if ($login == TRUE) {
                 session_start();
                 $_SESSION['username'] = $username;
-                header("Location:../views/admin/index.php");
+                header("Location:../views/vendor/index.php");
             }
         
         } catch (Exception $exc) {
