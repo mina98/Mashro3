@@ -25,7 +25,22 @@ class Delete extends abastractConnect {
             return TRUE;
         }
     }
+    function updateRecordByID($id,$colom,$newvar,$wherecond)
+    {
+        $id = intval($id);
+        $sql = "UPDATE `$this->tablename`
+                SET  `$colom` = '$newvar'
+               WHERE  `$wherecond` = $id";
+        $query = $this->db->conn->prepare($sql);
+        if(!$query->execute())
+        {
+            throw new Exception("Error: not UPDATE.");
+        }
+        else
+        {
+            return TRUE;
+        }
     
 }
-
+}
 ?>

@@ -23,6 +23,7 @@ if ($_POST) {
     
    // header("location:../../views/employee/index.php?page=listInvoice");
     //die();
+         header("location:../../views/vendor/index.php?page=listOffer");
     }
     
     
@@ -37,14 +38,15 @@ if ($_POST) {
         } catch (Exception $exc) {
             echo $exc->getMessage();
         }
+         header("location:../../views/vendor/index.php?page=listOffer");
     }
-    header("location:../../views/vendor/index.php?page=listOffer");
     
-if (isset($_POST["submit"]) AND $_POST["submit"] == "confirm") {
-         
+ if (isset($_POST["submit"]) AND $_POST["submit"] == "confirm") {
+     include "../../models/Delete.php";
+     $updatess = new Delete('order_supply');
+     $updates = $updatess->updateRecordByID($_POST['id'], 'vendorConfirm', 'T', 'id');
+     header("location:../../views/vendor/index.php?page=requested");
     }
-    header("location:../../views/vendor/index.php?page=requested");
-    
 }
  else {
  echo "no post"   ;

@@ -76,14 +76,15 @@
     for ($i = 0; $i < count($listreq); $i++) {
         if($listreq[$i]['adminConfirm'] == 'F' && $listreq[$i]['vendorConfirm']== 'F'){
          $Name= $listreqe->getRecordByID($listreq[$i]["itemId"],"items","name","id");
+          $IID=$listreq[$i]['id'];
          echo "            
                 <tr>
-                    <td>{$listreq[$i]['id']}</td>
+                     <form action='../../controllers/vendor/Add&deleteofferControler.php' method=post>
+                    <td><input type ='text' name = 'id' value= '$IID' readonly  style='border:none;'></td>
                     <td>{$Name}</td>
                     <td>{$listreq[$i]['mount']}</td>
                     <td>{$listreq[$i]['Price']}</td>
                     <td>
-                     <form action='../../controllers/vendor/Add&deleteofferControler.php' method=post>
                      <input type = 'submit' name='submit' value='confirm'>
                      </form>
                      </td>
