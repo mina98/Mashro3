@@ -74,6 +74,7 @@
 			<?php
         include "../../controllers/vendor/listorders.php";
     for ($i = 0; $i < count($listreq); $i++) {
+        if($listreq[$i]['adminConfirm'] == 'F' && $listreq[$i]['vendorConfirm']== 'F'){
          $Name= $listreqe->getRecordByID($listreq[$i]["itemId"],"items","name","id");
          echo "            
                 <tr>
@@ -88,7 +89,9 @@
                      </td>
                 </tr>
             ";
+        
         }
+       }
     ?>
 			</tbody>
 		</table>
