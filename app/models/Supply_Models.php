@@ -73,26 +73,22 @@ public function getRecordByID($id) {
         $this->recData = $query->fetch();
         return $this->recData;
     }
-function getAllDataBy() {  
+function getAllDataBy($choose) {  
         
-
-        $sql = "SELECT * FROM `$this->tablename` WHERE `vendorConfirm`= 'T' AND `adminConfirm`='F' ORDER By `id` ASC";
+        if ($choose=='1'){
+$sql = "SELECT * FROM `$this->tablename` WHERE `vendorConfirm`= 'T' AND `adminConfirm`='F' ORDER By `id` ASC";}
+        else if($choose=='2')
+        { $sql = "SELECT I.name AS itemId ,U.name AS vendor ,MIN(O.unitPrice) As low FROM `$this->tablename` AS O INNER JOIN `items` AS I,`users` AS U Where O.vendorId=U.id AND U.type='4' AND O.itemId=I.id Group by (O.itemId)";}  
+        else{$sql="select name ,existMount  from `items` order by `existMount` DESC  ";}
+        
         $query = $this->db->conn->prepare($sql);
+     //   print_r($query);
         $query->execute();
         $data = $query->fetchAll();
        
         return $data;
     }
-    function getAllDataRecord() {  
-       //SELECT I.id,U.name ,MIN(O.unitPrice) As low FROM `offers` AS O INNER JOIN `items` AS I,`users` AS U ON O.itemId=I.id   Group by (itemId) ORDER By I.id ASC
-
-        $sql = "SELECT I.name AS itemId ,U.name AS vendor ,MIN(O.unitPrice) As low FROM `$this->tablename` AS O INNER JOIN `items` AS I,`users` AS U Where O.vendorId=U.id AND O.itemId=I.id Group by (O.itemId)";
-        $query = $this->db->conn->prepare($sql);
-        $query->execute();
-        $data = $query->fetchAll();
-       
-        return $data;
-    }
+    
      function deletRecordByID($id)
     {
         $id = intval($id);

@@ -201,14 +201,9 @@
                         
                         include "../../controllers/admin/reportController.php";
                         echo "
-                        
-                            
-                          
+          
                         <h1 Style='text-align:center';>Report page</h1>
                         <div Style='text-align:center';>
-                            
-                            
-                  
                         <table border='3' class='table' Style='text-align:center'>
                         <tr>
                         <th>Offer</th>
@@ -226,9 +221,28 @@
                         </tr>";
                         echo"
                         </table>
+                        </div>
+                       " ;
                         
-
-
+                        echo "
+                        <br><br>
+                        <div Style='text-align:center';>
+                        <table border='3' class='table' Style='text-align:center'>
+                        <tr>
+                        <th>Items</th>
+                        <th>ExistNumber</th>
+                        </tr>
+                        ";
+                         for ($i = 0; $i < count($data); $i++)
+                     
+                         echo"
+                        <tr>
+                        <td>{$data2[$i]['name']}</td>
+                        <td>{$data2[$i]['existMount']}</td>   
+                       
+                        </tr>";
+                        echo"
+                        </table>
                         </div>
                        " ;
                     }

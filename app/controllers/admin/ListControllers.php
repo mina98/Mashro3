@@ -8,7 +8,7 @@
 include "../../models/Supply_Models.php";
                 $tablename="order_supply";
         	$displaypage=new Supply_Models($tablename);  
-                $data =$displaypage->getAllDataBy();
+                $data =$displaypage->getAllDataBy(1);
                 if (isset($_POST['submit']) AND $_POST['submit'] == "confirm")
                     { 
                   
