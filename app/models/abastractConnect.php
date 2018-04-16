@@ -1,5 +1,5 @@
 <?php
- include  "Database_2.php";
+ include_once  "Database_2.php";
 
 class abastractConnect {  
     

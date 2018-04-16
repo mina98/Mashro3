@@ -157,8 +157,8 @@
                           <span>Invoices</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="?page=addInvoice">Add Invoice</a></li>
-                          <li><a  href="?page=listInvoice">List Invoice</a></li>
+                          <li><a  href="?pagee=addInvoice">Add Invoice</a></li>
+                          <li><a  href="?pagee=listInvoice">List Invoice</a></li>
                          
                       </ul>
                   </li>
@@ -189,15 +189,30 @@
           	
               <section  id='page'>
                   
-                  <?php
-                    if (@$_GET['page']) {
-                        $url = $_GET['page'] . ".php";
+                     <?php
+                  if (@$_GET['pagee']) {
+                        $url = $_GET['pagee'] . ".php";
                         if (is_file($url)) {
                             include $url;
+                        } 
+                        else {
+                            echo 'requested file is not found !';
+                        }
+                  }
+                        elseif (@$_GET['page']) {
+                        $url ="../../controllers/employee/C_".$_GET['page'] . ".php";
+                        
+                        if (is_file($url)) {
+                            include $url;
+                            
                         } else {
                             echo 'requested file is not found !';
                         }
-                    } else {
+                    } elseif (@$_GET['uppage']) {
+                        include '../../controllers/employee/C_update.php';
+                        
+                    }
+                    else {
                         echo 'lsa mfe4 7aga';
                     }
                     ?>

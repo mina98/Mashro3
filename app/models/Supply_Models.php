@@ -86,7 +86,7 @@ function getAllDataBy() {
     function getAllDataRecord() {  
        //SELECT I.id,U.name ,MIN(O.unitPrice) As low FROM `offers` AS O INNER JOIN `items` AS I,`users` AS U ON O.itemId=I.id   Group by (itemId) ORDER By I.id ASC
 
-        $sql = "SELECT I.name AS itemId ,U.name AS vendor ,MIN(O.unitPrice) As low FROM `$this->tablename` AS O INNER JOIN `items` AS I,`users` AS U Where O.vendorId=U.id AND O.itemId=I.id Group by (O.itemId) ";
+        $sql = "SELECT I.name AS itemId ,U.name AS vendor ,MIN(O.unitPrice) As low FROM `$this->tablename` AS O INNER JOIN `items` AS I,`users` AS U Where O.vendorId=U.id AND O.itemId=I.id Group by (O.itemId)";
         $query = $this->db->conn->prepare($sql);
         $query->execute();
         $data = $query->fetchAll();

@@ -1,6 +1,6 @@
 <?php
 
-include 'abastractConnect.php';
+include_once 'abastractConnect.php';
 
 class Display extends abastractConnect {
 

@@ -19,7 +19,7 @@ if(@isset($_POST['update']) && $_POST['update']=="update"){
     @$update['soldMount']=$arr['soldMount'];
     @$update['existMount']=$arr['existMount'];
     @$update['unitPrice']=$_POST['unitPrice'];
-    @$update['description']=$_POST['description'];
+    @$update['desription']=$_POST['desription'];
 
     $li->close();
     $upd =new Update($update, "items");
