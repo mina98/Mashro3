@@ -221,11 +221,17 @@
                         </tr>";
                         echo"
                         </table>
+                        
+                 
                         </div>
-                       " ;
+                      
+    " ;
+                        echo'
+                            <form style="text-align:center" action="GenertePdf.php" method="post">
+                       <input name ="submit" type="submit" value="PDF1"></form>';
                         
                         echo "
-                        <br><br>
+                        <br>
                         <div Style='text-align:center';>
                         <table border='3' class='table' Style='text-align:center'>
                         <tr>
@@ -245,8 +251,12 @@
                         </table>
                         </div>
                        " ;
-                    }
+                    echo'
+                            <form style="text-align:center" action="GenertePdf.php" method="post">
+                       <input name ="submit" type="submit" value="PDF2"></form>';
+                        }
                     ?>
+                  
               </section>
               
 		</section><! --/wrapper -->
