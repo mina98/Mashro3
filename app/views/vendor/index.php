@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(!isset($_SESSION['username']))
+{
+    
+    header("location:../../controllers/loginControllers.php");
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -115,7 +124,7 @@
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="?page=editProfile">My Profile</a></li>
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="../../controllers/logoutController.php">Logout</a></li>
             	</ul>
             </div>
         </header>

@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(!isset($_SESSION['username']))
+{
+    
+    header("location:../../controllers/loginControllers.php");
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -115,7 +125,7 @@
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="?page=editProfile">My Profile</a></li>
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="../../controllers/logoutController.php">Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -131,7 +141,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><a href="profile.html"><img src="../../../test-samer/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Marcel Newman</h5>
+              	  <h5 class="centered"><?php echo $_SESSION['username']?></h5>
               	  	
                   <li class="mt">
                       <a href="index.php">
