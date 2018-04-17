@@ -57,7 +57,7 @@ function Table1($header, $data)
 function Table2($header, $data)
 {
     // Column widths
-    $w = array(40, 40);
+    $w = array(50, 35,35);
     // Header
     for($i=0;$i<count($header);$i++)
         $this->Cell($w[$i],6,$header[$i],1,0,'C');
@@ -68,6 +68,7 @@ function Table2($header, $data)
         $this->Cell($w[0],7,$data[$i]['name'],1,0,'C');
         $this->Cell($w[1],7,$data[$i]['existMount'],1,0,'C');
   
+        $this->Cell($w[1],7,$data[$i]['soldMount'],1,0,'C');
         $this->Ln();
     }
     // Closing line
@@ -78,16 +79,19 @@ function Table2($header, $data)
 $pdf = new PDF();
 // Column headings
 $header = array('Medicine', 'vendor', 'low');
-$header2 = array('Items', 'ExistNumber');
+$header2 = array('Items', 'ExistNumber','soldNumber');
 // Data loading
 
 
-$pdf->SetFont('Arial','',14);
+$pdf->SetFont('Arial','I',14);
 
+//        include"";
 //
 //$pdf->BasicTable($header,$data);
 $pdf->AddPage();
 $pdf->Table1($header,$data);
+
+
 $pdf->AddPage();
 $pdf->Table2($header2,$data2);
 $pdf->Output();

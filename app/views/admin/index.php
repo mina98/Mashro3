@@ -236,10 +236,7 @@ if(!isset($_SESSION['username']))
                         </div>
                       
     " ;
-                        echo'
-                            <form style="text-align:center" action="GenertePdf.php" method="post">
-                       <input name ="submit" type="submit" value="PDF1"></form>';
-                        
+                   
                         echo "
                         <br>
                         <div Style='text-align:center';>
@@ -247,6 +244,7 @@ if(!isset($_SESSION['username']))
                         <tr>
                         <th>Items</th>
                         <th>ExistNumber</th>
+                        <th>SoldNumber</th>
                         </tr>
                         ";
                          for ($i = 0; $i < count($data); $i++)
@@ -255,7 +253,7 @@ if(!isset($_SESSION['username']))
                         <tr>
                         <td>{$data2[$i]['name']}</td>
                         <td>{$data2[$i]['existMount']}</td>   
-                       
+                                   <td>{$data2[$i]['soldMount']}</td>
                         </tr>";
                         echo"
                         </table>
@@ -263,7 +261,7 @@ if(!isset($_SESSION['username']))
                        " ;
                     echo'
                             <form style="text-align:center" action="GenertePdf.php" method="post">
-                       <input name ="submit" type="submit" value="PDF2"></form>';
+                       <input name ="submit" type="submit" value="Generte PDF"></form>';
                         }
                     ?>
                   
