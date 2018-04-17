@@ -39,7 +39,18 @@ class Display extends abastractConnect {
         $rc = $query->fetch();
         return $rc[0];
     }
-    
+ function getRecordByusername($username,$tablenam,$col,$foriegn) {
+        if($col=="*"){
+            $sql = "SELECT $col FROM `$tablenam` WHERE `$foriegn`= '$username'";
+        }
+        else{
+            $sql = "SELECT `$col` FROM `$tablenam` WHERE `$foriegn`= '$username'";
+        }
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $rc = $query->fetch();
+        return $rc;
+    }    
     function getAllDataByID($id, $column = "id") {  // (5 , "sectionID")
         $id = intval($id);
 
