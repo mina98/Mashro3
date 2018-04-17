@@ -86,9 +86,10 @@
                                     <td>{$b[$i]['name']}</td>
                                     <td>{$b[$i]['email']}</td>
                                     <td>{$b[$i]['active']}</td>
-                                    <td><form action ='../../controllers/admin/accountsController.php' >
+                                    <td><form action ='../../controllers/admin/accountsController.php' method = 'post'>
+                                            <input name= 'uid'  hidden = '' value= '{$b[$i]['id']}' >
                                             <input type = 'submit' name = 'submit'  value = 'change statue' >
-                                      <input name= 'userid'  hidden = '' value= '{$b[$i]['id']}' >
+                                      
                                       </form>
                                     </td>
                                     </tr>

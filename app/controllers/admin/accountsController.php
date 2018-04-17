@@ -56,10 +56,12 @@ if ($_POST) {
     // change staue
     if (isset($_POST['submit']) AND $_POST['submit'] == "change statue")
     {
-        include '../../models/list.php';
-        $tablename = "users";
-        $disblaybanner = new Display($tablename);
-        
+        $userid = $_POST['uid'];
+        include '../../models/general.php';
+        //$tablename = "users";
+        $object = new general() ;
+        $object->change($userid);
+        header("location:../../views/admin/index.php?page=listAccount");
     }
     
     

@@ -1,11 +1,8 @@
 <?php
 
-/*
- * awebarts:: LoginController
- */
 
 
-//include "../models/Database.php";
+
 if ($_POST) {
     // Login
     if (isset($_POST['submit']) AND $_POST['submit'] == "Login") {
@@ -30,12 +27,39 @@ if ($_POST) {
             $password = $_POST['password'];
       
         try {
+            
             $login = new Login($username, $password);
 
             if ($login == TRUE) {
                 session_start();
                 $_SESSION['username'] = $username;
-                header("Location:../views/vendor/index.php");
+                $role = $login->getrole($username);
+                $_SESSION['id'] = $role["id"];
+                if ($role["type"] == 1)
+                {
+                   header("Location:../views/admin/index.php"); 
+                    
+                }else if ($role["type"] == 2)
+                {
+                   header("Location:../views/employee/index.php"); 
+                    
+                }else if ($role["type"] == 3)
+                {
+                   header("Location:../views/doctor/index.php"); 
+                    
+                }
+                else if ($role["type"] == 4)
+                {
+                   header("Location:../views/vendor/index.php"); 
+                    
+                }
+                else if($role["type"] == 5)
+                {
+                   header("Location:../views/patient/index.php"); 
+                    
+                }
+                
+                
             }
         
         } catch (Exception $exc) {
@@ -46,7 +70,7 @@ if ($_POST) {
     // Register
      if (isset($_POST['submit']) AND $_POST['submit'] == "Register") {
         include "../models/Register.php";
-echo "aaaaaaaaaaaaa";
+
 /*
  * 
         try {

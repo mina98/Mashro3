@@ -40,6 +40,17 @@ class Login extends abastractConnect {
             throw new Exception("Username or password is invalid, please try again.");
         }
     }
+    
+    function getrole($username){
+      
+        $sql = "SELECT * FROM `users` WHERE `username` = '$username' ";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $userdata = $query->fetch();
+        return $userdata;
+    
+        
+    }
 
    
 }
