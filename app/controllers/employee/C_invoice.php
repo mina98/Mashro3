@@ -2,7 +2,7 @@
   //include "../../includes/init.php";
   //include "../../includes/autoloader.php";
   //include "../models/list.php";
- 
+            
 if ($_POST) {
      include "../../models/Addinvoice.php";
     if (isset($_POST["SUBMIT"]) AND $_POST["SUBMIT"] == "submit") {
@@ -10,9 +10,10 @@ if ($_POST) {
         try {            
            $data["itemId"]=$_POST["itemID"];
            $data["amount"]=$_POST["Amount"];
-           @new addd($data); 
+           new addd($data);
+           include '../../views/employee/GeneretePdf.php';
         } catch (Exception $exc) {
-            echo $exc->getMessage();
+          echo $exc->getMessage();
         }
     }
     if (isset($_POST["ADD"]) AND $_POST["ADD"] == "add") {
@@ -20,14 +21,12 @@ if ($_POST) {
         try {            
            $data["itemId"]=$_POST["itemID"];
            $data["amount"]=$_POST["Amount"];
-           @new addd($data);
-            
+           @new addd($data);       
         } catch (Exception $exc) {
             echo $exc->getMessage();
         }
     }
-    header("location:../../views/employee/index.php?page=listInvoice");
-    die();
+    //die();
     
 } 
 else {

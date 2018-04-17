@@ -39,7 +39,7 @@ class Display extends abastractConnect {
         $rc = $query->fetch();
         return $rc[0];
     }
-
+    
     function getAllDataByID($id, $column = "id") {  // (5 , "sectionID")
         $id = intval($id);
 
