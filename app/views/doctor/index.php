@@ -139,8 +139,8 @@ if(!isset($_SESSION['username']))
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="../../../test-samer/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Marcel Newman</h5>
+              	 <p class="centered"><a href="profile.html"><img src="../../../test-samer/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              	 <h5 class="centered">Marcel Newman</h5>
               	  	
                   <li class="mt">
                       <a href="index.php">
@@ -181,17 +181,99 @@ if(!isset($_SESSION['username']))
                             echo 'requested file is not found !';
                         }
                     } else {
-                        echo 'lsa mfe4 7aga';
+                        include_once "../../controllers/doctor/appoimentController.php";
+                        echo'                       <h1 Style="text-align:center";>Reserving page</h1>
+
+                            <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer" />
+                       
+                        <div Style="text-align:center";>        
+                    <section class="table-box">
+                        <table border="3" class="table" Style="text-align:center">
+			<thead>
+				<tr>
+					
+					<th>Day</th>
+					<th>Time</th>
+                                        <th>Num Patient served</th>
+					<th>Num patient can served</th>
+                                        
+				</tr>
+			</thead>
+                         ';
+                             for($i=0;$i< count($data);$i++){ 
+                          echo"
+                        <tbody>
+                                   <td>{$data[$i]['Day']}</td>
+                                    <td>{$data[$i]['appoint']}</td>
+                                    <td>{$data[$i]['patientnum']}</td>                                   
+                                     <td>{$data[$i]['patientlimit']}</td>                                   
+                                    </tr>
+                             ";}
+                  echo' <form action="../../controllers/doctor/appoimentController.php" method="post" >';
+                                     echo '
+                         <form action="../../controllers/doctor/appoimentController.php" method="post" >
+    <tr>
+                    <td><input type="text" name="Day"></td>
+                                    <td><input type="text" name="appoint"></td>
+                                    <td><input type="text" name="patientnum"></td>                                   
+                                     <td><input type="text" name="patientlimit">
+                                     <input type="submit" name="submit" value="add"></td>                                       
+                                                                                </tr>
+                        </body>
+</table>'   ;
+                                     echo '</form>';           
+                    
                     }
+                    
+                    echo' <h2 Style="text-align:center";>Person Reserving</h1>
+
+    <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer" />
+                       
+                        <div Style="text-align:center";>        
+                    <section class="table-box">
+                        <table border="3" class="table" Style="text-align:center">
+			<thead>
+				<tr>
+					
+					
+					<th>Day</th>
+                                        <th>Patient Name</th>
+                                        <th>appoinment</th>
+					
+                                        
+				</tr>
+			</thead>
+                         ';
+                             for($i=0;$i< count($patient);$i++){ 
+                          echo"
+                        <tbody>
+                                   <td>{$patient[$i]['Day']}</td>
+                                    <td>{$patient[$i]['username']}</td>
+                                    <td>{$patient[$i]['appoint']}</td>                                   
+                                                                       
+                                    </tr>
+                            
+                
+
+                        </body>
+</table>
+                             ";}           
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     ?>
               </section>
-              
+         
 		</section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
       <!--main content end-->
       <!--footer start-->
-      <footer class="site-footer">
+    <!--  <footer class="site-footer">
           <div class="text-center">
               2014 - Alvarez.is
               <a href="blank.html#" class="go-top">
@@ -202,20 +284,7 @@ if(!isset($_SESSION['username']))
       <!--footer end-->
   </section>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="../../../test-samer/assets/js/jquery.js"></script>
-    <script src="../../../test-samer/assets/js/bootstrap.min.js"></script>
-    <script src="../../../test-samer/assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-    <script src="../../../test-samer/assets/js/jquery.ui.touch-punch.min.js"></script>
-    <script class="include" type="text/javascript" src="../../../test-samer/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="../../../test-samer/assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../../../test-samer/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-
-
-    <!--common script for all pages-->
-    <script src="../../../test-samer/assets/js/common-scripts.js"></script>
-
-    <!--script for this page-->
+   
     
   <script>
       //custom select box

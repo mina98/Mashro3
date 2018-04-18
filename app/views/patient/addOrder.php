@@ -18,6 +18,11 @@
     <link href="../../../test-samer/assets/css/style.css" rel="stylesheet">
     <link href="../../../test-samer/assets/css/style-responsive.css" rel="stylesheet">
 	<link rel="stylesheet" href="../../../test-samer/css/style.css">
+        <style>
+            .hide{
+                display: none;
+            }
+        </style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -59,6 +64,12 @@
 ---->
 <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer" /> <a class="button"><i class="fa fa-exclamation-circle"></i> Report Error</a>
 	<section class="table-box">
+        <?php
+            include_once '../../models/abastractConnect.php';
+            include_once  '../../models/list.php';
+            $li =new Display("items");
+            $arr =$li->getAllData();
+        ?>
 		<table class="order-table">
 			<thead>
 				<tr>
@@ -70,51 +81,26 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>fg</td>
-					<td>9</td>
-					<td>99</td>
+                        
+                            <?php
+                            for($i=0;@$arr[$i]['id']!=NULL;$i++){
+                            echo "<tr>";
+                                    echo "<td>{$arr[$i]['id']}</td>";
+                                    echo "<td>{$arr[$i]['name']}</td>";
+                                    echo "<td>{$arr[$i]['unitPrice']}</td>";
+                                    echo "<td>{$arr[$i]['desription']}</td>";
                                         
-                                        <td><input class="input btn-group" type="text" placeholder="Amount"><a href="?page=pay"><button class="btn">pay</button></a></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>dfd</td>
-					<td>9876543210</td>
-					<td>349</td>
-                                       
-                                        <td><input class="input btn-group" type="text" placeholder="Amount"><a href="?page=pay"><button class="btn">pay</button></a></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>rgggg</td>
-					<td>7542890</td>
-					<td>199</td>
-                                       
-                                        <td><input class="input btn-group" type="text" placeholder="Amount"><a href="?page=pay"><button class="btn">pay</button></a></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>kbr</td>
-					<td>2345689</td>
-					<td>21399</td>
-                                        <td><input class="input btn-group" type="text" placeholder="Amount"><a href="?page=pay"><button class="btn">pay</button></a></td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>gftr</td>
-					<td>70</td>
-					<td>349</td>
-                                        <td><input class="input btn-group" type="text" placeholder="Amount"><a href="?page=pay"><button class="btn">pay</button></a></td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td>gftr</td>
-					<td>60</td>
-					<td>199S356</td>
-                                        <td><input class="input btn-group" type="text" placeholder="Amount"><a href="?page=pay"><button class="btn">pay</button></a></td>
-				</tr>
+                                    echo "<td>
+                                        <form method='post' action=''>
+                                            <input class='hide' value='{$arr[$i]['id']}' name='id'>
+                                            <input class='input btn-group' type='text' placeholder='Amount' name='amount'}' required>
+                                            <input type='submit' class='btn' value='pay' name='pay'>
+                                        </form>
+                                    </td>";
+                                    echo'</tr>';
+                            }
+                                    ?>
+				
 			</tbody>
 		</table>
 	</section>
@@ -123,7 +109,22 @@
 
 </div>
 	
-	
+	<!-- jQuery via Google's CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  
+  
+
+    <script  src="../../../test-samer/js/index.js"></script>
+
+
+
+  </section>
+
+
+
+    <!--script for this page-->
+    
   <script>
       //custom select box
 

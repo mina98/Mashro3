@@ -1,3 +1,10 @@
+<?php 
+
+session_start();
+//print_r($_SESSION);
+if (@$_SESSION['username'] == null ){
+     echo '
+
 <head>
       
       <link rel="stylesheet" href="../../test-samer/login.css">
@@ -86,3 +93,18 @@
             </div></footer>
       <script src="../../test-samer/login.js"></script>
   </body>
+    
+        ';
+  
+}
+else {
+    //echo 'exist session';
+    $ty = $_SESSION['type'] ;
+   // echo $ty;
+    header("location:".$ty."/index.php");
+    //die();
+}   
+
+
+
+?>

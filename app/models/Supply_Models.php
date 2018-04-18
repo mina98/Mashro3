@@ -73,20 +73,35 @@ public function getRecordByID($id) {
         $this->recData = $query->fetch();
         return $this->recData;
     }
-function getAllDataBy($choose) {  
+function getAllDataBy($choose,$user=null) {  
         
         if ($choose=='1'){
 $sql = "SELECT * FROM `$this->tablename` WHERE `vendorConfirm`= 'T' AND `adminConfirm`='F' ORDER By `id` ASC";}
         else if($choose=='2')
         { $sql = "SELECT I.name AS itemId ,U.name AS vendor ,MIN(O.unitPrice) As low FROM `$this->tablename` AS O INNER JOIN `items` AS I,`users` AS U Where O.vendorId=U.id AND U.type='4' AND O.itemId=I.id Group by (O.itemId)";}  
-        else{$sql="select name ,existMount,soldMount  from `items` order by `existMount` DESC  ";}
+        else if($choose=='3'){$sql="select name ,existMount,soldMount  from `items` order by `existMount` DESC  ";}
+        else if($choose=='4'){
+            //`id`, `doctorid`, `Day`, `appoint`, `patientlimit`, `patientnum`
+            
+            $sql="select A.Day  ,A.appoint,A.patientnum,A.patientlimit,A.id ,A.doctorid from `$this->tablename` AS A INNER JOIN `users` AS U Where A.doctorid=U.id AND U.type='3 ' AND U.username= '$user'";
         
+        }
+        else if($choose=='5'){$sql="select A.Day,U.username ,A.appoint from `$this->tablename` AS AP INNER JOIN `users` AS U ,`appointment` AS A Where AP.patientid=U.id AND U.type='5' AND AP.appoint=A.id  ";}
+        else if ($choose=='6') 
+            { 
+            $sql="select  A.Day ,A.appoint ,U.name,A.id from `$this->tablename` AS A  INNER JOIN `users` AS U  Where A.doctorid=U.id  ";
+            
+            }
+            else if($choose =='7')
+                {
+                $sql="select AP.appoint   from `$this->tablename` AS AP where AP.patientid=$user";
+                }   
         $query = $this->db->conn->prepare($sql);
-     //   print_r($query);
-        $query->execute();
-        $data = $query->fetchAll();
        
-        return $data;
+        $query->execute();
+        
+        $data = $query->fetchAll();
+         return $data;
     }
     
      function deletRecordByID($id)

@@ -184,9 +184,7 @@ if(!isset($_SESSION['username']))
                         } else {
                             echo 'requested file is not found !';
                         }
-                    } else {
-                        echo 'lsa mfe4 7aga';
-                    }
+                    } 
                     ?>
               </section>
               

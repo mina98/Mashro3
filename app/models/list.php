@@ -6,7 +6,7 @@ class Display extends abastractConnect {
 
     private $tablename;
     private $recData = array();
-
+    private $username;
     public function __construct($tablename) {
         $this->tablename = $tablename;
         $this->connectToDb();
@@ -102,6 +102,15 @@ class Display extends abastractConnect {
 
     function getAllDataByStatusType($type) {
         $sql = "SELECT * FROM `$this->tablename` WHERE `status`= 1 AND `type` = '$type' ORDER By `id` DESC";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $data = $query->fetchAll();
+       
+        return $data;
+    }
+    function getIDByUsername($username) {  // (5 , "sectionID")
+        //SELECT id FROM `users` WHERE `username`= "kiro";
+        $sql = "SELECT id FROM `users` WHERE `username`= '$username'";
         $query = $this->db->conn->prepare($sql);
         $query->execute();
         $data = $query->fetchAll();

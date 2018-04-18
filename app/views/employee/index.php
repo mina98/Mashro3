@@ -123,7 +123,7 @@ if(!isset($_SESSION['username']))
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="?page=editProfile">My Profile</a></li>
+                    <li><a class="logout" href="?pagee=editProfile">My Profile</a></li>
                     <li><a class="logout" href="../../controllers/logoutController.php">Logout</a></li>
             	</ul>
             </div>
