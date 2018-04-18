@@ -34,7 +34,6 @@ function LoadData($file)
 //
 // /*
 
-
 function Table2($header, $data, $dataname)
 {
     // Column widths
@@ -42,7 +41,7 @@ function Table2($header, $data, $dataname)
      $this->Ln();
      $this->Ln();
      $this->Ln();
-    $w = array(20,20,40,40,40,40,50);
+    $w = array(20,40,40,40,40);
     // Header
     for($i=0;$i<count($header);$i++){
         $this->Cell($w[$i],7,$header[$i],1,0,'C');
@@ -50,12 +49,29 @@ function Table2($header, $data, $dataname)
         $this->Ln();
     // Data
    //name ,existMount
+        if($_SESSION['num']!=0){
+               $this->Cell($w[0],7,$dataname,1,0,'C');
+               $this->Cell($w[1],7,$data['id'],1,0,'C');
+               $this->Cell($w[2],7,$data['unitPrice'],1,0,'C');
+               $this->Cell($w[3],7,$data['Mount'],1,0,'C');
+               $this->Cell($w[4],7,$data['totalPrice'],1,0,'C');
+               $this->Ln();
+          for($i=0;$i<$_SESSION['num'];$i++){
+               $this->Cell($w[0],7,$_SESSION['dataname'][$i],1,0,'C');
+               $this->Cell($w[1],7,$_SESSION['data'][$i]['id'],1,0,'C');
+               $this->Cell($w[2],7,$_SESSION['data'][$i]['unitPrice'],1,0,'C');
+               $this->Cell($w[3],7,$_SESSION['data'][$i]['Mount'],1,0,'C');
+               $this->Cell($w[4],7,$_SESSION['data'][$i]['totalPrice'],1,0,'C');
+               $this->Ln();
+          }
+        }
+ else {
         $this->Cell($w[0],7,$dataname,1,0,'C');
         $this->Cell($w[1],7,$data['id'],1,0,'C');
-        $this->Cell($w[2],7,$data['itemId'],1,0,'C');
-        $this->Cell($w[3],7,$data['unitPrice'],1,0,'C');
-        $this->Cell($w[4],7,$data['Mount'],1,0,'C');
-        $this->Cell($w[5],7,$data['totalPrice'],1,0,'C');
+        $this->Cell($w[2],7,$data['unitPrice'],1,0,'C');
+        $this->Cell($w[3],7,$data['Mount'],1,0,'C');
+        $this->Cell($w[4],7,$data['totalPrice'],1,0,'C');
+ }
         $this->Ln();
         $this->Ln();
         $this->Ln();
@@ -64,8 +80,7 @@ function Table2($header, $data, $dataname)
         $this->Cell($w[1],0,'',1,0,'C');
         $this->Cell($w[2],0,'',1,0,'C');
         $this->Cell($w[3],0,'',1,0,'C');
-        $this->Cell($w[4],0,'',1,0,'C');
-        $this->Cell($w[5],5,$data['invoiceDate'],1,0,'C');
+        $this->Cell($w[4],5,$data['invoiceDate'],1,0,'C');
     // Closing line
     $this->Cell(array_sum($w),0,'','T');
 }
@@ -73,7 +88,7 @@ function Table2($header, $data, $dataname)
 
 $pdf = new PDF();
 // Column headings
-$header = array("Name","ID","ITEM ID","UnitPrice","Mount","TotalPrice","InvoiceDate");
+$header = array("Name","ID","UnitPrice","Mount","TotalPrice");
 // Data loading
 
 

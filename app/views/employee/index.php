@@ -198,30 +198,15 @@ if(!isset($_SESSION['username']))
           	
               <section  id='page'>
                   
-                     <?php
-                  if (@$_GET['pagee']) {
-                        $url = $_GET['pagee'] . ".php";
+                    <?php
+                    if (@$_GET['page']) {
+                        $url = $_GET['page'] . ".php";
                         if (is_file($url)) {
                             include $url;
-                        } 
-                        else {
-                            echo 'requested file is not found !';
-                        }
-                  }
-                        elseif (@$_GET['page']) {
-                        $url ="../../controllers/employee/C_".$_GET['page'] . ".php";
-                        
-                        if (is_file($url)) {
-                            include $url;
-                            
                         } else {
                             echo 'requested file is not found !';
                         }
-                    } elseif (@$_GET['uppage']) {
-                        include '../../controllers/employee/C_update.php';
-                        
-                    }
-                    else {
+                    } else {
                         echo 'lsa mfe4 7aga';
                     }
                     ?>

@@ -16,13 +16,25 @@
   </thead>
   <tbody>
     <tr>
-      <td><input type="number" name="itemID" required="required" min="1"></td>
-      <td><input type="number" name="Amount" required="required" min="1" max="1000"></td>
+      <td><input type="number" name="itemID"  min="1"></td>
+      <td><input type="number" name="Amount"  min="1" max="1000"></td>
     </tr>
-  </tbody>
-</table>
-<input type="submit" name="SUBMIT" value="submit" required="required">
+<?php
+//include '../../controllers/employee/C_invoice.php';
+if ($_SESSION['num']!=0) {
+    for($i=0;$i<$_SESSION['num'];$i++){
+    echo "<tr>
+      <td><input type='number' name='itemId[$i]' min='1'></td>
+      <td><input type='number' name='amount[$i]' min='1' max='1000'></td>
+    </tr>";  
+    } 
+    //$_SESSION['num']=0;
+}
+echo '</tbody></table>';
+echo '<input type="submit" name="ADD" value="AddAnother">';
+echo '<input type="submit" name="DEL" value="Delete">';
+?>
+<input type="submit" name="SUBMIT" value="submit">
 </from>
-
 </div>
 </body>

@@ -1,8 +1,7 @@
 <?php
 
-
-
-
+session_start(); 
+$_SESSION['num']=0;
 if ($_POST) {
     // Login
     if (isset($_POST['submit']) AND $_POST['submit'] == "Login") {

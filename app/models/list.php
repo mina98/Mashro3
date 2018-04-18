@@ -30,10 +30,48 @@ class Display extends abastractConnect {
 
         return $data;
     }
+    function getLastUNEEDDESC($num) {
+        $sql = "SELECT * FROM `$this->tablename` ORDER BY `id` DESC LIMIT 1";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $data = $query->fetch();
+        $l=($data['id'])-1;
+        while ($num>0){
+             $sql = "SELECT * FROM `$this->tablename` WHERE `id` = $l";
+             $query = $this->db->conn->prepare($sql);
+             $query->execute();
+             $dataa= $query->fetch();
+             $l--;
+            $num--;
+        }
+        return $dataa;
+        
+    }
 
     function getRecordByID($id,$tablenam,$col,$foriegn) {
         $id = intval($id);
         $sql = "SELECT `$col` FROM `$tablenam` WHERE `$foriegn`= $id";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $rc = $query->fetch();
+        return $rc[0];
+    }
+     function getRecordByyID($id,$tablenam,$col,$foriegn) {
+        $id = intval($id);
+        if($col=="*"){
+        $sql = "SELECT $col FROM `$tablenam` WHERE `$foriegn`= $id";
+        }
+        else {
+            $sql = "SELECT `$col` FROM `$tablenam` WHERE `$foriegn`= $id";
+        }
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $rc = $query->fetch();
+        return $rc;
+    }
+     function getRecordByIdd($id,$tablenam,$foriegn) {
+        $id = intval($id);
+        $sql = "SELECT * FROM `$tablenam` WHERE `$foriegn`= $id";
         $query = $this->db->conn->prepare($sql);
         $query->execute();
         $rc = $query->fetch();
