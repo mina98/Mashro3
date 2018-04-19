@@ -1,7 +1,7 @@
 <?php
 
-session_start(); 
-$_SESSION['num']=0;
+@session_start(); 
+
 if ($_POST) {
     // Login
     if (isset($_POST['submit']) AND $_POST['submit'] == "Login") {
@@ -30,46 +30,60 @@ if ($_POST) {
             $login = new Login($username, $password);
 
             if ($login == TRUE) {
-                session_start();
-                $_SESSION['username'] = $username;
-                $role = $login->getrole($username);
-                $_SESSION['id'] = $role["id"];
-                if ($role["type"] == 1)
-                {
-                     $_SESSION['type'] = "admin";
-                   header("Location:../views/admin/index.php"); 
-                    
-                }else if ($role["type"] == 2)
-                {
-                    $_SESSION['type'] = "employee";
-                   header("Location:../views/employee/index.php"); 
-                    
-                }else if ($role["type"] == 3)
-                {
-                    $_SESSION['type'] = "doctor";
-                   header("Location:../views/doctor/index.php"); 
-                    
-                }
-                else if ($role["type"] == 4)
-                {
-                    $_SESSION['type'] = "vendor";
-                   header("Location:../views/vendor/index.php"); 
-                    
-                }
-                else if($role["type"] == 5)
-                {
-                    $_SESSION['type'] = "patient";
-                   header("Location:../views/patient/index.php"); 
-                    
-                }
+                @$role = $login->getrole($username);
+                @ $statue = $role['active'];
+                if ($statue =='active')
+                    {
+                        @session_start();
+                         @$_SESSION['username'] = $username;
+                         
+                         @$_SESSION['id'] = $role["id"];
+                        
                 
+                     if ($role["type"] == 1)
+                     {
+                          $_SESSION['type'] = "admin";
+                        header("Location:../views/admin/index.php"); 
+
+                     }else if ($role["type"] == 2)
+                     {
+                         $_SESSION['type'] = "employee";
+                        header("Location:../views/employee/index.php"); 
+
+                     }else if ($role["type"] == 3)
+                     {
+                         $_SESSION['type'] = "doctor";
+                        header("Location:../views/doctor/index.php"); 
+
+                     }
+                     else if ($role["type"] == 4)
+                     {
+                         $_SESSION['type'] = "vendor";
+                        header("Location:../views/vendor/index.php"); 
+
+                     }
+                     else if($role["type"] == 5)
+                     {
+                         $_SESSION['type'] = "patient";
+                        header("Location:../views/patient/index.php"); 
+
+                     }
                 
+                }else{
+                    
+                      echo '<div class="alert alert-success">you are pending</div>';
+                        header("Refresh:1;../views/loginview.php");
+                    }
+                }
             }
         
-        } catch (Exception $exc) {
+   
+        
+         catch (Exception $exc) {
+             
              echo $exc->getMessage();
-             echo "please Try agin"; include "../views/loginview.php";
-        }
+             header("Refresh:1;../views/loginview.php");
+    }
     }
     // Register
      if (isset($_POST['submit']) AND $_POST['submit'] == "Register") {

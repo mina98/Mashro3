@@ -90,12 +90,8 @@
 
 </div>
 	
-	
-      $(function(){
-          $('select.styled').customSelect();
-      });
+  
 
-  </script>
 
   </body>
 </html>

@@ -1,13 +1,11 @@
+<?php 
 
-<?php
 session_start();
-if(!isset($_SESSION['username']))
-{
-    
-    header("location:../../controllers/loginControllers.php");
-    die();
-}
-?><!DOCTYPE html>
+//print_r($_SESSION);
+if (@$_SESSION['username'] != null ){
+     echo '
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -140,7 +138,7 @@ if(!isset($_SESSION['username']))
               <ul class="sidebar-menu" id="nav-accordion">
               
               	 <p class="centered"><a href="profile.html"><img src="../../../test-samer/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	 <h5 class="centered">Marcel Newman</h5>
+              	 <h5 class="centered">';$_SESSION['username']; echo '</h5>
               	  	
                   <li class="mt">
                       <a href="index.php">
@@ -170,9 +168,9 @@ if(!isset($_SESSION['username']))
       <section id="main-content">
           <section class="wrapper site-min-height">
           	
-              <section  id='page'>
+              <section  id=\'page\'>
                   
-                  <?php
+               ';
                     if (@$_GET['page']) {
                         $url = $_GET['page'] . ".php";
                         if (is_file($url)) {
@@ -223,7 +221,7 @@ if(!isset($_SESSION['username']))
 </table>'   ;
                                      echo '</form>';           
                     
-                    }
+                    
                     
                     echo' <h2 Style="text-align:center";>Person Reserving</h1>
 
@@ -255,9 +253,10 @@ if(!isset($_SESSION['username']))
                             
                 
 " ;}
-   echo"                     </body>
+}
+   echo'                     </body>
 </table>
-                             ";           
+                                        
                     
                     
                     
@@ -265,7 +264,7 @@ if(!isset($_SESSION['username']))
                     
                     
                     
-                    ?>
+                   
               </section>
          
 		</section><! --/wrapper -->
@@ -283,17 +282,32 @@ if(!isset($_SESSION['username']))
       </footer>
       <!--footer end-->
   </section>
+ <footer class="site-footer">
+          <div class="text-center">
+              2014 - Alvarez.is
+              <a href="blank.html#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
 
-   
-    
-  <script>
-      //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script>
+  
 
   </body>
 </html>
+';
+}
+
+
+else {
+   
+
+    header("location:../loginview.php");
+    //die();
+}   
+
+
+
+?>

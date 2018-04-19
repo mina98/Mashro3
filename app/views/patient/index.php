@@ -1,12 +1,10 @@
-<?php
+<?php 
+
 session_start();
-if(!isset($_SESSION['username']))
-{
-    
-    header("location:../../controllers/loginControllers.php");
-    die();
-}
-?>
+//print_r($_SESSION);
+if (@$_SESSION['username'] != null ){
+     echo '
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -140,7 +138,7 @@ if(!isset($_SESSION['username']))
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><a href="profile.html"><img src="../../../test-samer/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Marcel Newman</h5>
+              	  <h5 class="centered">'; echo $_SESSION["username"]; echo' </h5>
               	  	
                   <li class="mt">
                       <a href="index.php">
@@ -174,9 +172,9 @@ if(!isset($_SESSION['username']))
       <section id="main-content">
           <section class="wrapper site-min-height">
           	
-              <section id='page'>
+              <section id=\'page\'>
                   
-                  <?php
+                  ';
                     if (@$_GET['page']) {
                         $url = $_GET['page'] . ".php";
                         if (is_file($url)) {
@@ -185,7 +183,7 @@ if(!isset($_SESSION['username']))
                             echo 'requested file is not found !';
                         }
                     } 
-                    ?>
+                   echo '
               </section>
               
 		</section><! --/wrapper -->
@@ -209,10 +207,23 @@ if(!isset($_SESSION['username']))
       //custom select box
 
       $(function(){
-          $('select.styled').customSelect();
+          $(\'select.styled\').customSelect();
       });
 
   </script>
 
   </body>
 </html>
+                           ';
+}
+
+else {
+   
+
+    header("location:../loginview.php");
+    //die();
+}   
+
+
+
+?>
