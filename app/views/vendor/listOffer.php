@@ -69,12 +69,13 @@
 					<th>Actions</th>
 				</tr>
 			</thead>
-                         <?php
-                         include '../../controllers/vendor/listoffers.php';
-                         include '../../controllers/vendor/Add&deleteofferControler.php';
-     for ($i = 0; $i < count($listoffers); $i++) 
+                                                <?php
+                     //    include '../../controllers/vendor/listoffers.php';
+                                                
+                         include '../../controllers/vendor/C_offer.php';
+     for ($i = 0; $i < count($list); $i++) 
      {
-          $a = $listobject->getRecordByID($listoffers[$i]["itemId"],"items","name","id");
+          $a = $listobject->getRecordByID($list[$i]["itemId"],"items","name","id");
         echo" 
 			<tbody>
                           
@@ -82,14 +83,15 @@
                            
                              
 				<tr>
-					<td>{$listoffers[$i]['id']}</td>
+					<td>{$list[$i]['id']}</td>
 					<td>{$a}</td>
-					<td>{$listoffers[$i]['unitPrice']}</td>
-					<td>{$listoffers[$i]['description']}</td>
+					<td>{$list[$i]['unitPrice']}</td>
+					<td>{$list[$i]['description']}</td>
 					 <td>
-                                         <form action='../../controllers/vendor/Add&deleteofferControler.php' method=post>
-                                         <input hidden='' name = 'rmid' value = {$listoffers[$i]['id']}>
+                                         <form action='../../controllers/vendor/C_offer.php' method=post>
+                                         <input hidden='' name = 'rmid' value = {$list[$i]['id']}>
                                            <input type = 'submit' name='submit' value='delete'>
+                                            <input type = 'submit' name='submit' value='update'>
                                        </form>
                                                 </td>
                                                 

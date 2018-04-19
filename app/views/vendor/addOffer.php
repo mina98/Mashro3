@@ -1,6 +1,6 @@
 <div class="container">
 
-    <form class="wrapper form-horizontal " action=" " method="post"  id="contact_form" id="myform">
+    <form class="wrapper form-horizontal " action="../../controllers/vendor/C_offer.php " method="post"  id="contact_form" id="myform">
 <fieldset>
 
 <!-- Form Name -->
@@ -72,7 +72,9 @@
 <div class="form-group">
   <label class="col-md-4 control-label"></label>
   <div class="col-md-4">
-    <input type="submit" name="submit" value ="ADD" class="btn btn-warning" >
+ 
+    <input type="submit" name="SUBMIT" <?php include '../../controllers/vendor/C_offer.php';  ?>value ="add" class="btn btn-warning"  >
+   
   </div>
 </div>
 
