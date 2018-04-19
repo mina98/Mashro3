@@ -2,7 +2,7 @@
   //include "../../includes/init.php";
   //include "../../includes/autoloader.php";
   //include "../models/list.php";
- session_start(); 
+ @session_start(); 
 if ($_POST) {
      include "../../models/Addinvoice.php";
     if (isset($_POST["SUBMIT"]) AND $_POST["SUBMIT"] == "submit") {
@@ -25,20 +25,22 @@ if ($_POST) {
            $data["amount"]=$_POST["Amount"];
            new addd($data);
                }
-               include '../../views/employee/GeneretePdf.php';
         } catch (Exception $exc) {
           echo $exc->getMessage();
         }
     }
     if (isset($_POST["ADD"]) AND $_POST["ADD"] == "AddAnother") {
       $_SESSION['num']++;     
-    header("Location:../../views/employee/index.php?pagee=addInvoice"); 
+    header("Location:../../views/employee/index.php?page=addInvoice"); 
 }
 if (isset($_POST["DEL"]) AND $_POST["DEL"] == "Delete") {
-      $_SESSION['num']--;     
-    header("Location:../../views/employee/index.php?pagee=addInvoice"); 
+    if($_SESSION['num']>0){  
+    $_SESSION['num']--;}     
+    header("Location:../../views/employee/index.php?page=addInvoice"); 
 }
-    //die();
+      include '../../views/employee/GeneretePdf.php';
+      unset($_POST);
+      //die();
 }
 else {
     // display exist invices  

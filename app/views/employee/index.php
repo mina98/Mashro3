@@ -123,7 +123,7 @@ if(!isset($_SESSION['username']))
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="?pagee=editProfile">My Profile</a></li>
+                    <li><a class="logout" href="?page=editProfile">My Profile</a></li>
                     <li><a class="logout" href="../../controllers/logoutController.php">Logout</a></li>
             	</ul>
             </div>
@@ -166,8 +166,8 @@ if(!isset($_SESSION['username']))
                           <span>Invoices</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="?pagee=addInvoice">Add Invoice</a></li>
-                          <li><a  href="?pagee=listInvoice">List Invoice</a></li>
+                          <li><a  href="?page=addInvoice">Add Invoice</a></li>
+                          <li><a  href="?page=listInvoice">List Invoice</a></li>
                          
                       </ul>
                   </li>
