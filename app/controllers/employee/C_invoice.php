@@ -32,11 +32,11 @@ if ($_POST) {
     }
     if (isset($_POST["ADD"]) AND $_POST["ADD"] == "AddAnother") {
       $_SESSION['num']++;     
-    header("Location:../../views/employee/index.php?pagee=addInvoice"); 
+    header("Location:../../views/employee/index.php?page=addInvoice"); 
 }
 if (isset($_POST["DEL"]) AND $_POST["DEL"] == "Delete") {
       $_SESSION['num']--;     
-    header("Location:../../views/employee/index.php?pagee=addInvoice"); 
+    header("Location:../../views/employee/index.php?page=addInvoice"); 
 }
     //die();
 }

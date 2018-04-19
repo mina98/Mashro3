@@ -83,7 +83,7 @@
                                     echo "<td>".$allData[$i]['existMount'] ."</td>";
                                     echo "<td>".$allData[$i]['soldMount'] ."</td>";
                                     echo "<td>".$allData[$i]['desription'] ."</td>";
-                                    echo '<td><a href="?uppage=update"><button class="update" name ='. $allData[$i]['id'].'>Update</button></a><button class="delete">Delete</button></td>';
+                                    echo '<td><a href="?page=update"><button class="update" name ='. $allData[$i]['id'].'>Update</button></a><button class="delete">Delete</button></td>';
                                     echo '</tr>';
                                 }
                                 ?>

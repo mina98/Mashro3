@@ -247,18 +247,17 @@ if(!isset($_SESSION['username']))
                         <th>SoldNumber</th>
                         </tr>
                         ";
-                         for ($i = 0; $i < count($data); $i++)
-                     
-                         echo"
+                         for ($i = 0; $i < count($data2); $i++){
+                          echo"
                         <tr>
                         <td>{$data2[$i]['name']}</td>
                         <td>{$data2[$i]['existMount']}</td>   
                                    <td>{$data2[$i]['soldMount']}</td>
-                        </tr>";
+                         </tr>";}
                         echo"
                         </table>
                         </div>
-                       " ;
+                         " ;
                     echo'
                             <form style="text-align:center" action="GenertePdf.php" method="post">
                        <input name ="submit" type="submit" value="Generte PDF"></form>';

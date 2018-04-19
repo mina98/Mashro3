@@ -254,10 +254,10 @@ if(!isset($_SESSION['username']))
                                     </tr>
                             
                 
-
-                        </body>
+" ;}
+   echo"                     </body>
 </table>
-                             ";}           
+                             ";           
                     
                     
                     
