@@ -27,5 +27,5 @@ else{
 $data=$displaybanner->getLastRecordDESC();
 $dataname=$displaybanner->getRecordByID($data['itemId'],'items','name','id');
 }
-$displaybanner->close();
+//$displaybanner->close();
 ?>
