@@ -34,12 +34,10 @@ if ($_POST) {
     header("Location:../../views/employee/index.php?page=addInvoice"); 
 }
 if (isset($_POST["DEL"]) AND $_POST["DEL"] == "Delete") {
-<<<<<<< HEAD
-      $_SESSION['num']--;     
-=======
+
     if($_SESSION['num']>0){  
     $_SESSION['num']--;}     
->>>>>>> c21ff685422cb5459976f75335f44d82d87964dd
+
     header("Location:../../views/employee/index.php?page=addInvoice"); 
 }
       include '../../views/employee/GeneretePdf.php';
