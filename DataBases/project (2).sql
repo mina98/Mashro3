@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2018 at 01:10 AM
+-- Generation Time: Apr 19, 2018 at 02:12 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `appo` (
   `id` int(11) NOT NULL,
   `patientid` int(11) DEFAULT NULL,
-  `appoint` int(11) DEFAULT NULL
+  `appoint` int(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -39,18 +39,18 @@ CREATE TABLE `appo` (
 --
 
 INSERT INTO `appo` (`id`, `patientid`, `appoint`) VALUES
-(29, 5, NULL),
-(30, 5, NULL),
-(31, 5, NULL),
-(32, 5, NULL),
-(33, 5, NULL),
-(34, 5, NULL),
-(35, 5, NULL),
-(36, 5, NULL),
-(37, 5, NULL),
-(38, 5, NULL),
-(39, 5, NULL),
-(40, 5, NULL);
+(180, 3, 2),
+(181, 3, 1),
+(182, 3, 3),
+(183, 3, 1),
+(184, 3, 4),
+(185, 3, 1),
+(186, 3, 1),
+(187, 3, 1),
+(188, 3, 1),
+(189, 3, 1),
+(190, 3, 3),
+(191, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -72,11 +72,13 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`id`, `doctorid`, `Day`, `appoint`, `patientlimit`, `patientnum`) VALUES
-(1, 4, '01', '7', 0, 0),
-(2, 4, '4', '65', 8, 7),
-(3, 4, '25', '54', 5, 5),
-(4, 4, '1', '5', 8, 5),
-(5, 4, '4', '8', 65, 8);
+(1, 4, '01', '7', 10, 0),
+(2, 4, '4', '65', 10, 0),
+(3, 4, '25', '54', 10, 0),
+(4, 4, '1', '5', 10, 0),
+(5, 4, '4', '8', 10, 0),
+(6, 4, 'sturday', '445', 5, 5),
+(7, 4, ';l', 'k', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -145,7 +147,6 @@ CREATE TABLE `offers` (
 --
 
 INSERT INTO `offers` (`id`, `itemId`, `unitPrice`, `description`, `vendorId`) VALUES
-(1, 1, 100, 'kcms;lclsanc;lksa;mcklsanl;ck\'smac', 1),
 (3, 3, 10, 'kfklasanfck', 2),
 (4, 2, 40, 'c', 1),
 (5, 3, 15, 'c', 2);
@@ -191,9 +192,8 @@ CREATE TABLE `order_supply` (
 --
 
 INSERT INTO `order_supply` (`id`, `itemId`, `mount`, `Price`, `vendorId`, `adminConfirm`, `vendorConfirm`, `offerId`) VALUES
-(1, 2, 1, 111, 1, 'T', 'T', 1),
-(2, 1, 12, 50, 1, 'F', 'F', 12),
-(3, 2, 12, 70, 1, 'T', 'T', 12);
+(1, 2, 1, 111, 1, 'F', 'T', 1),
+(2, 1, 12, 50, 1, 'T', 'T', 12);
 
 -- --------------------------------------------------------
 
@@ -218,11 +218,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `adress`, `email`, `image`, `type`, `active`) VALUES
-(1, 'mina', 'mina', 1234, 'sds', 'ddd', 'dd', 4, 'pending'),
-(2, 'Andrew', 'dodos', 123, 'nn', 'nnn', 'nn', 4, 'active'),
-(3, 'atef', 'atef', 1234, 's', 's', 's', 5, 'active'),
-(4, 'DOC', 'DOC', 1234, 's', 'a', 'a', 3, 'active'),
-(5, '7amza', '7amza', 222, ';v,;', ';c,v', 'v;,s', 5, 'active');
+(1, 'mina', 'mina', 1234, 'sds', 'ddd', 'dd', 4, 'active'),
+(2, 'Andrew', 'dodos', 123, 'nn', 'nnn', 'nn', 1, 'active'),
+(3, 'atef', 'atef', 1234, 's', 'snn', 's', 5, 'active'),
+(4, 'DOC', 'DOC', 1234, 's', 'jjkj', 'a', 3, 'active'),
+(5, '7amza', '7amza', 222, ';v,;', ';c,v', 'v;,s', 5, 'active'),
+(6, 'a', 'a', 1, 'dd', 'd', 'd', 2, '0'),
+(7, 'jfcklsjc', 'jfcklsjc', 0, '', '', '', 4, 'active');
 
 -- --------------------------------------------------------
 
@@ -323,19 +325,19 @@ ALTER TABLE `users_type`
 -- AUTO_INCREMENT for table `appo`
 --
 ALTER TABLE `appo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users_type`
