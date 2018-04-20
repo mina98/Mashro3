@@ -89,13 +89,13 @@
   </div>
 
 </div>
-	
+	<script>
 	
       $(function(){
           $('select.styled').customSelect();
       });
 
   </script>
-
+  </section>
   </body>
 </html>

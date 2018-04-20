@@ -33,7 +33,7 @@ for ($i = 0; $i < count($data); $i++) {
                                     <td>{$data[$i]['name']}</td>                                   
                                  ";  
                                    if(count($data4) != 0){
-                                       
+                                  $f++;
                                        if($data[$i]['id'] == $data4[$f]['appoint'])
                                        echo "<td>your 're resevied</td>";
                                        else            echo "<input name='Mina' style='display:none'; value=$j>       
@@ -46,6 +46,8 @@ for ($i = 0; $i < count($data); $i++) {
                                    }
                                  echo"</tr>
                                </form>  ";
+                                 
+                              
 }
 echo '
                         </body>
