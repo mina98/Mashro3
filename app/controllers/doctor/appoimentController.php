@@ -25,7 +25,7 @@ if($_POST)
         $data2['Day']=$_POST["Day"];
        
         $data2['appoint']=$_POST["appoint"];
-        $data2['patientnum']=$_POST["patientnum"];
+        $data2['patientnum']=0;
         $data2['patientlimit']=$_POST["patientlimit"];
 
            $getdata->AddData($data2);

@@ -1,13 +1,11 @@
-
 <?php
+
 session_start();
-if(!isset($_SESSION['username']))
-{
-    
-    header("location:../../controllers/loginControllers.php");
-    die();
-}
-?><!DOCTYPE html>
+//print_r($_SESSION);
+if (@$_SESSION['username'] != null) {
+    echo '
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -140,7 +138,9 @@ if(!isset($_SESSION['username']))
               <ul class="sidebar-menu" id="nav-accordion">
               
               	 <p class="centered"><a href="profile.html"><img src="../../../test-samer/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	 <h5 class="centered">Marcel Newman</h5>
+              	 <h5 class="centered">';
+    $_SESSION['username'];
+    echo '</h5>
               	  	
                   <li class="mt">
                       <a href="index.php">
@@ -170,19 +170,19 @@ if(!isset($_SESSION['username']))
       <section id="main-content">
           <section class="wrapper site-min-height">
           	
-              <section  id='page'>
+              <section  id=\'page\'>
                   
-                  <?php
-                    if (@$_GET['page']) {
-                        $url = $_GET['page'] . ".php";
-                        if (is_file($url)) {
-                            include $url;
-                        } else {
-                            echo 'requested file is not found !';
-                        }
-                    } else {
-                        include_once "../../controllers/doctor/appoimentController.php";
-                        echo'                       <h1 Style="text-align:center";>Reserving page</h1>
+               ';
+    if (@$_GET['page']) {
+        $url = $_GET['page'] . ".php";
+        if (is_file($url)) {
+            include $url;
+        } else {
+            echo 'requested file is not found !';
+        }
+    } else {
+        include_once "../../controllers/doctor/appoimentController.php";
+        echo'                       <h1 Style="text-align:center";>Reserving page</h1>
 
                             <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer" />
                        
@@ -194,38 +194,61 @@ if(!isset($_SESSION['username']))
 					
 					<th>Day</th>
 					<th>Time</th>
+                                        <th>Num patient can served</th>
                                         <th>Num Patient served</th>
-					<th>Num patient can served</th>
+					
                                         
 				</tr>
 			</thead>
                          ';
-                             for($i=0;$i< count($data);$i++){ 
-                          echo"
+        for ($i = 0; $i < count($data); $i++) {
+            echo"
                         <tbody>
                                    <td>{$data[$i]['Day']}</td>
                                     <td>{$data[$i]['appoint']}</td>
-                                    <td>{$data[$i]['patientnum']}</td>                                   
-                                     <td>{$data[$i]['patientlimit']}</td>                                   
+                                <td>{$data[$i]['patientlimit']}</td>    
+                                <td>{$data[$i]['patientnum']}</td>                                   
+                                                                        
                                     </tr>
-                             ";}
-                  echo' <form action="../../controllers/doctor/appoimentController.php" method="post" >';
-                                     echo '
+                             ";
+        }
+        echo' <form action="../../controllers/doctor/appoimentController.php" method="post" >';
+        echo '
                          <form action="../../controllers/doctor/appoimentController.php" method="post" >
     <tr>
-                    <td><input type="text" name="Day"></td>
-                                    <td><input type="text" name="appoint"></td>
-                                    <td><input type="text" name="patientnum"></td>                                   
-                                     <td><input type="text" name="patientlimit">
-                                     <input type="submit" name="submit" value="add"></td>                                       
+                    <td>
+                    <select name="Day" class="form-control selectpicker" >
+
+        <option value="Saturday" >Saturday</option>
+        <option value="Sunday">Sunday</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+    </select></td>
+    
+                                    <td>                <select name="appoint" class="form-control selectpicker" >
+
+        <option value="8:12" >8:12</option>
+        <option value="12:16">12:16</option>
+        <option value="16:20">16:20</option>
+        <option value="20:24">20:24</option>
+        <option value="24:4">24:4</option>
+        <option value="4:8">4:8</option>
+        
+    </select></td>
+                                    <td><input type="text" name="patientlimit " class="form-control selectpicker"required></td>                                   
+                                     <td>
+                                     <input type="submit" name="submit" class="form-control selectpicker" value="add"></td>                                       
                                                                                 </tr>
                         </body>
-</table>'   ;
-                                     echo '</form>';           
-                    
-                    }
-                    
-                    echo' <h2 Style="text-align:center";>Person Reserving</h1>
+</table>';
+        echo '</form>';
+
+
+
+        echo' <h2 Style="text-align:center";>Person Reserving</h1>
 
     <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer" />
                        
@@ -244,8 +267,8 @@ if(!isset($_SESSION['username']))
 				</tr>
 			</thead>
                          ';
-                             for($i=0;$i< count($patient);$i++){ 
-                          echo"
+        for ($i = 0; $i < count($patient); $i++) {
+            echo"
                         <tbody>
                                    <td>{$patient[$i]['Day']}</td>
                                     <td>{$patient[$i]['username']}</td>
@@ -254,20 +277,12 @@ if(!isset($_SESSION['username']))
                                     </tr>
                             
                 
-" ;}
-   echo"                     </body>
+";
+        }
+    }
+    echo'                     </body>
 </table>
-                             ";           
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    ?>
-              </section>
-         
+              </section>         
 		</section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
@@ -283,17 +298,23 @@ if(!isset($_SESSION['username']))
       </footer>
       <!--footer end-->
   </section>
-
-   
-    
-  <script>
-      //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script>
-
+ <footer class="site-footer">
+          <div class="text-center">
+              2014 - Alvarez.is
+              <a href="blank.html#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
   </body>
 </html>
+';
+} else {
+
+
+    header("location:../loginview.php");
+    //die();
+}
+?>
