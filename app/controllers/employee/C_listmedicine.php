@@ -1,7 +1,7 @@
 <?php
     
     include_once  '../../models/abastractConnect.php';
-    include  '../../models/list.php';
+    include_once  '../../models/list.php';
     
     $li = new Display("items");
 
@@ -9,6 +9,6 @@
       
     $li->close();
     
-    include '../../views/employee/listMedicine.php';
+    include_once '../../views/employee/listMedicine.php';
 
     

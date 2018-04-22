@@ -25,7 +25,8 @@ if(@isset($_POST['submit']) && $_POST['submit']=="send"){
         $up = new Update($addMedicine, "items");
         $up->editData($addMedicine['id']);
         $up->close();
-        include '../../views/employee/addMedicine.php';
+        header("Location:../../views/employee/index.php?page=addmedicine"); 
+
     }
     else{
         @$addMedicine['soldMount']=0;
@@ -37,7 +38,7 @@ if(@isset($_POST['submit']) && $_POST['submit']=="send"){
         include_once  '../../models/Add.php';
         new Add($addMedicine, "items");
         echo 'added succeffully ';
-        include '../../views/employee/addMedicine.php';
+        header("Location:../../views/employee/index.php?page=addmedicine"); 
     } catch (Exception $ex) {
         echo $ex->getMessage ."Jj";
     }

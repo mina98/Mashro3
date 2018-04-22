@@ -204,7 +204,15 @@ if (@$_SESSION['username'] != null ){
                         } else {
                             echo 'requested file is not found !';
                         }
-                    } else {
+                    }
+                    elseif ($_GET['Medicinpage']) {
+                        $url = "../../controllers/employee/C_".$_GET['Medicinpage'] . ".php";
+                        if (is_file($url)) {
+                            include $url;
+                        } else {
+                            echo 'requested file is not found !';
+                        }
+                    }else {
                         echo 'lsa mfe4 7aga';
                     }
                     echo '
