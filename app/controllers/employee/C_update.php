@@ -26,9 +26,22 @@ if(@isset($_POST['update']) && $_POST['update']=="update"){
     $upd->editData($update['id']);
     include '../../views/employee/update.php';
     
+
+    echo 't';
+    $upd->editData($update['id']);
+    header('Location:../../views/employee/index.php?page=listmedicine');
+
+    
 }
- else {
+if (isset ($_GET['action']) && $_GET['action']=='update'){
     echo 'in';
+    $id =$_GET['id'];
+    include '../../models/abastractConnect.php';
+    include '../../models/list.php';
+    $li =new Display("items");
+    include '../../models/Update.php';
+    $arr=$li->getAllDataByID($id);
     include '../../views/employee/update.php';
 }
+
 

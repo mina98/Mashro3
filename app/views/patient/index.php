@@ -147,7 +147,7 @@ if (@$_SESSION['username'] != null ){
                       </a>
                   </li>
                   <li class="mt">
-                      <a href="?page=addOrder">
+                      <a href="?addpage=addOrder">
                           <i class="fa fa-dashboard"></i>
                           <span>Order</span>
                       </a>
@@ -182,7 +182,17 @@ if (@$_SESSION['username'] != null ){
                         } else {
                             echo 'requested file is not found !';
                         }
-                    } 
+                    } elseif (@$_GET['addpage']) {
+                        echo $_GET['addpage'];
+                        $url = "../../controllers/patient/C_".$_GET['addpage'] . ".php";
+                        if (is_file($url)) {
+                            include $url;
+                        } else {
+                            echo ' requested file is not found !';
+                        }
+                    }else {
+                        echo 'lsa mfe4 7aga';
+                    }
                    echo '
               </section>
               

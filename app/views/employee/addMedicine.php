@@ -1,6 +1,6 @@
 <div class="container">
 
-    <form class="wrapper form-horizontal " action="" method="post"  id="contact_form" id="myform">
+    <form class="wrapper form-horizontal " action="../../controllers/employee/C_addMedicine.php" method="post"  id="contact_form" id="myform">
 <fieldset>
 
 <!-- Form Name -->

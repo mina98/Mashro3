@@ -27,7 +27,7 @@ if(@$_POST){
         
         $arr = $getid->getIDByUsername($_SESSION['username']);
         $orderData['patientId'] = $arr[0]['id'];
-        
+        print_r($orderData);
         $addIntoOrder = new Add($orderData, 'order_patient');
         include_once '../../views/patient/addOrder.php';
     }
