@@ -33,7 +33,8 @@ for ($i = 0; $i < count($data); $i++) {
                                     <td>{$data[$i]['appoint']}</td>
                                     <td>{$data[$i]['name']}</td>                                   
                                  <input name='Mina' style='display:none'; value=$j> 
-                                 <input name='Minaa' style='display:none'; value={$data[$i]['id']}>       
+                                 <input name='Minaa' style='display:none'; value={$data[$i]['id']}>
+                                     
 
                            <td><input type ='submit' name='submit' value='Reserve'></td>
                                        
@@ -43,6 +44,7 @@ for ($i = 0; $i < count($data); $i++) {
                                  
                               ";
 }
+
 echo '
                         </body>
                         </table>';

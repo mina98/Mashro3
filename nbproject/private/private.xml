@@ -6,8 +6,11 @@
             <file>file:/C:/xampp/htdocs/project/app/views/admin/editProfile.php</file>
             <file>file:/C:/xampp/htdocs/project/app/views/admin/addOrder.php</file>
             <file>file:/C:/xampp/htdocs/project/app/views/admin/addAccount.php</file>
+            <file>file:/C:/xampp/htdocs/project/app/views/doctor/Comment.php</file>
+            <file>file:/C:/xampp/htdocs/project/app/views/employee/index.php</file>
             <file>file:/C:/xampp/htdocs/project/app/models/Update.php</file>
             <file>file:/C:/xampp/htdocs/project/app/controllers/doctor/medicineController.php</file>
+            <file>file:/C:/xampp/htdocs/project/app/controllers/employee/C_invoice.php</file>
             <file>file:/C:/xampp/htdocs/project/app/views/patient/index.php</file>
             <file>file:/C:/xampp/htdocs/project/app/views/doctor/index.php</file>
             <file>file:/C:/xampp/htdocs/project/app/models/Supply_Models.php</file>
@@ -18,6 +21,8 @@
             <file>file:/C:/xampp/htdocs/project/app/controllers/admin/reportController.php</file>
             <file>file:/C:/xampp/htdocs/project/app/controllers/doctor/appoimentController.php</file>
             <file>file:/C:/xampp/htdocs/project/test-samer/css/style.css</file>
+            <file>file:/C:/xampp/htdocs/project/app/controllers/patient/commentcontroller.php</file>
+            <file>file:/C:/xampp/htdocs/project/app/controllers/doctor/commentcontroller.php</file>
             <file>file:/C:/xampp/htdocs/project/app/controllers/employee/C_update.php</file>
             <file>file:/C:/xampp/htdocs/project/app/views/doctor/exist.php</file>
             <file>file:/C:/xampp/htdocs/project/app/controllers/patient/reverseDoc.php</file>

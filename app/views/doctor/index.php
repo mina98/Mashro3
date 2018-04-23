@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+@session_start();
 //print_r($_SESSION);
 if (@$_SESSION['username'] != null) {
     echo '
@@ -154,6 +154,12 @@ if (@$_SESSION['username'] != null) {
                           <span>Availble Medicne</span>
                       </a>
                   </li>
+                  <li class="mt">
+                      <a href="Comment.php">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Comment</span>
+                      </a>
+                  </li>
 
                   
 
@@ -238,7 +244,7 @@ if (@$_SESSION['username'] != null) {
         <option value="4:8">4:8</option>
         
     </select></td>
-                                    <td><input type="text" name="patientlimit " class="form-control selectpicker"required></td>                                   
+                                    <td><input type="text" name="patientlimit" class="form-control selectpicker"required></td>                                   
                                      <td>
                                      <input type="submit" name="submit" class="form-control selectpicker" value="add"></td>                                       
                                                                                 </tr>
@@ -268,6 +274,7 @@ if (@$_SESSION['username'] != null) {
 			</thead>
                          ';
         for ($i = 0; $i < count($patient); $i++) {
+            
             echo"
                         <tbody>
                                    <td>{$patient[$i]['Day']}</td>

@@ -31,7 +31,6 @@ function post()
   return false;
 }
 </script>';
-
 session_start();
 //print_r($_SESSION);
 if (@$_SESSION['username'] != null ){
@@ -76,7 +75,7 @@ if (@$_SESSION['username'] != null ){
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.php" class="logo"><b>Patient Home</b></a>
+            <a href="index.php" class="logo"><b>doctor Home</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -208,52 +207,36 @@ if (@$_SESSION['username'] != null ){
               <section id=\'page\'>
                   
                   ';
-                    if (@$_GET['page']) {
-                        $url = $_GET['page'] . ".php";
-                        if (is_file($url)) {
-                            include $url;
-                        } else {
-                            echo 'requested file is not found !';
-                        }
-                    } elseif (@$_GET['addpage']) {
-                        echo $_GET['addpage'];
-                        $url = "../../controllers/patient/C_".$_GET['addpage'] . ".php";
-                        if (is_file($url)) {
-                            include $url;
-                        } else {
-                            echo ' requested file is not found !';
-                        }
-                    }else {
+                   
                         echo '<form method="post" action="" onsubmit="return post();">
         <div class="form-group">
                 <label class="col-md-4 control-label"></label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <textarea name="comment" rows="5" cols="80" placeholder="your comment" class="form-control"  type="text" required></textarea>
+                        <textarea name="comment" rows="10" cols="30" placeholder="your comment" class="form-control"  type="text" required></textarea>
                     </div>
                 </div>
             </div>
 
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
                     <button type="submit" class="btn btn-warning" >Comment <span class="glyphicon glyphicon-send"></span></button>
                 </div>
             </div>
-        </form>
-        
+        </form><br>
 ';
-                        echo'<br>';
-                        echo ' <form >';
+                        echo '   <form method="post" action="" onsubmit="return post();">';
+;
  echo "                   <div class='form-group '>
                 <label class='col-md-4 control-label'></label>  
                 <div class='col-md-4 inputGroupContainer'>
                     <div class='input-group'>
                         <span class='input-group-addon'><i class='glyphicon glyphicon-envelope'></i></span>";
                             
-                            include_once '../../controllers/patient/commentcontroller.php ' ;
+                            include_once '../../controllers/doctor/commentcontroller.php ' ;
                             for ($i = 0; @$find_comment[$i]['id'] != NULL; $i++) {
                               echo "<div name='comment'
 class='form-control'  type='text' ;>";
@@ -299,14 +282,8 @@ echo'
   </body>
 </html>
                            ';
-}
 
-else {
-   
-
-    header("location:../loginview.php");
-    //die();
-}   
+  
 
 
 

@@ -66,11 +66,12 @@ class Supply_Models extends abastractConnect {
         $id = intval($id);
 
         $sql = "SELECT * FROM `$this->tablename` WHERE `id`= $id";
-        $query = $this->db->conn->prepare($sql);
+       $query = $this->db->conn->prepare($sql);
 
         $query->execute();
-
+        
         $this->recData = $query->fetch();
+       
         return $this->recData;
     }
 
