@@ -55,14 +55,14 @@ class Register extends abastractConnect
         
         $this->db->conn->exec($sql);
         
-        if($sql) {  header("location:../views/loginview.php"); 
-                 echo"<div style='width:100%; height:50px; background:#008600; z_index:3; color:#fff;'>Registered successfuly now you can login</div>";
+        if(!$sql) {  
+ 
                
+                  throw new Exception("Error: not registerd");
                  
                  
-                  die();
         }
-        else        throw new Exception("Error: not registerd");
+     
         
     }
    

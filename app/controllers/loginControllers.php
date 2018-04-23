@@ -88,7 +88,7 @@ if ($_POST) {
     // Register
      if (isset($_POST['submit']) AND $_POST['submit'] == "Register") {
         include "../models/Register.php";
-  include './C_Email.php';
+  
 /*
  * 
         try {
@@ -126,11 +126,14 @@ if ($_POST) {
           
             $_SESSION['EMAIL']=$_POST['email']; 
             $_SESSION['UERname']=$_POST['username'];
+           
         try {
            
             new Register($data);
-            
-        } catch (Exception $exc) {
+            include './C_Email.php';
+             header("location:../views/loginview.php"); 
+        }
+        catch (Exception $exc) {
           echo"dsdd";
             echo $exc->getMessage();
         }
