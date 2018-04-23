@@ -3,7 +3,8 @@
 session_start();
 //print_r($_SESSION);
 if (@$_SESSION['username'] == null ){
-     echo '
+    //include '../controllers/C_Email.php'; 
+    echo '
 
 <head>
       
@@ -95,7 +96,7 @@ if (@$_SESSION['username'] == null ){
   </body>
     
         ';
-  
+  //include '../controllers/C_Email.php'; 
 }
 else {
     //echo 'exist session';

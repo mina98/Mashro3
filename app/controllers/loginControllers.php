@@ -88,7 +88,7 @@ if ($_POST) {
     // Register
      if (isset($_POST['submit']) AND $_POST['submit'] == "Register") {
         include "../models/Register.php";
-
+  include './C_Email.php';
 /*
  * 
         try {
@@ -123,10 +123,11 @@ if ($_POST) {
             $data['email']     = $_POST['email']; 
            // $data['image'] = 'image.jpg'; 
           //  $data['type'] = '3';
-            
-            
+          
+            $_SESSION['EMAIL']=$_POST['email']; 
+            $_SESSION['UERname']=$_POST['username'];
         try {
-            echo"sss";
+           
             new Register($data);
             
         } catch (Exception $exc) {
