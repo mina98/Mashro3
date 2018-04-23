@@ -10,7 +10,7 @@ if ($_POST) {
         include "../../models/Add.php";
         //id 	name 	username 	password 	adress 	email 	image 	type 
         $date['id'] = "";
-        $date['name'] = $_POST["username"];
+        $date['name'] = $_POST["name"];
         $date['username'] = $_POST["username"];
         $date['password'] = $_POST["password"];
         $date['adress'] = $_POST["adress"];
