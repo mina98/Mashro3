@@ -205,7 +205,7 @@ if (@$_SESSION['username'] != null ){
                             echo 'requested file is not found !';
                         }
                     }
-                    elseif ($_GET['Medicinpage']) {
+                    elseif (@$_GET['Medicinpage']) {
                         $url = "../../controllers/employee/C_".$_GET['Medicinpage'] . ".php";
                         if (is_file($url)) {
                             include $url;
