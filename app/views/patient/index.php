@@ -1,4 +1,36 @@
 <?php 
+echo '
+<script type="text/javascript" src="jquery.js">
+<script type="text/javascript">';
+echo '
+function post()
+{
+  var comment = document.getElementById("comment").value;
+  var name = document.getElementById("username").value;
+  if(comment && name)
+  {
+    $.ajax
+    ({
+      type: "post",
+      url: "../../controllers/doctor/commentcontroller.php",
+      data: 
+      {
+         user_comm:comment,
+	     user_name:name
+      },
+      success: function (response) 
+      {
+	    document.getElementById("all_comments").innerHTML=response+document.getElementById("all_comments").innerHTML;
+	    document.getElementById("comment").value="";
+            document.getElementById("username").value="";
+  
+      }
+    });
+  }
+  
+  return false;
+}
+</script>';
 
 session_start();
 //print_r($_SESSION);
@@ -137,21 +169,29 @@ if (@$_SESSION['username'] != null ){
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
+<<<<<<< HEAD
               	   <p class="centered"><img ';     echo "src='{$_SESSION['image']}' "; echo ' class="img-rounded" width="100"></p>
                    <h5 class="centered"> '; $_SESSION['username'];  echo '</h5>
               	  	
                   <li class="mt">
+=======
+              	  <p class="centered"><a href="profile.html"><img src="../../../test-samer/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              	  <h5 class="centered">'; echo $_SESSION["username"]; echo' </h5>
+              	  <li class="mt">
+>>>>>>> 5cab0c1b39f981c81642fd640feb297fc2b28c30
                       <a href="index.php">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Home</span>
+                          <i class="fa fa-envelope-o"></i>
+                          <span>Comments</span>
                       </a>
-                  </li>
-                  <li class="mt">
+                  </li>	
+                                   <li class="mt">
                       <a href="?addpage=addOrder">
                           <i class="fa fa-dashboard"></i>
                           <span>Order</span>
                       </a>
                   </li>
+                   
+
                   <li class="mt">
                       <a href="?page=service">
                           <i class="fa fa-dashboard"></i>
@@ -191,8 +231,58 @@ if (@$_SESSION['username'] != null ){
                             echo ' requested file is not found !';
                         }
                     }else {
-                        echo 'lsa mfe4 7aga';
-                    }
+                        echo '<form method="post" action="" onsubmit="return post();">
+        <div class="form-group">
+                <label class="col-md-4 control-label"></label>  
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <textarea name="comment" rows="5" cols="80" placeholder="your comment" class="form-control"  type="text" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-warning" >Comment <span class="glyphicon glyphicon-send"></span></button>
+                </div>
+            </div>
+        </form>
+        
+';
+                        echo'<br>';
+                        echo ' <form >';
+ echo "                   <div class='form-group '>
+                <label class='col-md-4 control-label'></label>  
+                <div class='col-md-4 inputGroupContainer'>
+                    <div class='input-group'>
+                        <span class='input-group-addon'><i class='glyphicon glyphicon-envelope'></i></span>";
+                            
+                            include_once '../../controllers/patient/commentcontroller.php ' ;
+                            for ($i = 0; @$find_comment[$i]['id'] != NULL; $i++) {
+                              echo "<div name='comment'
+class='form-control'  type='text' ;>";
+                                
+                                
+                                @$comment_name = $find_comment [$i]['name'];
+                                @$comment = $find_comment [$i]['comment'];
+                                echo $comment_name . " : " . $comment . '<br>';
+                                echo '</div>';
+                            }
+                           
+echo'
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </form>';
+}
                    echo '
               </section>
               
@@ -200,16 +290,7 @@ if (@$_SESSION['username'] != null ){
       </section><!-- /MAIN CONTENT -->
 
       <!--main content end-->
-      <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              2014 - Alvarez.is
-              <a href="blank.html#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
-      <!--footer end-->
+ 
   </section>
 
     

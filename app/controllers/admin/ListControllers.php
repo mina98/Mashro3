@@ -26,10 +26,18 @@ include "../../models/Supply_Models.php";
                     $data3['vendorConfirm']=$data2['vendorConfirm'];
                     $data3['offerId']=$data2['offerId'];
                    
-
-                    $update=new Supply_Models($tablename);
-                    $update->editData($data3, $_POST['Andrew']);
-                   
+//
+//                    $updateitems=new Supply_Models($tablename);
+//                    $update->editData($data3, $_POST['Andrew']);
+//                    $data3['id']=$data2['id'];
+//                    $data3['itemId']=$data2['itemId'];
+//                    $data3['mount']=$data2['mount'];
+//                    $data3['Price']=$data2['Price'];
+//                    $data3['vendorId']=$data2['vendorId'];
+//                    $data3['adminConfirm']='T';
+//                    $data3['vendorConfirm']=$data2['vendorConfirm'];
+//                    $data3['offerId']=$data2['offerId'];
+//                    $updateitems->AddData($data4)
                   @header("location:../../views/admin/index.php?page=listOrder");
                    
                     }

@@ -66,11 +66,12 @@ class Supply_Models extends abastractConnect {
         $id = intval($id);
 
         $sql = "SELECT * FROM `$this->tablename` WHERE `id`= $id";
-        $query = $this->db->conn->prepare($sql);
+       $query = $this->db->conn->prepare($sql);
 
         $query->execute();
-
+        
         $this->recData = $query->fetch();
+       
         return $this->recData;
     }
 
@@ -89,9 +90,11 @@ class Supply_Models extends abastractConnect {
         } else if ($choose == '5') {
             $sql = "select A.Day,U.username ,A.appoint from `$this->tablename` AS AP INNER JOIN `users` AS U ,`appointment` AS A Where AP.patientid=U.id AND U.type='5' AND AP.appoint=A.id  ";
         } else if ($choose == '6') {
-            $sql = "select  A.Day ,A.appoint ,U.name,A.id from `$this->tablename` AS A  INNER JOIN `users` AS U  Where A.doctorid=U.id  ";
+            $sql = "select  A.Day ,A.appoint ,U.name,A.id from `$this->tablename` AS A  INNER JOIN `users` AS U  Where A.doctorid=U.id And A.patientlimit>A.patientnum";
         } else if ($choose == '7') {
-            $sql = "select AP.appoint   from `$this->tablename` AS AP where AP.patientid=$user";
+            $sql = "select A.appoint, U.name ,A.Day  from `$this->tablename` AS AP INNER JOIN `users` AS U ,`appointment` AS A where AP.patientid=$user AND AP.appoint=A.id AND A.doctorid=U.id";
+        } else if ($choose == '8') {
+            $sql="select * from `$this->tablename` AS A where A.id=$user";
         }
         $query = $this->db->conn->prepare($sql);
 

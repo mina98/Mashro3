@@ -3,15 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/project/app/views/admin/index.php</file>
-            <file>file:/C:/xampp/htdocs/project/app/views/patient/pay.php</file>
-            <file>file:/C:/xampp/htdocs/project/app/controllers/admin/reportController.php</file>
-            <file>file:/C:/xampp/htdocs/project/app/views/patient/index.php</file>
-            <file>file:/C:/xampp/htdocs/project/app/views/doctor/index.php</file>
-            <file>file:/C:/xampp/htdocs/project/app/controllers/patient/reverseDoc.php</file>
-            <file>file:/C:/xampp/htdocs/project/app/models/Supply_Models.php</file>
-            <file>file:/C:/xampp/htdocs/project/app/controllers/vendor/listoffers.php</file>
-            <file>file:/C:/xampp/htdocs/project/app/controllers/vendor/listorders.php</file>
+            <file>file:/C:/xampp/htdocs/b3d%20pola/Mashro3/app/models/Supply_Models.php</file>
+            <file>file:/C:/xampp/htdocs/b3d%20pola/Mashro3/app/models/list.php</file>
+            <file>file:/C:/xampp/htdocs/b3d%20pola/Mashro3/app/controllers/C_Email.php</file>
+            <file>file:/C:/xampp/htdocs/b3d%20pola/Mashro3/app/models/Register.php</file>
+            <file>file:/C:/xampp/htdocs/b3d%20pola/Mashro3/app/views/loginview.php</file>
+            <file>file:/C:/xampp/htdocs/b3d%20pola/Mashro3/app/controllers/loginControllers.php</file>
+            <file>file:/C:/xampp/htdocs/b3d%20pola/Mashro3/app/views/newEmptyPHPWebPage.php</file>
         </group>
     </open-files>
 </project-private>
