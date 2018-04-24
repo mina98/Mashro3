@@ -44,7 +44,7 @@ if (@$_SESSION['username'] != null ){
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Employee Home</b></a>
+            <a class="logo"><b>Employee Home</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -137,7 +137,7 @@ if (@$_SESSION['username'] != null ){
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="../../../test-samer/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><img ';     echo "src='{$_SESSION['image']}' "; echo ' class="img-rounded" width="100"></p>
               	  <h5 class="centered"> '; $_SESSION['username'];  echo '</h5>
               	  	
                   <li class="mt">
@@ -205,7 +205,7 @@ if (@$_SESSION['username'] != null ){
                             echo 'requested file is not found !';
                         }
                     }
-                    elseif ($_GET['Medicinpage']) {
+                    elseif (@$_GET['Medicinpage']) {
                         $url = "../../controllers/employee/C_".$_GET['Medicinpage'] . ".php";
                         if (is_file($url)) {
                             include $url;

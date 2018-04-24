@@ -28,6 +28,19 @@ if($_POST){
          $SecDataedit['email'] = $_POST['email'];
          $SecDataedit['adress'] = $_POST['address'];
          //$isd=$SecDataedit['id']; 
+         if(isset($_FILES)){
+             $filename = $_FILES['image']['name'];
+             $fileext  = strtolower(end(explode('.', $filename)));
+             $filetempname =$_FILES['image']['tmp_name'];
+             $destination = '../../test-samer/assets/img/'.$filename;
+             move_uploaded_file($filetempname, $destination);
+             $SecDataedit['image']='../'.$destination;
+             
+         }
+         else{
+              $SecDataedit['image']= $recSecdata['image'];
+         }
+         print_r($SecDataedit);
          try {                        
             $tablename = "users";
             $SecUpdate = new Update($SecDataedit, $tablename);

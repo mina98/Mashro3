@@ -38,8 +38,8 @@ if ($_POST) {
                          @$_SESSION['username'] = $username;
                          
                          @$_SESSION['id'] = $role["id"];
-                        
-                
+                         @$_SESSION['image'] = $role ["image"];
+                         
                      if ($role["type"] == 1)
                      {
                           $_SESSION['type'] = "admin";
@@ -88,7 +88,7 @@ if ($_POST) {
     // Register
      if (isset($_POST['submit']) AND $_POST['submit'] == "Register") {
         include "../models/Register.php";
-  include './C_Email.php';
+  
 /*
  * 
         try {
@@ -121,16 +121,19 @@ if ($_POST) {
             $data['password']  = $_POST['password'];
             $data['adress']    = $_POST['adress'];
             $data['email']     = $_POST['email']; 
-           // $data['image'] = 'image.jpg'; 
+            $data['image'] = '../../../test-samer/assets/img/face.png'; 
           //  $data['type'] = '3';
           
             $_SESSION['EMAIL']=$_POST['email']; 
             $_SESSION['UERname']=$_POST['username'];
+           
         try {
            
             new Register($data);
-            
-        } catch (Exception $exc) {
+            include './C_Email.php';
+             header("location:../views/loginview.php"); 
+        }
+        catch (Exception $exc) {
           echo"dsdd";
             echo $exc->getMessage();
         }

@@ -46,7 +46,7 @@
   <label class="col-md-4 control-label">unit price</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon-oi glyphicon-envelope"></i></span>
+        <span class="input-group-addon"><i class="glyphicon-oi glyphicon-credit-card"></i></span>
         <input name="unitPrice" type="text" placeholder="unit price" class="form-control"  type="text">
     </div>
   </div>
@@ -56,7 +56,7 @@
   <label class="col-md-4 control-label">Description</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon-oi glyphicon-envelope"></i></span>
+        <span class="input-group-addon"><i class="glyphicon-oi glyphicon-comment"></i></span>
         <textarea name="description" class="form form-control" placeholder="item description here please"></textarea>
         
     </div>

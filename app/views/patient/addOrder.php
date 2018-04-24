@@ -92,8 +92,8 @@
                                         
                                     echo "<td>
                                         <form method='post' action=''>
-                                            <input class='hide' value='{$arr[$i]['id']}' name='id'>
-                                            <input class='input btn-group' type='text' placeholder='Amount' name='amount'}' required>
+                                            <input class='hide' value='{$arr[$i]['id']}' name='id[]'>
+                                            <input class='input btn-group' type='text' placeholder='Amount' name='amount[]' required>
                                             <input type='submit' class='btn' value='pay' name='pay'>
                                         </form>
                                     </td>";

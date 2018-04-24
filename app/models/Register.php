@@ -12,7 +12,7 @@ class Register extends abastractConnect
     private $username;
     private $password;
     private $adress;
-   // private $image;
+    private $image;
    // private $type = 3;
    // private $db;   // Database Object
     
@@ -38,7 +38,7 @@ class Register extends abastractConnect
         $this->password = $data['password'];
         $this->adress    =$data['adress'];
         $this->email    = $data['email'];
-        //$this->image = $data['image'];
+        $this->image = $data['image'];
         //$this->type = $data['type'];
     
         
@@ -51,18 +51,18 @@ class Register extends abastractConnect
          //`id`, `name`, `username`, `password`, `adress`, `email`, `image`, `type`
         $sql = "INSERT INTO `users` (`id`, `name`, `username`, `password`, `adress` ,`email` ,`image`,`type`,`active`)
           VALUES 
-            ('','$this->name','$this->username','$this->password','$this->adress','$this->email','','5','active')";
+            ('','$this->name','$this->username','$this->password','$this->adress','$this->email','$this->image','5','active')";
         
         $this->db->conn->exec($sql);
         
-        if($sql) {  header("location:../views/loginview.php"); 
-                 echo"<div style='width:100%; height:50px; background:#008600; z_index:3; color:#fff;'>Registered successfuly now you can login</div>";
+        if(!$sql) {  
+ 
                
+                  throw new Exception("Error: not registerd");
                  
                  
-                  die();
         }
-        else        throw new Exception("Error: not registerd");
+     
         
     }
    

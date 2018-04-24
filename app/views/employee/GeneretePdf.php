@@ -41,7 +41,7 @@ function Table2($header, $data, $dataname)
      $this->Ln();
      $this->Ln();
      $this->Ln();
-    $w = array(20,40,40,40,40);
+    $w = array(40,35,40,40,40);
     // Header
     for($i=0;$i<count($header);$i++){
         $this->Cell($w[$i],7,$header[$i],1,0,'C');
