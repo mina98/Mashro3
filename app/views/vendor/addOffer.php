@@ -19,7 +19,14 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="itemId" placeholder="item ID" class="form-control"  type="text">
+      
+      <select name="itemNAME" class="form-control">
+        <?php
+        include '../../controllers/vendor/C_offer.php';
+       for ($i = 0; $i < count($liste); $i++) {
+       echo '<option>'.$liste[$i]['name'].'</option>';}
+        ?>
+       </select>
     </div>
   </div>
 </div>

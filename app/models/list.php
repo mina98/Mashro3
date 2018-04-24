@@ -20,7 +20,14 @@ class Display extends abastractConnect {
         
         return @$data;
     }
-
+    function getSpceficDataDistinct($da) {
+        $sql = "SELECT DISTINCT `$da` FROM `$this->tablename` ORDER BY `$da` DESC";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $data = $query->fetchAll();
+        
+        return @$data;
+    }
     function getLastRecordDESC() {
 
         $sql = "SELECT * FROM `$this->tablename` ORDER BY `id` DESC LIMIT 1";
@@ -47,7 +54,13 @@ class Display extends abastractConnect {
         return $dataa;
         
     }
-
+    function getbigestID(){
+           $its  = "SELECT MAX(`id`) FROM `$this->tablename` ";
+           $querry = $this->db->conn->prepare($its);
+           $querry->execute();
+           $it = $querry->fetch(); 
+           return $it[0];
+           }
     function getRecordByID($id,$tablenam,$col,$foriegn) {
         $id = intval($id);
         $sql = "SELECT `$col` FROM `$tablenam` WHERE `$foriegn`= $id";
