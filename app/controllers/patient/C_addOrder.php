@@ -12,7 +12,9 @@ if(@$_POST){
         include_once '../../models/Add.php';
         include_once '../../models/list.php';
         include_once '../../models/Addinvoice.php';
-        
+        foreach ($_POST['id'] as $value) {
+            echo $value;
+        }
         
         @$data['itemId']=$_POST['id'];
         @$data['amount']=$_POST['amount'];
@@ -25,9 +27,9 @@ if(@$_POST){
         
         $getid = new Display('users');
         
-        $arr = $getid->getIDByUsername($_SESSION['username']);
+        $arr = $getid->getAllDataByUsername($_SESSION['username']);
         $orderData['patientId'] = $arr[0]['id'];
-        print_r($orderData);
+        $patient_adress = $arr[0]['adress'];
         $addIntoOrder = new Add($orderData, 'order_patient');
         include_once '../../views/patient/addOrder.php';
     }

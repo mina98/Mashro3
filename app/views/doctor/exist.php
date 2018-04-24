@@ -89,7 +89,12 @@
   </div>
 
 </div>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  
+  
+
+    <script  src="../../../test-samer/js/index.js"></script>
   
 
 

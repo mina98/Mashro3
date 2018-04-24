@@ -137,8 +137,8 @@ if (@$_SESSION['username'] != null ){
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="../../../test-samer/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">'; echo $_SESSION["username"]; echo' </h5>
+              	   <p class="centered"><img ';     echo "src='{$_SESSION['image']}' "; echo ' class="img-rounded" width="100"></p>
+                   <h5 class="centered"> '; $_SESSION['username'];  echo '</h5>
               	  	
                   <li class="mt">
                       <a href="index.php">

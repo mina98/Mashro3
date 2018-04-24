@@ -68,7 +68,7 @@
                                         <th>sold amount</th>
 					<th>unit Price</th>
                                         <th>discription</th>
-					<th>Update or delete</th>
+					<th>Update</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -83,7 +83,7 @@
                                     echo "<td>".$allData[$i]['existMount'] ."</td>";
                                     echo "<td>".$allData[$i]['soldMount'] ."</td>";
                                     echo "<td>".$allData[$i]['desription'] ."</td>";
-                                    echo "<td><a href='?Medicinpage=update&action=update&id={$allData[$i]['id']}'><button class='update'>Update</button></a><button class='delete'>Delete</button></td>";
+                                    echo "<td><a href='?Medicinpage=update&action=update&id={$allData[$i]['id']}'><button class='update'>Update</button></td>";
                                     echo '</tr>';
                                 }
                                 ?>
@@ -108,6 +108,12 @@
     <!--common script for all pages-->
 
     <!--script for this page-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  
+  
+
+    <script  src="../../../test-samer/js/index.js"></script>
     
   <script>
       //custom select box

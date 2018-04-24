@@ -25,10 +25,10 @@
 </div>
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label">Name</label>  
+  <label class="col-md-4 control-label">ID</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
   <input  name="id" placeholder="ID" class="form-control"  type="text" required>
     </div>
   </div>
@@ -51,7 +51,7 @@
   <label class="col-md-4 control-label">Price</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
   <input name="unitPrice" placeholder="price" class="form-control"  type="text" required>
     </div>
   </div>
@@ -62,7 +62,7 @@
   <label class="col-md-4 control-label">Description</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
   <input name="desription" placeholder="Description" class="form-control"  type="text" required>
     </div>
   </div>
@@ -76,7 +76,7 @@
   <label class="col-md-4 control-label">intial mount</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
         <input name="existMount" value="" placeholder="intial mount" class="form-control" type="text" required>
     </div>
   </div>
