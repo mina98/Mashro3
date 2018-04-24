@@ -52,7 +52,7 @@
   <label class="col-md-4 control-label">password</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon-oi glyphicon-envelope"></i></span>
+        <span class="input-group-addon"><i class="glyphicon-oi glyphicon-lock"></i></span>
         <input name="password" type="password" placeholder="password" class="form-control"  type="text">
     </div>
   </div>
@@ -79,7 +79,7 @@
   <label class="col-md-4 control-label">Address</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
   <input name="adress" placeholder="Address" class="form-control" type="text">
     </div>
   </div>

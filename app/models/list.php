@@ -121,9 +121,9 @@ class Display extends abastractConnect {
        
         return $data;
     }
-    function getIDByUsername($username) {  // (5 , "sectionID")
+    function getAllDataByUsername($username) {  // (5 , "sectionID")
         //SELECT id FROM `users` WHERE `username`= "kiro";
-        $sql = "SELECT id FROM `users` WHERE `username`= '$username'";
+        $sql = "SELECT * FROM `users` WHERE `username`= '$username'";
         $query = $this->db->conn->prepare($sql);
         $query->execute();
         $data = $query->fetchAll();

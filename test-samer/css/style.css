@@ -512,9 +512,9 @@ td {
 }
 }
 /* update & delete */
-.update,
-.delete{
-	width: 30%;
+.update
+{
+	width: 70%;
 	background-color: #E6FFFF;
 	height: 30px;
 	margin-right: 10px;

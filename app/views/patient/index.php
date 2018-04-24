@@ -1,34 +1,34 @@
+
 <?php 
+
 echo '
-<script type="text/javascript" src="jquery.js">
+<script type="text/javascript" src="../../../test-samer/jquery.js">
 <script type="text/javascript">';
 echo '
 function post()
 {
   var comment = document.getElementById("comment").value;
-  var name = document.getElementById("username").value;
-  if(comment && name)
-  {
+  
+  
     $.ajax
     ({
       type: "post",
       url: "../../controllers/doctor/commentcontroller.php",
       data: 
       {
-         user_comm:comment,
-	     user_name:name
+               user_comm:comment
       },
       success: function (response) 
       {
 	    document.getElementById("all_comments").innerHTML=response+document.getElementById("all_comments").innerHTML;
 	    document.getElementById("comment").value="";
-            document.getElementById("username").value="";
+           
   
       }
     });
-  }
   
-  return false;
+
+  
 }
 </script>';
 
@@ -169,9 +169,12 @@ if (@$_SESSION['username'] != null ){
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="../../../test-samer/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">'; echo $_SESSION["username"]; echo' </h5>
-              	  <li class="mt">
+
+              	   <p class="centered"><img ';     echo "src='{$_SESSION['image']}' "; echo ' class="img-rounded" width="100"></p>
+                   <h5 class="centered"> '; $_SESSION['username'];  echo '</h5>
+              	  	
+                  <li class="mt">
+
                       <a href="index.php">
                           <i class="fa fa-envelope-o"></i>
                           <span>Comments</span>
@@ -230,7 +233,7 @@ if (@$_SESSION['username'] != null ){
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <textarea name="comment" rows="5" cols="80" placeholder="your comment" class="form-control"  type="text" required></textarea>
+                        <textarea id="comment" rows="5" cols="80" placeholder="your comment" class="form-control"  type="text" required></textarea>
                     </div>
                 </div>
             </div>
@@ -239,7 +242,8 @@ if (@$_SESSION['username'] != null ){
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-warning" >Comment <span class="glyphicon glyphicon-send"></span></button>
+                    <input type="submit" value="Post Comment" class="btn btn-warning">
+   
                 </div>
             </div>
         </form>
