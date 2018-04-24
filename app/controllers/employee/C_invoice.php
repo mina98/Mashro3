@@ -9,11 +9,11 @@ if ($_POST) {
 
         try {
                if($_SESSION['num']!=0){
-                   $data["itemId"]=$_POST["itemID"];
+                   $data["itemName"]=$_POST["itemNAME"];
                    $data["amount"]=$_POST["Amount"];
                     new addd($data);
                for($i=0;$i<$_SESSION['num'];$i++){
-                   $dataa["itemId"]=$_POST["itemId"][$i];
+                   $dataa["itemName"]=$_POST["itemName"][$i];
                    $dataa["amount"]=$_POST["amount"][$i];
                   // printf($dataa["amount"]);
                   // printf($dataa["itemId"]);
@@ -21,7 +21,7 @@ if ($_POST) {
                 }          
                }
                else{
-           $data["itemId"]=$_POST["itemID"];
+           $data["itemName"]=$_POST["itemNAME"];
            $data["amount"]=$_POST["Amount"];
            new addd($data);
                }
@@ -30,7 +30,13 @@ if ($_POST) {
         }
     }
     if (isset($_POST["ADD"]) AND $_POST["ADD"] == "AddAnother") {
-      $_SESSION['num']++;     
+     $_SESSION['nameee'][0]=$_POST["itemNAME"];
+     $_SESSION['amount'][0]=$_POST["Amount"];
+      for($i=0;$i<$_SESSION['num'];$i++){
+               $_SESSION['nameee'][$i+1]=$_POST["itemName"][$i];
+               $_SESSION['amount'][$i+1]=$_POST["amount"][$i];
+      }  
+    $_SESSION['num']++;     
     header("Location:../../views/employee/index.php?page=addInvoice"); 
 }
 if (isset($_POST["DEL"]) AND $_POST["DEL"] == "Delete") {
@@ -50,5 +56,8 @@ else {
     $tablename = "invoices";
     $displaybanner = new Display($tablename);
     $BannerDataDisplay = $displaybanner->getAllData();
+    $tablenamee = "items";
+    $displaybanneer = new Display($tablenamee);
+    $BannerDataDisplaay = $displaybanneer->getAllData();
 }
 ?>

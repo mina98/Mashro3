@@ -3,7 +3,8 @@ include_once "Database_2.php";
 class addd
 {   
     private $it            ;
-    private $itemId        ;
+    private $itemName      ;
+    private $itemId      ;
     private $id            ;
     private $amount        ;
     private $price         ;
@@ -32,14 +33,19 @@ class addd
         
     private function setData($data)
     {
-        $this->itemId     = $data['itemId']     ; 
+        $this->itemName     =$data['itemName']     ; 
         $this->amount     = $data['amount']     ;
         $this->datee      = date("Y/m/d")       ;
        
     }
     
     function addinvoice()
-    {      $its  = "SELECT MAX(`id`) FROM `invoices` ";
+    {      $itemId="SELECT `id` FROM `items` WHERE `name` LIKE '$this->itemName'";
+           $querry = $this->db->conn->prepare($itemId);
+           $querry->execute();
+           $t = $querry->fetch();
+           $this->itemId=$t[0];
+           $its  = "SELECT MAX(`id`) FROM `invoices` ";
            $querry = $this->db->conn->prepare($its);
            $querry->execute();
            $this->it = $querry->fetch();
