@@ -1,4 +1,6 @@
+
 <?php 
+//include '../../controllers/patient/commentcontroller.php';
 echo '
 <script type="text/javascript" src="jquery.js">
 <script type="text/javascript">';
@@ -228,7 +230,7 @@ if (@$_SESSION['username'] != null ){
             </div>
         </form><br>
 ';
-                        echo '   <form method="post" action="" onsubmit="return post();">';
+                        echo '   <form  action="../../controllers/patient/commentcontroller.php" method="post">';
 ;
  echo "                   <div class='form-group '>
                 <label class='col-md-4 control-label'></label>  

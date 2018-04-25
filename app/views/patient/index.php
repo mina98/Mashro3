@@ -1,36 +1,34 @@
 
 <?php 
 
-echo '
-<script type="text/javascript" src="../../../test-samer/jquery.js">
-<script type="text/javascript">';
-echo '
-function post()
-{
-  var comment = document.getElementById("comment").value;
-  
-  
-    $.ajax
-    ({
-      type: "post",
-      url: "../../controllers/doctor/commentcontroller.php",
-      data: 
-      {
-               user_comm:comment
-      },
-      success: function (response) 
-      {
-	    document.getElementById("all_comments").innerHTML=response+document.getElementById("all_comments").innerHTML;
-	    document.getElementById("comment").value="";
-           
-  
-      }
-    });
-  
-
-  
-}
-</script>';
+//echo '
+////<script type="text/javascript" src="../../../test-samer/jquery.js">
+////<script type="text/javascript">';
+//echo '
+//function post()
+//{
+//  var comment = document.getElementById("comment").value;
+//  var datastring="name="+"mina"+"&comment"+comment;
+//  
+//    $.ajax
+//    ({
+//      type: "post",
+//      url: hi.php,
+//      data:datastring,
+//      success: function (response) 
+//      {
+//	    document.getElementById("all_comments").innerHTML=response+document.getElementById("all_comments").innerHTML;
+//	    	    document.getElementById("comment").value="";
+//            document.getElementById("username").value="";
+//           
+//  
+//      }
+//    });
+//  
+//
+//  
+//}
+//</script>';
 
 session_start();
 //print_r($_SESSION);
@@ -76,7 +74,7 @@ if (@$_SESSION['username'] != null ){
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a  class="logo"><b>Patient Home</b></a>
+            <a   class="logo"><b>Patient Home</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -162,14 +160,14 @@ if (@$_SESSION['username'] != null ){
                         } else {
                             echo ' requested file is not found !';
                         }
-                    }else {
-                        echo '<form method="post" action="" onsubmit="return post();">
+                    }else                        {
+                        echo '<form  action="../../controllers/patient/commentcontroller.php" method="post"> 
         <div class="form-group">
                 <label class="col-md-4 control-label"></label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <textarea id="comment" rows="5" cols="80" placeholder="your comment" class="form-control"  type="text" required></textarea>
+                        <textarea name="comment" rows="5" cols="80" placeholder="your comment" class="form-control"  type="text" required></textarea>
                     </div>
                 </div>
             </div>
@@ -178,8 +176,7 @@ if (@$_SESSION['username'] != null ){
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
-                    <input type="submit" value="Post Comment" class="btn btn-warning">
-   
+<button type="submit" class="btn btn-warning" >Comment <span class="glyphicon glyphicon-send"></span></button>   
                 </div>
             </div>
         </form>
