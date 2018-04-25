@@ -8,30 +8,29 @@
 //$idcheck;
 //$globalll;
 //$_SESSION['CHECK'];
-
 if ($_POST) {
-
-
 
     if (isset($_POST["SUBMIT"]) AND $_POST["SUBMIT"] == "add") {
         include "../../models/Add.php";
 
         try {
-
+            include '../../models/list.php';
             @session_start();
             $_SESSION['username'] = 1;
             //  $dataa["vendorId"]= $_SESSION['username']; 
             $dataa["vendorId"] = $_SESSION['username'];
-            $dataa["itemId"] = $_POST["itemId"];
+            $data["itemName"] = $_POST["itemNAME"];
+            $listobjectee = new Display('items');
+            $l=$listobjectee->getRecordByusername($data['itemName'], 'items', 'id', 'name');
+            $dataa["itemId"]=$l[0];
+            $listobjecteee = new Display('offers');
+            $dataa["id"]=$listobjecteee->getbigestID()+1;
             $dataa["unitPrice"] = $_POST["unitPrice"];
             $dataa["description"] = $_POST["description"];
-
             $kiro = new Add($dataa, "offers");
         } catch (Exception $exc) {
             echo $exc->getMessage();
         }
-
-
         // header("location:../../views/employee/index.php?page=listInvoice");
         //die();
         if ($kiro)
@@ -75,11 +74,14 @@ if ($_POST) {
 
             $updateobject = new Display("offers");
             $dataforup = $updateobject->getAllDataByID($id);
+            $updateobjecct = new Display("items");
+            $dataforupp = $updateobjecct->getAllDataByID($dataforup[0][1]);
             // print_r($dataforup);
             //  array(4) { ["dataforup"]=> array(1) { [0]=> array(10) { ["id"]=> string(1) "0" [0]=> string(1) "0" ["itemId"]=> string(1) "1" [1]=> string(1) "1" ["unitPrice"]=> string(8) "10000000" [2]=> string(8) "10000000" ["description"]=> string(2) "hi" [3]=> string(2) "hi" ["vendorId"]=> string(1) "1" [4]=> string(1) "1" } } ["CHECK"]=> int(1) ["IDDD"]=> string(1) "3" ["ARRAY"]=> string(1) "1" } 
              @session_start();
+            $_SESSION['ITEMID'] =$dataforup[0][1];
             
-            $_SESSION['ITEMID'] = $dataforup[0][1];
+            $_SESSION['ITEMNAME'] = $dataforupp[0][1];
 
             $_SESSION['UNITPRICE'] = $dataforup[0][2];
 
@@ -104,7 +106,7 @@ if ($_POST) {
         try {
             @session_start();
           
-            $data['itemId'] = $_POST["itemId"];
+            $data['itemId'] =$_SESSION['ITEMID'];
             $data['unitPrice'] = $_POST["unitPrice"];
             $data['description'] = $_POST["description"];
             $mupdateobject = new Update($data, "offers");
@@ -122,13 +124,12 @@ if ($_POST) {
         die();
     }
 } else {
-
-
-
-
     include_once "../../models/list.php";
     $tablename = "offers";
     $listobject = new Display($tablename);
     $list = $listobject->getAllData();
+    $tablenamee = "items";
+    $listobjecte = new Display($tablenamee);
+    $liste = $listobjecte->getAllData();
 }
 ?>

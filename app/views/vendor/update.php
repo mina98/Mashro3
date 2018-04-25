@@ -33,7 +33,7 @@ echo "
 
  
   
-  <input   name='itemId' placeholder='item ID' class='form-control'  type='text' value='{$_SESSION['ITEMID']}'  >
+  <input   name='itemId' placeholder='item ID' class='form-control'  type='text' value='{$_SESSION['ITEMNAME']}' readonly>
  
  
   
