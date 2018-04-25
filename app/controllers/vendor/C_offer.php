@@ -123,6 +123,11 @@ if ($_POST) {
         header("location:../../views/vendor/index.php?page=requested");
         die();
     }
+     if (isset($_POST['submit']) AND $_POST['submit'] == "unconfirm")
+              {         include '../../models/Supply_Models.php';
+                    $delete=new Supply_Models('order_supply');
+                    $delete->deletRecordByID($_POST['Andrew']);
+                    @header("location:../../views/vendor/index.php?page=requested");}
 } else {
     include_once "../../models/list.php";
     $tablename = "offers";
