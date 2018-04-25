@@ -22,7 +22,7 @@
       
       <select name="itemNAME" class="form-control">
         <?php
-        include '../../controllers/vendor/C_offer.php';
+       include_once '../../controllers/vendor/C_offer.php';
        for ($i = 0; $i < count($liste); $i++) {
        echo '<option>'.$liste[$i]['name'].'</option>';}
         ?>

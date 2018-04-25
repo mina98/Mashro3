@@ -11,12 +11,12 @@
 if ($_POST) {
 
     if (isset($_POST["SUBMIT"]) AND $_POST["SUBMIT"] == "add") {
-<<<<<<< HEAD
-        include_once  "../../models/Add.php";
-
-        try {
-            include_once  '../../models/list.php';
-=======
+//<<<<<<< HEAD
+//        include_once  "../../models/Add.php";
+//
+//        try {
+//            include_once  '../../models/list.php';
+//=======
         include_once "../../models/Add.php";
         
        // $valid = new validator();
@@ -25,7 +25,7 @@ if ($_POST) {
             include_once '../../models/validator.php';
             $valid = new validator();
             include '../../models/list.php';
->>>>>>> e9da5c425eecccb83ce02ab223e3ae93a9dd125b
+//>>>>>>> e9da5c425eecccb83ce02ab223e3ae93a9dd125b
             @session_start();
             $_SESSION['username'] = 1;
             //  $dataa["vendorId"]= $_SESSION['username']; 

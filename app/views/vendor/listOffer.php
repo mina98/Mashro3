@@ -67,7 +67,7 @@
                                                 <?php
                      //    include '../../controllers/vendor/listoffers.php';
                                                 
-                     //include_once  '../../controllers/vendor/C_offer.php';
+                     include_once  '../../controllers/vendor/C_offer.php';
      for ($i = 0; $i < count($list); $i++) 
      {
           $a = $listobject->getRecordByID($list[$i]["itemId"],"items","name","id");

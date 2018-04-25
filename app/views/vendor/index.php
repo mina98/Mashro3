@@ -16,6 +16,8 @@ if (@$_SESSION['username'] != null ){
 
     <title>Home</title>
 
+  <section id="container" >
+      <!-- 
     <!-- Bootstrap core CSS -->
     <link href="../../../test-samer/assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
@@ -38,6 +40,10 @@ if (@$_SESSION['username'] != null ){
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
+                  
+    
+    
+    
       <!--header start-->
       <header class="header black-bg">
               <div class="sidebar-toggle-box">
@@ -56,7 +62,9 @@ if (@$_SESSION['username'] != null ){
                 <ul class="nav top-menu">
                    
                     <!-- settings end -->
-                    <!-- inbox dropdown start-->
+                    
+                        
+     <!-- inbox dropdown start-->
                     ';
                      include_once '../../controllers/notfiyyyyyyyy.php';
                      
@@ -74,9 +82,6 @@ if (@$_SESSION['username'] != null ){
                                     <span class="subject">
                                     <span class="from">Admin</span>
                                  ';
-    
-    
-   
      echo"
         
                                     <span class='message' style='overflow:auto ; display:block ' >
@@ -87,6 +92,11 @@ if (@$_SESSION['username'] != null ){
                             </li>";
          }
                          echo '  
+                        </ul>
+                    </li>
+                    <!-- inbox dropdown end -->
+                </ul>
+                          
                         </ul>
                     </li>
                     <!-- inbox dropdown end -->

@@ -27,7 +27,7 @@ if($_POST['userType']=='Employee')
      $_SESSION['USERTYPE']=$data['usertype'];
      $data['message']=$_POST['message'];
     $data['see']='f';
-    @new Add($data, "notificatin");
+    @new Add($data, "notification");
     header("location:../../views/admin/index.php");
     }
           catch (Exception $exc) {
