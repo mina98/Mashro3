@@ -151,6 +151,7 @@ if (@$_SESSION['username'] != null) {
                                                                         
                                     </tr>
                              ";
+            $check[$i]  =$data[$i]['Day'];
         }
         echo' <form action="../../controllers/doctor/appoimentController.php" method="post" >';
         echo '
@@ -158,16 +159,104 @@ if (@$_SESSION['username'] != null) {
     <tr>
                     <td>
                     <select name="Day" class="form-control selectpicker" >
+                    ';
+        
+        $flg=0;
+          for ($i = 0; $i < count($data); $i++) {
+            
+              if($check[$i]=='Saturday'){
+                  $flg=1;
+                break 1;
+          }
+              else{$flg=0;
+                  }
+          }
+        
+        if($flg==0){
+        echo'
+        <option value="Saturday" >Saturday</option>';}
+                $flg=0;
+          for ($i = 0; $i < count($data); $i++) {
+            
+              if($check[$i]=='Sunday'){
+                  $flg=1;
+                break 1;
+          }
+              else{$flg=0;
+                  }
+          }
+        
+        if($flg==0){
+       echo ' <option value="Sunday">Sunday</option>';}
+                $flg=0;
+          for ($i = 0; $i < count($data); $i++) {
+            
+              if($check[$i]=='Monday'){
+                  $flg=1;
+                break 1;
+          }
+              else{$flg=0;
+                  }
+          }
+        
+        if($flg==0){
+        echo'<option value="Monday">Monday</option>';}
+                $flg=0;
+          for ($i = 0; $i < count($data); $i++) {
+            
+              if($check[$i]=='Tuesday'){
+                  $flg=1;
+                break 1;
+          }
+              else{$flg=0;
+                  }
+          }
+        
+        if($flg==0){
+        echo '<option value="Tuesday">Tuesday</option>';}
+                $flg=0;
+          for ($i = 0; $i < count($data); $i++) {
+            
+              if($check[$i]=='Wednesday'){
+                  $flg=1;
+                break 1;
+          }
+              else{$flg=0;
+                  }
+          }
+        
+        if($flg==0){
+        echo '<option value="Wednesday">Wednesday</option>';}
+                $flg=0;
+          for ($i = 0; $i < count($data); $i++) {
+            
+              if($check[$i]=='Thursday'){
+                  $flg=1;
+                break 1;
+          }
+              else{$flg=0;
+                  }
+          }
+        
+        if($flg==0){
+        echo '<option value="Thursday">Thursday</option>';}
+                $flg=0;
+          for ($i = 0; $i < count($data); $i++) {
+            
+              if($check[$i]=='Friday'){
+                  $flg=1;
+                break 1;
+          }
+              else{$flg=0;
+                  }
+          }
+        
+        if($flg==0){
+        echo '<option value="Friday">Friday</option>';}
+        echo '
+    </select></td>';
 
-        <option value="Saturday" >Saturday</option>
-        <option value="Sunday">Sunday</option>
-        <option value="Monday">Monday</option>
-        <option value="Tuesday">Tuesday</option>
-        <option value="Wednesday">Wednesday</option>
-        <option value="Thursday">Thursday</option>
-        <option value="Friday">Friday</option>
-    </select></td>
-    
+        echo'
                                     <td>                <select name="appoint" class="form-control selectpicker" >
 
         <option value="8:12" >8:12</option>

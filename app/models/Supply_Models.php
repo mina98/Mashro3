@@ -90,7 +90,8 @@ class Supply_Models extends abastractConnect {
         } else if ($choose == '5') {
             $sql = "select A.Day,U.username ,A.appoint from `$this->tablename` AS AP INNER JOIN `users` AS U ,`appointment` AS A Where AP.patientid=U.id AND U.type='5' AND AP.appoint=A.id  ";
         } else if ($choose == '6') {
-            $sql = "select  A.Day ,A.appoint ,U.name,A.id from `$this->tablename` AS A  INNER JOIN `users` AS U  Where A.doctorid=U.id And A.patientlimit>A.patientnum";
+            $sql = "select  A.Day ,A.appoint ,U.name,A.id from `$this->tablename` AS A  INNER JOIN `users` AS U  Where A.doctorid=U.id And A.patientlimit>A.patientnum  ";
+            //select  A.Day ,A.appoint ,U.name,A.id from `appointment` AS A  INNER JOIN `users` AS U ,`appo` AS Ap  Where A.doctorid=U.id And A.patientlimit>A.patientnum And Ap.appoint != 3
         } else if ($choose == '7') {
             $sql = "select A.appoint, U.name ,A.Day  from `$this->tablename` AS AP INNER JOIN `users` AS U ,`appointment` AS A where AP.patientid=$user AND AP.appoint=A.id AND A.doctorid=U.id";
         } else if ($choose == '8') {
