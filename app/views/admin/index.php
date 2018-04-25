@@ -3,7 +3,8 @@
 session_start();
 //print_r($_SESSION);
 if (@$_SESSION['username'] != null ){
-     echo '
+  
+    echo '
 
 
 
@@ -118,7 +119,16 @@ if (@$_SESSION['username'] != null ){
                         
                          
                       </ul>
-                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-cogs"></i>
+                          <span>Notification</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="?page=notifyy">Notify</a></li>
+                        
+                         
+                      </ul>
 
               </ul>
               <!-- sidebar menu end-->

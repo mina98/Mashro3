@@ -1,7 +1,7 @@
 <?php
 
 
-include 'abastractConnect.php';
+include_once  'abastractConnect.php';
 
 class Login extends abastractConnect {
 

@@ -7,7 +7,7 @@
  */
 @session_start();
   if ($_POST){
-    include '../../models/Add.php';
+      include_once  '../../models/Add.php';
      $data['name'] = $_SESSION['username'];
      $data['comment'] = $_POST['comment'];
     try {
@@ -23,7 +23,7 @@
     }
 }
 
-include '../../models/list.php';
+include_once  '../../models/list.php';
 $tablename= "commentt" ;
 $addSecDis=   new Display($tablename);
 $find_comment =$addSecDis->getAllData();

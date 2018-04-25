@@ -57,20 +57,17 @@
 		<table class="order-table">
 			<thead>
 				<tr>
-					<th>id</th>
-					<th>item</th>
-                                        <th>uint price</th>
-                                        <th>description</th>
-					<th>Actions</th>
+					<th>message</th>
+					
 				</tr>
 			</thead>
                                                 <?php
                      //    include '../../controllers/vendor/listoffers.php';
                                                 
-                     //include_once  '../../controllers/vendor/C_offer.php';
-     for ($i = 0; $i < count($list); $i++) 
-     {
-          $a = $listobject->getRecordByID($list[$i]["itemId"],"items","name","id");
+                     include_once  '../../controllers/notfiyyyyyyyy.php';
+     
+     
+        //  $a = $listobject->getRecordByID($list[$i]["itemId"],"items","name","id");
         echo" 
 			<tbody>
                           
@@ -78,23 +75,16 @@
                            
                              
 				<tr>
-					<td>{$list[$i]['id']}</td>
-					<td>{$a}</td>
-					<td>{$list[$i]['unitPrice']}</td>
-					<td>{$list[$i]['description']}</td>
-					 <td>
-                                         <form action='../../controllers/vendor/C_offer.php' method=post>
-                                         <input hidden='' name = 'rmid' value = {$list[$i]['id']}>
-                                           <input type = 'submit' name='submit' value='delete'>
-                                            <input type = 'submit' name='submit' value='update'>
-                                       </form>
+					<td>{$datanot[1]}</td>
+				
+					
                                                 </td>
                                                 
 				</tr>
     
 			</tbody>
                         ";
-      } ?>
+      ?>
 		</table>
 	</section>
 	

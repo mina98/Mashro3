@@ -96,6 +96,10 @@ class Supply_Models extends abastractConnect {
         } else if ($choose == '8') {
             $sql="select * from `$this->tablename` AS A where A.id=$user";
         }
+        else if ($choose == '9') 
+            {
+            $sql="select * from `$this->tablename` As A where A.usertype = $user";
+            }
         $query = $this->db->conn->prepare($sql);
 
         $query->execute();

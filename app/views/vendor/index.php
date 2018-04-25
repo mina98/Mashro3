@@ -52,6 +52,45 @@ if (@$_SESSION['username'] != null ){
                    
                     <!-- settings end -->
                 </ul>
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                   
+                    <!-- settings end -->
+                    <!-- inbox dropdown start-->
+                    ';
+                     include_once '../../controllers/notfiyyyyyyyy.php';
+                     
+                     echo '
+                    <li id="header_inbox_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge bg-theme">'.$len.'</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <div class="notify-arrow notify-arrow-green"></div>';
+                            
+                    for($i=0;$i<count($datanot);$i++){        echo'  <li>
+                                <a>
+                                    <span class="subject">
+                                    <span class="from">Admin</span>
+                                 ';
+    
+    
+   
+     echo"
+        
+                                    <span class='message' style='overflow:auto ; display:block ' >
+                                        {$datanot[$i]['message']}
+                                    </span><br />
+    
+                                </a>
+                            </li>";
+         }
+                         echo '  
+                        </ul>
+                    </li>
+                    <!-- inbox dropdown end -->
+                </ul>
                 <!--  notification end -->
             </div>
             <div class="top-menu">
@@ -104,7 +143,7 @@ if (@$_SESSION['username'] != null ){
                           <i class="fa fa-dashboard"></i>
                           <span>reports</span>
                       </a>
-                  </li>
+            
                   
 
               </ul>
@@ -126,7 +165,7 @@ if (@$_SESSION['username'] != null ){
                    if (@$_GET['page']) {
                         $url = $_GET['page'] . ".php";
                         if (is_file($url)) {
-                            include $url;
+                            include_once  $url;
                         } else {
                             echo 'requested file is not found !';
                         }

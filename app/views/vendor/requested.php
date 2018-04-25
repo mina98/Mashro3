@@ -62,7 +62,7 @@
 			</thead>
 			<tbody>
 			<?php
-        include "../../controllers/vendor/listorders.php";
+        include_once  "../../controllers/vendor/listorders.php";
         $j=1;
     for ($i = 0; $i < count($listreq); $i++) {
         if($listreq[$i]['adminConfirm'] == 'F' && $listreq[$i]['vendorConfirm']== 'F' &&$_SESSION['id']==$listreq[$i]['vendorId']){

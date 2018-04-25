@@ -19,7 +19,7 @@
       <input type="submit" name="ADD" value="AddAnother">
       <input type="submit" name="DEL" value="Delete">     
 <?php
-   include '../../controllers/employee/C_invoice.php';
+   include_once '../../controllers/employee/C_invoice.php';
     echo '<tr>
         <td> <select name="itemNAME" >';
        for ($i = 0; $i < count($BannerDataDisplaay); $i++) {

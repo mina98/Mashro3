@@ -1,6 +1,6 @@
 <?php
 //include "../../views/admin/index.php";
-include '../../models/Supply_Models.php';
+include_once '../../models/Supply_Models.php';
 
         $tablename="offers";
     	$displaypage=new Supply_Models($tablename);  

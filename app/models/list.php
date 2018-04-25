@@ -71,7 +71,7 @@ class Display extends abastractConnect {
      function getRecordByyID($id,$tablenam,$col,$foriegn) {
         $id = intval($id);
         if($col=="*"){
-        $sql = "SELECT $col FROM `$tablenam` WHERE `$foriegn`= $id";
+        $sql = "SELECT $col FROM `$tablenam` WHERE `$foriegn`='2'";
         }
         else {
             $sql = "SELECT `$col` FROM `$tablenam` WHERE `$foriegn`= $id";
@@ -135,6 +135,16 @@ class Display extends abastractConnect {
        
         return $data;
     }
+    function getAllDataByusertype($usertype,$tablename) {  // (5 , "sectionID")
+        //SELECT id FROM `users` WHERE `username`= "kiro";
+        $sql = "SELECT * FROM `$tablename` WHERE `usertype`= '$usertype' order by `id` DESC";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $data = $query->fetchAll();
+       
+        return $data;
+    }
+    
 
 }
 

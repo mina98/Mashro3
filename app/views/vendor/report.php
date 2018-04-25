@@ -6,4 +6,7 @@
  * and open the template in the editor.
  */
 
-echo 'welocome from report' ;
+  include_once  '../../controllers/notfiyyyyyyyy.php';
+   var_dump($datanot);      
+ 
+     ?>

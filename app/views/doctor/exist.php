@@ -65,7 +65,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                include "../../controllers/doctor/medicineController.php";
+                                include_once  "../../controllers/doctor/medicineController.php";
                                 for ($i = 0; $i < count($BannerDataDisplay); $i++) {
                                     echo "            
                 <tr>

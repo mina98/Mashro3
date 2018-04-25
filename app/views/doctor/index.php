@@ -92,7 +92,7 @@ if (@$_SESSION['username'] != null) {
                   </li>
                   <li class="mt">
                       <a href="Comment.php">
-                          <i class="fa fa-dashboard"></i>
+                          <i class="fa fa-envelope-o"></i>
                           <span>Comment</span>
                       </a>
                   </li>
@@ -126,8 +126,6 @@ if (@$_SESSION['username'] != null) {
         include_once "../../controllers/doctor/appoimentController.php";
         echo'                       <h1 Style="text-align:center";>Reserving page</h1>
 
-                            <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer" />
-                       
                         <div Style="text-align:center";>        
                     <section class="table-box">
                         <table border="3" class="table" Style="text-align:center">
@@ -192,7 +190,6 @@ if (@$_SESSION['username'] != null) {
 
         echo' <h2 Style="text-align:center";>Person Reserving</h1>
 
-    <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer" />
                        
                         <div Style="text-align:center";>        
                     <section class="table-box">

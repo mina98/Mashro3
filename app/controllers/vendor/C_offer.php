@@ -11,10 +11,10 @@
 if ($_POST) {
 
     if (isset($_POST["SUBMIT"]) AND $_POST["SUBMIT"] == "add") {
-        include "../../models/Add.php";
+        include_once  "../../models/Add.php";
 
         try {
-            include '../../models/list.php';
+            include_once  '../../models/list.php';
             @session_start();
             $_SESSION['username'] = 1;
             //  $dataa["vendorId"]= $_SESSION['username']; 
@@ -43,7 +43,7 @@ if ($_POST) {
 
 
     if (isset($_POST["submit"]) AND $_POST["submit"] == "delete") {
-        include '../../models/Delete.php';
+        include_once  '../../models/Delete.php';
         try {
             $tablename = "offers";
             $id = $_POST['rmid'];
@@ -65,7 +65,7 @@ if ($_POST) {
         //@header("location:../../views/vendor/index.php?page=updateoffer");
         // echo 'iuuuuuuuuuuuuuu' ;
 
-        include '../../models/list.php';
+        include_once  '../../models/list.php';
         try {
            
 
@@ -117,7 +117,7 @@ if ($_POST) {
         header("location:../../views/vendor/index.php?page=listOffer");
     }
     if (isset($_POST["submit"]) AND $_POST["submit"] == "confirm") {
-        include "../../models/Delete.php";
+        include_once  "../../models/Delete.php";
         $updatess = new Delete('order_supply');
         $updates = $updatess->updateRecordByID($_POST['Andrew'], 'vendorConfirm', 'T', 'id');
         header("location:../../views/vendor/index.php?page=requested");

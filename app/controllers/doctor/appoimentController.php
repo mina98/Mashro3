@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-include "../../models/Supply_Models.php";
+include_once "../../models/Supply_Models.php";
 @session_start();
 /* <td>{$data[$i]['Day']}</td>;
   <td>{$data[$i]['appoint']}</td>;

@@ -4,7 +4,7 @@
   //include "../models/list.php";
  @session_start(); 
 if ($_POST) {
-     include "../../models/Addinvoice.php";
+    include_once "../../models/Addinvoice.php";
     if (isset($_POST["SUBMIT"]) AND $_POST["SUBMIT"] == "submit") {
 
         try {
@@ -46,13 +46,13 @@ if (isset($_POST["DEL"]) AND $_POST["DEL"] == "Delete") {
 
     header("Location:../../views/employee/index.php?page=addInvoice"); 
 }
-      include '../../views/employee/GeneretePdf.php';
+include_once  '../../views/employee/GeneretePdf.php';
       unset($_POST);
       //die();
 }
 else {
     // display exist invices  
-    include '../../models/list.php';
+    include_once '../../models/list.php';
     $tablename = "invoices";
     $displaybanner = new Display($tablename);
     $BannerDataDisplay = $displaybanner->getAllData();
