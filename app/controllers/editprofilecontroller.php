@@ -17,16 +17,61 @@ if($_POST){
      if (isset($_POST['submit']) && $_POST['submit'] == "save")
      {
         include '../models/Update.php';
+        
+        include_once '../models/validator.php';
+        $valid = new validator();
+        
+        
          $SecDataedit['id'] = $_POST ['idd'];
-         $SecDataedit['name']     = $_POST['name'];
+         if($valid->checkChar($_POST['name'], 'name')==TRUE)
+         {
+             $SecDataedit['name']     = $_POST['name'];
+         }
+         else
+         {
+              echo '<script type="text/javascript"> alert("name not valid !"); history.back();</script>';
+            
+         }
+         
+         
          if($_POST['passwordagain1']==''){
-             $SecDataedit['password']    = $_POST['password'];
+             
+             
+             if($valid->checkPasswordlength($_POST['password'], 'password')== TRUE && $valid->checkStings($_POST['password'], 'password')==TRUE)
+         {
+             $SecDataedit['password']     = $_POST['password'];
+         }
+         else
+         {
+              echo '<script type="text/javascript"> alert("passsword  not valid !"); history.back();</script>';
+            
+         }
          }
          else{
          $SecDataedit['password']    = $_POST['passwordagain1'];
          }
-         $SecDataedit['email'] = $_POST['email'];
-         $SecDataedit['adress'] = $_POST['address'];
+         
+         if($valid->checkEmail($_POST['email'], 'email')==TRUE)
+         {
+             $SecDataedit['email']  = $_POST['email'];
+         }
+         else
+         {
+              echo '<script type="text/javascript"> alert("email not valid !"); history.back();</script>';
+         }
+         
+         
+          if($valid->checkStings($_POST['address'], 'adress')==TRUE )
+         {
+             $SecDataedit['adress']     = $_POST['address'];
+         }
+         else
+         {
+              echo '<script type="text/javascript"> alert("adresss not valid !"); history.back();</script>';
+            
+         }
+         
+         //$SecDataedit['adress'] = $_POST['address'];
          //$isd=$SecDataedit['id']; 
          if(isset($_FILES)){
              $filename = $_FILES['image']['name'];
@@ -40,7 +85,7 @@ if($_POST){
          else{
               $SecDataedit['image']= $recSecdata['image'];
          }
-         print_r($SecDataedit);
+         //print_r($SecDataedit);
          try {                        
             $tablename = "users";
             $SecUpdate = new Update($SecDataedit, $tablename);

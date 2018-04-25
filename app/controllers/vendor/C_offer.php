@@ -11,10 +11,21 @@
 if ($_POST) {
 
     if (isset($_POST["SUBMIT"]) AND $_POST["SUBMIT"] == "add") {
+<<<<<<< HEAD
         include_once  "../../models/Add.php";
 
         try {
             include_once  '../../models/list.php';
+=======
+        include_once "../../models/Add.php";
+        
+       // $valid = new validator();
+
+        try {
+            include_once '../../models/validator.php';
+            $valid = new validator();
+            include '../../models/list.php';
+>>>>>>> e9da5c425eecccb83ce02ab223e3ae93a9dd125b
             @session_start();
             $_SESSION['username'] = 1;
             //  $dataa["vendorId"]= $_SESSION['username']; 
@@ -26,7 +37,15 @@ if ($_POST) {
             $listobjecteee = new Display('offers');
             $dataa["id"]=$listobjecteee->getbigestID()+1;
             $dataa["unitPrice"] = $_POST["unitPrice"];
-            $dataa["description"] = $_POST["description"];
+            
+             if ($valid->checkStings($_POST["description"],'description') == TRUE)
+            {
+                  $dataa["description"] = $_POST["description"];
+            }else{
+                echo '<script type="text/javascript"> alert("must be string !"); history.back();</script>';
+            }
+           
+           
             $kiro = new Add($dataa, "offers");
         } catch (Exception $exc) {
             echo $exc->getMessage();
@@ -123,6 +142,11 @@ if ($_POST) {
         header("location:../../views/vendor/index.php?page=requested");
         die();
     }
+     if (isset($_POST['submit']) AND $_POST['submit'] == "unconfirm")
+              {         include '../../models/Supply_Models.php';
+                    $delete=new Supply_Models('order_supply');
+                    $delete->deletRecordByID($_POST['Andrew']);
+                    @header("location:../../views/vendor/index.php?page=requested");}
 } else {
     include_once "../../models/list.php";
     $tablename = "offers";

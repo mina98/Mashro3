@@ -104,6 +104,7 @@ class Display extends abastractConnect {
     function getAllDataByID($id, $column = "id") {  // (5 , "sectionID")
         $id = intval($id);
         $sql = "SELECT * FROM `$this->tablename` WHERE `$column`= $id ORDER By `id` ASC";
+        echo $sql;
         $query = $this->db->conn->prepare($sql);
         $query->execute();
         $data = $query->fetchAll();
@@ -146,6 +147,17 @@ class Display extends abastractConnect {
     }
     
 
-}
+
+    function getAllDataBynameofmed($id, $column = "id") {  // (5 , "sectionID")
+        
+        $sql = "SELECT * FROM `$this->tablename` WHERE `$column`= '$id' ORDER By `id` ASC";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $data = $query->fetchAll();
+       
+        return $data;
+    }
+    }
+
 
 ?>

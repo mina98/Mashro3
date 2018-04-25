@@ -5,13 +5,15 @@
 if ($_POST) {
     // Login
     if (isset($_POST['submit']) AND $_POST['submit'] == "Login") {
-        include "../models/Login.php";
-/*
+        include '../models/Login.php';
+        
         try {
-            // validator => $_POST # $rules ;
-            $valid = new Validator();            
-            $rules = array("username" => "checkStings");
+            include_once  '../models/validator.php';
             
+            // validator => $_POST # $rules ;
+            $valid = new validator();            
+            $rules = array("username" => "checkStings");
+           // $rules = array("password" => "checkPassword");
             if($valid->validate($_POST, $rules))
                 $username = $_POST['username'];
             
@@ -21,9 +23,9 @@ if ($_POST) {
             echo $exc->getMessage();
             die();
         }
-*/
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+
+//            $username = $_POST['username'];
+  //          $password = $_POST['password'];
       
         try {
             
@@ -38,8 +40,8 @@ if ($_POST) {
                          @$_SESSION['username'] = $username;
                          
                          @$_SESSION['id'] = $role["id"];
-                         @$_SESSION['image'] = $role ["image"];
-                         
+                        
+                
                      if ($role["type"] == 1)
                      {
                           $_SESSION['type'] = "admin";
@@ -48,7 +50,8 @@ if ($_POST) {
                      }else if ($role["type"] == 2)
                      {
                          $_SESSION['type'] = "employee";
-                        header("Location:../views/employee/index.php"); 
+                         $_SESSION['num'] =0;
+                         header("Location:../views/employee/index.php"); 
 
                      }else if ($role["type"] == 3)
                      {
@@ -87,60 +90,60 @@ if ($_POST) {
     }
     // Register
      if (isset($_POST['submit']) AND $_POST['submit'] == "Register") {
-        include "../models/Register.php";
-  
-/*
- * 
+        
+         include_once '../../models/abastractConnect.php';
+         include_once '../../models/validator.php';
+         //$valid = new validator();
+        include_once  '../models/Register.php';
+       
+         
         try {
-            // validator => $_P0OST # $rules ;
-            $valid = new Validator();
-
-            $data['name'] = $_POST['name'];
-            $data['email'] = $valid->sanitizeItem($_POST['email'], 'email');
-            $data['username'] = $_POST['username'];
-            $data['password'] = $_POST['password'];
-
-            $rules = array(
-                "name" => "checkRequired|checkStings",
-                "email" => "checkRequired|checkEmail",
-                "username" => "checkRequired|checkStings",
-                "password" => "checkRequired"
-            );
-            if (!$valid->validate($data, $rules))
-                die();
-        } catch (Exception $exc) {
-            echo $exc->getMessage();
-            die();
-        }
- * 
- */
-    //`id`, `name`, `username`, `password`, `adress`, `email`, `image`, `type`
-
+          
             $data['name']      = $_POST['name'];
             $data['username']  = $_POST['username'];
             $data['password']  = $_POST['password'];
             $data['adress']    = $_POST['adress'];
-            $data['email']     = $_POST['email']; 
-            $data['image'] = '../../../test-samer/assets/img/face.png'; 
-          //  $data['type'] = '3';
-          
-            $_SESSION['EMAIL']=$_POST['email']; 
+            $data['email']     = $_POST['email'];
+            
+            $rules = array(
+                
+                
+                "name" => "checkRequired|checkChar", 
+                "username" => "checkRequired|checkStings|checkusername",
+                "password" => "checkRequired|checkPasswordlength",
+                "email" => "checkRequired|checkEmail"
+            );
+          //  echo $valid->checkusername($data["username"]);
+            $valid = new validator;
+           if ($valid->validate($_POST, $rules) == FALSE)
+           {   
+               header("location:../views/loginview.php");
+              // die();
+           }
+           else
+           {
+              $_SESSION['EMAIL']=$_POST['email']; 
             $_SESSION['UERname']=$_POST['username'];
-           
+       
         try {
-           
+            //
             new Register($data);
-            include './C_Email.php';
+           include_once './C_Email.php';
              header("location:../views/loginview.php"); 
         }
         catch (Exception $exc) {
           echo"dsdd";
             echo $exc->getMessage();
         }
-        
-          
-    }
-} else {
+           }
+                    
+        }catch (Exception $exc) {
+            echo $exc->getMessage();
+            //die();
+        }
+     }
+         
+}else {
    include "../views/loginview.php";
 }
 ?>

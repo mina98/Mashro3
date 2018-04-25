@@ -1,22 +1,5 @@
 <?php
  include '../../controllers/admin/reportController.php';
-  for ($i = 0; $i < count($dataa); $i++){
-      $dataPoints[$i] = array("label"=>$dataa[$i]['name'] , "y"=> ($dataa[$i]['soldMount']/$dataa[$i]['existMount']));
-      $dataPointss[$i]=array("y" => $dataa[$i]['existMount'], "label" => $dataa[$i]['name'] );    
-  }
-   for($i=0;$i < count($dataaa);$i++){
-       $counts[$i]=0;
-   }
-  for($i=0;$i < count($dataaa);$i++){
-    for($j=0;$j < count($dataaall);$j++){
-        if($dataaall[$j]["invoiceDate"]==$dataaa[$i]["invoiceDate"]){
-         $counts[$i]++;  
-        }
-    }
-}
-    for($i=0;$i < count($dataaa) && $i<10 ;$i++){  
-       $dataPointsss[$i]=array("y" =>$counts[$i], "label" => $dataaa[$i]['invoiceDate']);         
-    }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -79,13 +62,30 @@ var charttt = new CanvasJS.Chart("chartContainerrr", {
 	}]
 });
 charttt.render(); 
+var charttts = new CanvasJS.Chart("chartContainerrrs", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Selles at last 12 Mounth"
+	},
+	axisY: {
+		title: "Soled"
+	},
+	data: [{
+		type: "column",
+		yValueFormatString: "#,##0.## Piece",
+		dataPoints: <?php echo json_encode($dataPointsssp, JSON_NUMERIC_CHECK); ?>
+	}]
+});
+charttts.render(); 
 }
 </script>
 </head>
 <body>
-<div id="chartContainerr" style="height: 370px; width: 100%;"></div>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
-<div id="chartContainerrr" style="height: 370px; width: 100%;"></div>
+<div id="chartContainerrrs" style="height: 370px; width: 100%; margin-bottom: 50px;"></div>
+<div id="chartContainerr" style="height: 370px; width: 100%;margin-bottom: 50px;"></div>
+<div id="chartContainer" style="height: 370px; width: 100%;margin-bottom: 50px;"></div>
+<div id="chartContainerrr" style="height: 370px; width: 100%;margin-bottom: 50px;"></div>
 <script src="../../../canvasjs.min.js"></script>
 </body>
 </html>

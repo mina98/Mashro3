@@ -10,8 +10,21 @@ if(@isset($_POST['submit']) && $_POST['submit']=="send"){
     include '../../models/Update.php';
     $li=new Display("items");
     
+    include_once '../../models/validator.php';
+    $valid = new validator() ;
+    
     @$addMedicine['id']=$_POST['id'];
-    @$addMedicine['name']=$_POST['item_name'];
+    
+     if($valid->checkChar($_POST['item_name'], 'name')==TRUE)
+         {
+            @$addMedicine['name']= $_POST['item_name'];
+         }
+         else
+         {
+              echo '<script type="text/javascript"> alert("name not valid !"); history.back();</script>';
+            
+         }
+    
     
     if(($arr=$li->getAllDataByID($addMedicine['id']))!=NULL){
         //echo '<pre>';

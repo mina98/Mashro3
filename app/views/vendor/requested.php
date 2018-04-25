@@ -76,7 +76,7 @@
                     <td>{$listreq[$i]['mount']}</td>
                     <td>{$listreq[$i]['Price']}</td>
                     <td>
-                     <input type = 'submit' name='submit' value='confirm'>
+                     <input type = 'submit' name='submit' value='confirm'><input type='submit' class='con' name  ='submit'value='unconfirm'></td>
                      <input type=text  style='display:none; ' name='Andrew' value=$IID>
                      </form>
                      </td>

@@ -26,7 +26,13 @@ if ($_POST)
         $data2['appoint'] = $_POST["appoint"];
         $data2['patientlimit'] = $_POST["patientlimit"];
         $data2['patientnum'] = 0;
-        $getdata->AddData($data2);
+        include '../../models/validator.php';
+        $n=new validator();
+        
+        if($n->checkInteger($_POST["patientlimit"] ))
+            {$getdata->AddData($data2);
+        }
+else{echo 'dddddddddddddddddddddd';}
         $data = $getdata->getAllDataBy(4, $username);
         @header('location:../../views/doctor');
     }
