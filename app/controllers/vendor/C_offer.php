@@ -119,7 +119,7 @@ if ($_POST) {
     if (isset($_POST["submit"]) AND $_POST["submit"] == "confirm") {
         include "../../models/Delete.php";
         $updatess = new Delete('order_supply');
-        $updates = $updatess->updateRecordByID($_POST['id'], 'vendorConfirm', 'T', 'id');
+        $updates = $updatess->updateRecordByID($_POST['Andrew'], 'vendorConfirm', 'T', 'id');
         header("location:../../views/vendor/index.php?page=requested");
         die();
     }

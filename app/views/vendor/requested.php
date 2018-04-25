@@ -40,13 +40,10 @@
           	</div>
 			
   <div id="f-accordion">
-    <h3><i class="fa fa-tasks"></i> List Users</h3>
+    <h3><i class="fa fa-tasks"></i> List Orders</h3>
   <div>
   
-    <p>
-    show all medicine we have
-    </p>
-	
+
 	<aside class="alert success">
   <p><i class="icon fa fa-envelope-o"></i> Roger Roger, Message Received. <i class="close fa fa-times"></i></p>
 </aside><!-- end alert -->
@@ -73,24 +70,26 @@
 			<tbody>
 			<?php
         include "../../controllers/vendor/listorders.php";
+        $j=1;
     for ($i = 0; $i < count($listreq); $i++) {
-        if($listreq[$i]['adminConfirm'] == 'F' && $listreq[$i]['vendorConfirm']== 'F'){
+        if($listreq[$i]['adminConfirm'] == 'F' && $listreq[$i]['vendorConfirm']== 'F' &&$_SESSION['id']==$listreq[$i]['vendorId']){
          $Name= $listreqe->getRecordByID($listreq[$i]["itemId"],"items","name","id");
           $IID=$listreq[$i]['id'];
          echo "            
                 <tr>
-                     <form action='../../controllers/vendor/Add&deleteofferControler.php' method=post>
-                    <td><input type ='text' name = 'id' value= '$IID' readonly  style='border:none;'></td>
+                     <form action='../../controllers/vendor/C_offer.php' method=post>
+                    <td><input type ='text' name = 'id' value= '$j' readonly  style='border:none;'></td>
                     <td>{$Name}</td>
                     <td>{$listreq[$i]['mount']}</td>
                     <td>{$listreq[$i]['Price']}</td>
                     <td>
                      <input type = 'submit' name='submit' value='confirm'>
+                     <input type=text  style='display:none; ' name='Andrew' value=$IID>
                      </form>
                      </td>
                 </tr>
             ";
-        
+         $j++;
         }
        }
     ?>

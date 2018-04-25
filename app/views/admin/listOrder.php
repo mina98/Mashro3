@@ -47,12 +47,8 @@
           	</div>
 			
   <div id="f-accordion">
-    <h3><i class="fa fa-tasks"></i> List Users</h3>
+    <h3><i class="fa fa-tasks"></i> List Orders</h3>
   <div>
-  
-    <p>
-    show all medicine we have
-    </p>
 	
 	<aside class="alert success">
   <p><i class="icon fa fa-envelope-o"></i> Roger Roger, Message Received. <i class="close fa fa-times"></i></p>
@@ -70,11 +66,10 @@
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>itemid</th>
-					<th> amount</th>
+					<th>item</th>
+					<th>amount</th>
                                         <th>price</th>
-                                        <th>vendor Id</th>
-                                        <th>offer id</th>
+                                        <th>vendor</th>
 					<th>Confirm order Arrived</th>
                                         
                                        
@@ -84,25 +79,27 @@
 			<?php
                         //`id`, `itemId`, `mount`, `Price`, `vendorId`, `offerId`
                     include "../../controllers/admin/ListControllers.php";
-                        for ($i = 0; $i < count($data); $i++)
-                       echo "
+                    $j=1;    
+                    for ($i = 0; $i < count($data); $i++)
+                    {echo "
                            <tr>
                       		<form action = '../../controllers/admin/ListControllers.php' method ='post'>			
             
-                                        <td>{$data[$i]['id']}</td>
-					<td>{$data[$i]['itemId']}</td>
+                                        <td>$j</td>
+					<td>{$dataan[$i]}</td>
 					
 					<td>{$data[$i]['mount']}</td>
                                         <td>{$data[$i]['Price']}</td>
-                                        <td>{$data[$i]['vendorId']}</td>
-                                        <td>{$data[$i]['offerId']}</td>
+                                        <td>{$dataa[$i]}</td>
                                         <td><input type='submit' class='con' name ='submit' value='confirm'><input type='submit' class='con' name  ='submit'value='unconfirm'></td>
                                         <input type=text  style='display:none; ' name='Andrew' value= {$data[$i]['id']}>
-                                                 
+                                        <input type=text  style='display:none; ' name='Andrews' value= {$data[$i]['mount']}> 
+                                        <input type=text  style='display:none; ' name='Andrewss' value= {$dataaan[$i]}>
+                                        <input type=text  style='display:none; ' name='Andrewsss' value= {$dataaaan[$i]}>    
                                         </form>
 				</tr>
-			"
-                        	
+			";
+                   $j++; }	
                         
                         ?></tbody>
 		</table>
