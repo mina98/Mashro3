@@ -61,9 +61,10 @@
 	<section class="table-box">
         <?php
             include_once '../../models/abastractConnect.php';
-            include_once  '../../models/list.php';
+            include_once '../../models/list.php';
             $li =new Display("items");
             $arr =$li->getAllData();
+            $li->close();
         ?>
 		<table class="order-table">
 			<thead>
@@ -78,6 +79,7 @@
 			<tbody>
                         
                             <?php
+                                 
                             for($i=0;@$arr[$i]['id']!=NULL;$i++){
                             echo "<tr>";
                                     echo "<td>{$arr[$i]['id']}</td>";
@@ -87,8 +89,8 @@
                                         
                                     echo "<td>
                                         <form method='post' action=''>
-                                            <input class='hide' value='{$arr[$i]['id']}' name='id[]'>
-                                            <input class='input btn-group' type='text' placeholder='Amount' name='amount[]' required>
+                                            <input class='hide' value='{$arr[$i]['name']}' name='name'>
+                                            <input class='input btn-group' type='text' placeholder='Amount' name='amount' required>
                                             <input type='submit' class='btn' value='pay' name='pay'>
                                         </form>
                                     </td>";

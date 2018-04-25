@@ -34,7 +34,6 @@ class Display extends abastractConnect {
         $query = $this->db->conn->prepare($sql);
         $query->execute();
         $data = $query->fetch();
-
         return $data;
     }
     function getLastUNEEDDESC($num) {
@@ -104,12 +103,19 @@ class Display extends abastractConnect {
     }    
     function getAllDataByID($id, $column = "id") {  // (5 , "sectionID")
         $id = intval($id);
-
         $sql = "SELECT * FROM `$this->tablename` WHERE `$column`= $id ORDER By `id` ASC";
+        echo $sql;
         $query = $this->db->conn->prepare($sql);
         $query->execute();
         $data = $query->fetchAll();
        
+        return $data;
+    }
+    function getdataorder($column) {  // (5 , "sectionID")
+        $sql = "SELECT * FROM `$this->tablename` ORDER By `$column` ASC";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $data = $query->fetchAll();
         return $data;
     }
 
@@ -131,6 +137,17 @@ class Display extends abastractConnect {
         return $data;
     }
 
-}
+
+    function getAllDataBynameofmed($id, $column = "id") {  // (5 , "sectionID")
+        
+        $sql = "SELECT * FROM `$this->tablename` WHERE `$column`= '$id' ORDER By `id` ASC";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $data = $query->fetchAll();
+       
+        return $data;
+    }
+    }
+
 
 ?>

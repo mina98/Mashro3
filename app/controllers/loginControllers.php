@@ -50,7 +50,8 @@ if ($_POST) {
                      }else if ($role["type"] == 2)
                      {
                          $_SESSION['type'] = "employee";
-                        header("Location:../views/employee/index.php"); 
+                         $_SESSION['num'] =0;
+                         header("Location:../views/employee/index.php"); 
 
                      }else if ($role["type"] == 3)
                      {
