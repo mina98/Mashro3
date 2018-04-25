@@ -54,7 +54,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon-oi glyphicon-credit-card"></i></span>
-        <input name="unitPrice" type="text" placeholder="unit price" class="form-control"  type="text">
+        <input name="unitPrice"  placeholder="unit price" class="form-control"  required=""  type="number" min="1">
     </div>
   </div>
 </div>
@@ -64,7 +64,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon-oi glyphicon-comment"></i></span>
-        <textarea name="description" class="form form-control" placeholder="item description here please"></textarea>
+        <textarea type="text" name="description" class="form form-control"required="" placeholder="item description here please"></textarea>
         
     </div>
   </div>

@@ -1,15 +1,22 @@
 <?php
 
-
+//session_start();
 
 if ($_POST) {
    
     
    if (isset($_POST['submit']) AND $_POST['submit'] == "add") {
-        
-        include "../../models/Add.php";
-        //id 	name 	username 	password 	adress 	email 	image 	type 
+       
+       
+       include_once '../../models/abastractConnect.php';
+       include_once '../../models/validator.php';
+       $valid = new validator();
+       include_once  "../../models/Add.php";
+       
+       
+    //id 	name 	username 	password 	adress 	email 	image 	type 
         $date['id'] = "";
+        
         $date['name'] = $_POST["name"];
         $date['username'] = $_POST["username"];
         $date['password'] = $_POST["password"];
@@ -17,6 +24,7 @@ if ($_POST) {
         $date['email'] = $_POST["email"];
         $date['image'] = "";
         //$date['type']=2;
+       
        
         $type = $_POST["usertype"];
         //echo $type;
@@ -37,6 +45,25 @@ if ($_POST) {
         
         $date['active'] = "active";
         
+        
+         $rules = array(
+                
+                
+                "name" => "checkRequired|checkChar",  
+                "username" => "checkRequired|checkStings|checkusername",
+                "password" => "checkRequired|checkPasswordlength",
+                "adress" => "checkRequired|checkStings",
+                "email" => "checkRequired|checkEmail",
+                
+            );
+          //  echo $valid->checkusername($data["username"]);
+         $valid = new validator();
+           if ($valid->validate($_POST, $rules) == FALSE)
+           {   
+               echo '<script type="text/javascript"> alert("data not valid !"); history.back();</script>';
+            
+           }
+  else{      
         $tablename = "users";
         try {
             $adduser = new Add($date, $tablename);
@@ -52,7 +79,7 @@ if ($_POST) {
         
     }
     
-    
+   }
     // change staue
     if (isset($_POST['submit']) AND $_POST['submit'] == "change statue")
     {

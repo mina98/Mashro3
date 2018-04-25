@@ -11,9 +11,13 @@
 if ($_POST) {
 
     if (isset($_POST["SUBMIT"]) AND $_POST["SUBMIT"] == "add") {
-        include "../../models/Add.php";
+        include_once "../../models/Add.php";
+        
+       // $valid = new validator();
 
         try {
+            include_once '../../models/validator.php';
+            $valid = new validator();
             include '../../models/list.php';
             @session_start();
             $_SESSION['username'] = 1;
@@ -26,7 +30,15 @@ if ($_POST) {
             $listobjecteee = new Display('offers');
             $dataa["id"]=$listobjecteee->getbigestID()+1;
             $dataa["unitPrice"] = $_POST["unitPrice"];
-            $dataa["description"] = $_POST["description"];
+            
+             if ($valid->checkStings($_POST["description"],'description') == TRUE)
+            {
+                  $dataa["description"] = $_POST["description"];
+            }else{
+                echo '<script type="text/javascript"> alert("must be string !"); history.back();</script>';
+            }
+           
+           
             $kiro = new Add($dataa, "offers");
         } catch (Exception $exc) {
             echo $exc->getMessage();

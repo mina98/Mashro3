@@ -6,6 +6,7 @@ if (@$_SESSION['username'] == null ){
     //include '../controllers/C_Email.php'; 
     echo '
 
+
 <head>
       
       <link rel="stylesheet" href="../../test-samer/login.css">
@@ -86,17 +87,37 @@ if (@$_SESSION['username'] == null ){
  </div>
     <br>
  
-        <footer class="foot "><div class=left>
-            <h1>OUR Product</h1>
-            <p>We aim to make a website <br>to hlep patient to make easliy shopping</p>
-            <a> <i class="btn-success">facebook</i></a>
-            
-            </div></footer>
       <script src="../../test-samer/login.js"></script>
-  </body>
+      ';
+   // print_r($_SESSION);
     
-        ';
+    if (@$_SESSION['error'] != null ){
+
+        if( count($_SESSION['error']) != 0 ){
+            foreach($_SESSION['error'] as $key => $value) {
+
+               echo '<div style="
+                        background-color:red;
+                       
+                        color:#000;
+                        position:absolute;
+                        padding-top:10px;
+                        width:100%;
+                        z_index:2">
+                   <h3> ERROR ! at '. $value.'  please enter valid data</h3>';
+             }
+        session_destroy();
+
+        header("Refresh:5;loginview.php");
+
+        }
+    }
+    
+    echo'       
+  </body>
+           ';
   //include '../controllers/C_Email.php'; 
+
 }
 else {
     //echo 'exist session';
