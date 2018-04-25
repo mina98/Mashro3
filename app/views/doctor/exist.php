@@ -32,12 +32,7 @@
              *********************************************************************************************************************************************************** -->
 
 
-            <h3><i class="fa fa-angle-right"></i> Blank Page</h3>
-            <div class="row mt">
-                <div class="col-lg-12">
-                    <p>Place your content here.</p>
-                </div>
-            </div>
+            
 
             <div id="f-accordion">
                 <h3><i class="fa fa-tasks"></i> List Medicine</h3>
@@ -89,26 +84,32 @@
                 </div>
 
             </div>
-
-            <script>
-
-<<<<<<< HEAD
-</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   
   
 
     <script  src="../../../test-samer/js/index.js"></script>
-  
-=======
-                $(function () {
-                    $('select.styled').customSelect();
-                });
->>>>>>> 5cab0c1b39f981c81642fd640feb297fc2b28c30
 
-            </script>
-        </section>
+
+
+  </section>
+
+
+        
+
+    <!--script for this page-->
+    
+  <script>
+      //custom select box
+
+      $(function(){
+          $('select.styled').customSelect();
+      });
+
+  </script>
+
+       
 
     </body>
 </html>

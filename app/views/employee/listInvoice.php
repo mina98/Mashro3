@@ -32,12 +32,7 @@
       *********************************************************************************************************************************************************** -->
  
           
-          	<h3><i class="fa fa-angle-right"></i> Blank Page</h3>
-          	<div class="row mt">
-          		<div class="col-lg-12">
-          		<p>Place your content here.</p>
-          		</div>
-          	</div>
+          	
 			
   <div id="f-accordion">
     <h3><i class="fa fa-tasks"></i> List Invoices</h3>
@@ -52,7 +47,7 @@
 </aside><!-- end alert -->
 <form> 
   <input type="search" name="search" class="light-table-filter" data-table="order-table" placeholder="SEARCH BY itemid"/> 
-<a class="button"><i class="fa fa-exclamation-circle"></i> Report Error</a>
+
   <section class="table-box">
     <table class="order-table">
       <thead>

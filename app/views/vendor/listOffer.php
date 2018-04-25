@@ -32,12 +32,7 @@
       *********************************************************************************************************************************************************** -->
  
           
-          	<h3><i class="fa fa-angle-right"></i> Blank Page</h3>
-          	<div class="row mt">
-          		<div class="col-lg-12">
-          		<p>Place your content here.</p>
-          		</div>
-          	</div>
+          	
 			
   <div id="f-accordion">
     <h3><i class="fa fa-tasks"></i> List Offers</h3>
@@ -57,7 +52,7 @@
   <input class="form-control" type="password" placeholder="Password">
 </div>
 ---->
-<input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer" /> <a class="button"><i class="fa fa-exclamation-circle"></i> Report Error</a>
+<input type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer" /> 
 	<section class="table-box">
 		<table class="order-table">
 			<thead>
