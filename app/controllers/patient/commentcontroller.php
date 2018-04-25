@@ -5,18 +5,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-@session_start();
 //if ($_POST)
-if(isset($_POST['user_comm'])){
-    include_once '../../models/Add.php';
-    echo"ddddddddddddddd";
+@session_start();
+
+  if ($_POST){
+    include '../../models/Add.php';
      $data['name'] = $_SESSION['username'];
-     $data['comment'] = $_POST['user_comm'];
-     print_r($data);
-     try {
+     $data['comment'] = $_POST['comment'];
+    try {
         $tablename = "commentt";
         $Secadd = new Add($data, $tablename);
-       // $addSec = $Secadd->AddData($data);
+//        $addSec = $Secadd->AddData($data);
           if($Secadd)
             {
                 echo '<script type="text/javascript"> alert("The Section was commented !"); history.back();</script>';
@@ -25,6 +24,7 @@ if(isset($_POST['user_comm'])){
         echo $exc->getMessage();
     }
 }
+
 /*if(isset($_POST['user_comm']) && isset($_POST['user_name']))
 {
   $comment=$_POST['user_comm'];
@@ -45,4 +45,4 @@ $tablename= "commentt" ;
 $addSecDis=   new Display($tablename);
 $find_comment =$addSecDis->getAllData();
 
-//include_once  '../../views/patient/index.php';    
+include_once  '../../views/patient/index.php';    

@@ -1,36 +1,34 @@
 
 <?php 
 
-echo '
-<script type="text/javascript" src="../../../test-samer/jquery.js">
-<script type="text/javascript">';
-echo '
-function post()
-{
-  var comment = document.getElementById("comment").value;
-  
-  
-    $.ajax
-    ({
-      type: "post",
-      url: "../../controllers/doctor/commentcontroller.php",
-      data: 
-      {
-               user_comm:comment
-      },
-      success: function (response) 
-      {
-	    document.getElementById("all_comments").innerHTML=response+document.getElementById("all_comments").innerHTML;
-	    document.getElementById("comment").value="";
-           
-  
-      }
-    });
-  
-
-  
-}
-</script>';
+//echo '
+////<script type="text/javascript" src="../../../test-samer/jquery.js">
+////<script type="text/javascript">';
+//echo '
+//function post()
+//{
+//  var comment = document.getElementById("comment").value;
+//  var datastring="name="+"mina"+"&comment"+comment;
+//  
+//    $.ajax
+//    ({
+//      type: "post",
+//      url: hi.php,
+//      data:datastring,
+//      success: function (response) 
+//      {
+//	    document.getElementById("all_comments").innerHTML=response+document.getElementById("all_comments").innerHTML;
+//	    	    document.getElementById("comment").value="";
+//            document.getElementById("username").value="";
+//           
+//  
+//      }
+//    });
+//  
+//
+//  
+//}
+//</script>';
 
 session_start();
 //print_r($_SESSION);
@@ -76,78 +74,14 @@ if (@$_SESSION['username'] != null ){
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.php" class="logo"><b>Patient Home</b></a>
+            <a   class="logo"><b>Patient Home</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
                 <ul class="nav top-menu">
                    
                     <!-- settings end -->
-                    <!-- inbox dropdown start-->
-                    <li id="header_inbox_bar" class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="badge bg-theme">5</span>
-                        </a>
-                        <ul class="dropdown-menu extended inbox">
-                            <div class="notify-arrow notify-arrow-green"></div>
-                            <li>
-                                <p class="green">You have 5 new messages</p>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="../../../test-samer/assets/img/ui-zac.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Zac Snider</span>
-                                    <span class="time">Just now</span>
-                                    </span>
-                                    <span class="message">
-                                        Hi mate, how is everything?
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="../../../test-samer/assets/img/ui-divya.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Divya Manian</span>
-                                    <span class="time">40 mins.</span>
-                                    </span>
-                                    <span class="message">
-                                     Hi, I need your help with this.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="../../../test-samer/assets/img/ui-danro.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Dan Rogers</span>
-                                    <span class="time">2 hrs.</span>
-                                    </span>
-                                    <span class="message">
-                                        Love your new Dashboard.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="../../../test-samer/assets/img/ui-sherman.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Dj Sherman</span>
-                                    <span class="time">4 hrs.</span>
-                                    </span>
-                                    <span class="message">
-                                        Please, answer asap.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.html#">See all messages</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- inbox dropdown end -->
+                    
                 </ul>
                 <!--  notification end -->
             </div>
@@ -219,21 +153,21 @@ if (@$_SESSION['username'] != null ){
                             echo 'requested file is not found !';
                         }
                     } elseif (@$_GET['addpage']) {
-                        echo $_GET['addpage'];
+                        
                         $url = "../../controllers/patient/C_".$_GET['addpage'] . ".php";
                         if (is_file($url)) {
                             include $url;
                         } else {
                             echo ' requested file is not found !';
                         }
-                    }else {
-                        echo '<form method="post" action="" onsubmit="return post();">
+                    }else                        {
+                        echo '<form  action="../../controllers/patient/commentcontroller.php" method="post"> 
         <div class="form-group">
                 <label class="col-md-4 control-label"></label>  
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <textarea id="comment" rows="5" cols="80" placeholder="your comment" class="form-control"  type="text" required></textarea>
+                        <textarea name="comment" rows="5" cols="80" placeholder="your comment" class="form-control"  type="text" required></textarea>
                     </div>
                 </div>
             </div>
@@ -242,8 +176,7 @@ if (@$_SESSION['username'] != null ){
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
-                    <input type="submit" value="Post Comment" class="btn btn-warning">
-   
+<button type="submit" class="btn btn-warning" >Comment <span class="glyphicon glyphicon-send"></span></button>   
                 </div>
             </div>
         </form>
