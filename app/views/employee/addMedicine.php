@@ -24,16 +24,7 @@
 </div>
 </div>
 <!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label">ID</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-bookmark"></i></span>
-  <input  name="id" placeholder="ID" class="form-control"  type="text" required>
-    </div>
-  </div>
-</div>
-<!-- Text input-->
+
 
 <div class="form-group">
   <label class="col-md-4 control-label">Name</label>  

@@ -23,9 +23,10 @@
     echo '<tr>
         <td> <select name="itemNAME" >';
        for ($i = 0; $i < count($BannerDataDisplaay); $i++) {
-       echo '<option>'.$BannerDataDisplaay[$i]['name'].'</option>';}
+        if($BannerDataDisplaay[$i]['existMount']>100){
+       echo '<option>'.$BannerDataDisplaay[$i]['name'].'</option>';}}
      
-echo ' </select></td><td><input type="number" name="Amount"  min="1" max="1000" value="$ak"></td>
+echo ' </select></td><td><input type="number" name="Amount"  min="1" max="100" value="$ak"></td>
     </tr>';
 //include '../../controllers/employee/C_invoice.php';
 if (@$_SESSION['num']!=0) {
@@ -35,8 +36,9 @@ if (@$_SESSION['num']!=0) {
     echo "<tr>
         <td> <select name='itemName[$i]'>";
        for ($s = 0; $s < count($BannerDataDisplaay); $s++) {
+        if($BannerDataDisplaay[$i]['existMount']>100){ 
        echo "<option ";
-       if($ik==$BannerDataDisplaay[$s]['name']){echo 'selected="selected"';}
+       if($ik==$BannerDataDisplaay[$s]['name']){echo 'selected="selected"';}}
        echo ">".$BannerDataDisplaay[$s]['name'].'</option>';}
     echo "</select></td><td><input type='number' name='amount[$i]' min='1' max='1000' value='$ak'></td>
     </tr>";  
