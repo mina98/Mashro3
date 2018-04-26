@@ -81,6 +81,7 @@
                             <?php
                                  
                             for($i=0;@$arr[$i]['id']!=NULL;$i++){
+                              if($arr[$i]['existMount']>100){
                             echo "<tr>";
                                     echo "<td>{$arr[$i]['id']}</td>";
                                     echo "<td>{$arr[$i]['name']}</td>";
@@ -90,12 +91,13 @@
                                     echo "<td>
                                         <form method='post' action=''>
                                             <input class='hide' value='{$arr[$i]['name']}' name='name'>
-                                            <input class='input btn-group' type='text' placeholder='Amount' name='amount' required>
+                                            <input class='input btn-group' type='number' placeholder='Amount' name='amount' min='1' max='100' required>
                                             <input type='submit' class='btn' value='pay' name='pay'>
                                         </form>
                                     </td>";
                                     echo'</tr>';
                             }
+                          }
                                     ?>
 				
 			</tbody>

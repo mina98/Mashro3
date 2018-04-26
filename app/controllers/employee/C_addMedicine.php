@@ -26,7 +26,7 @@ if(@isset($_POST['submit']) && $_POST['submit']=="send"){
          }
     
     
-    if(($arr=$li->getAllDataByID($addMedicine['id']))!=NULL){
+    if((@$arr=@$li->getAllDataByID($addMedicine['id']))!=NULL){
         //echo '<pre>';
         //print_r($arr);
         @$addMedicine['soldMount']=$_POST['soldMount'];
@@ -42,12 +42,16 @@ if(@isset($_POST['submit']) && $_POST['submit']=="send"){
 
     }
     else{
+        include'../../models/list';
+        $kjksl= new Display('items');
+        $kolo=$kjksl->getLastRecordDESC();
+        $kjksl->close();
+        @$addMedicine['id']=$kolo[0]['id']+1;
         @$addMedicine['soldMount']=0;
         @$addMedicine['existMount']=$_POST['existMount'];
         @$addMedicine['unitPrice']=$_POST['unitPrice'];
         @$addMedicine['desription']=$_POST['desription'];
-        try{
-        
+        try{       
         include_once  '../../models/Add.php';
         new Add($addMedicine, "items");
         echo 'added succeffully ';
