@@ -7,24 +7,6 @@
 <legend>Add medicine</legend>
 <br/>
 
-<!-- Select Basic -->
-<!--medicineType id item_name unitPrice desription existMount-->   
-<!-- id name unitPrice existMount soldMount desription-->
-<div class="form-group"> 
-  <label class="col-md-4 control-label">item Type</label>
-    <div class="col-md-4 selectContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-    <select name="medicineType" class="form-control selectpicker" required>
-      <option >4arab</option>
-      <option>a2ras</option>
-      <option >72on</option>
-    </select>
-  </div>
-</div>
-</div>
-<!-- Text input-->
-
 
 <div class="form-group">
   <label class="col-md-4 control-label">Name</label>  
@@ -43,7 +25,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
-  <input name="unitPrice" placeholder="price" class="form-control"  type="text" required>
+        <input name="unitPrice" placeholder="price" class="form-control"  type="number" min="1" required>
     </div>
   </div>
 </div>
@@ -68,7 +50,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-align-center"></i></span>
-        <input name="existMount" value="" placeholder="intial mount" class="form-control" type="text" required>
+        <input name="existMount" value="" placeholder="intial mount" class="form-control"  type="number" min="1" required>
     </div>
   </div>
 </div>

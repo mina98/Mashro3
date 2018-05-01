@@ -28,8 +28,8 @@ and open the template in the editor.
   <label class="col-md-4 control-label">Name</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="item_name" placeholder="Name" value="<?php echo "{$arr[0]['name']}"; ?>" class="form-control"  type="text" required>
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user" ></i></span>
+  <input  name="item_name" placeholder="Name" value="<?php echo "{$arr[0]['name']}"; ?>" class="form-control"  type="text" readonly>
     </div>
   </div>
 </div>
@@ -41,7 +41,7 @@ and open the template in the editor.
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="unitPrice" placeholder="price" class="form-control"  type="text"  value="<?php echo "{$arr[0]['unitPrice']}"; ?>" required>
+        <input name="unitPrice" placeholder="price" class="form-control"  type="number" min="1"  value="<?php echo "{$arr[0]['unitPrice']}"; ?>" required>
     </div>
   </div>
 </div>
@@ -51,7 +51,7 @@ and open the template in the editor.
   <label class="col-md-4 control-label">Description</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+        <span class="input-group-addon" pattern><i class="glyphicon glyphicon-envelope"></i></span>
   <input name="desription" placeholder="Description" class="form-control"  type="text"  value="<?php echo "{$arr[0]['desription']}"; ?>" required>
     </div>
   </div>
@@ -61,15 +61,8 @@ and open the template in the editor.
 
 <!-- Text input-->
       
-<div class="form-group">
-  <label class="col-md-4 control-label">intial mount</label>  
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-        <input name="existMount"  value= "<?php echo "{$arr[0]['existMount']}"; ?>" placeholder= "intial mount" class="form-control" type="text" required>
-    </div>
-  </div>
-</div>
+
+
 
 
 <br/>

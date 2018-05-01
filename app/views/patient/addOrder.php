@@ -92,7 +92,7 @@
                                         <form method='post' action=''>
                                             <input class='hide' value='{$arr[$i]['name']}' name='name'>
                                             <input class='input btn-group' type='number' placeholder='Amount' name='amount' min='1' max='100' required>
-                                            <input type='submit' class='btn' value='pay' name='pay'>
+                                            <input type='submit' class='btn' value='order' name='pay'>
                                         </form>
                                     </td>";
                                     echo'</tr>';

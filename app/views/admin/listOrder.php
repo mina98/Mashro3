@@ -86,7 +86,8 @@
 					<td>{$data[$i]['mount']}</td>
                                         <td>{$data[$i]['Price']}</td>
                                         <td>{$dataa[$i]}</td>
-                                        <td><input type='submit' class='con' name ='submit' value='confirm'><input type='submit' class='con' name  ='submit'value='unconfirm'></td>
+                                        <td><input type='submit' class='con' name ='submit' value='confirm'>
+                                        <input type='submit' class='con' name  ='submit' value='unconfirm'></td>
                                         <input type=text  style='display:none; ' name='Andrew' value= {$data[$i]['id']}>
                                         <input type=text  style='display:none; ' name='Andrews' value= {$data[$i]['mount']}> 
                                         <input type=text  style='display:none; ' name='Andrewss' value= {$dataaan[$i]}>

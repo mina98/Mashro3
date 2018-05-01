@@ -34,12 +34,12 @@ if($_POST){
          }
          
          
-         if($_POST['passwordagain1']==''){
+         if($_POST['passwordagain1']!=''){
              
              
-             if($valid->checkPasswordlength($_POST['password'], 'password')== TRUE && $valid->checkStings($_POST['password'], 'password')==TRUE)
+             if($valid->checkPasswordlength($_POST['passwordagain1'], 'password')== TRUE && $valid->checkStings($_POST['passwordagain1'], 'password')==TRUE)
          {
-             $SecDataedit['password']     = $_POST['password'];
+             $SecDataedit['password']     = $_POST['passwordagain1'];
          }
          else
          {
@@ -48,7 +48,7 @@ if($_POST){
          }
          }
          else{
-         $SecDataedit['password']    = $_POST['passwordagain1'];
+         $SecDataedit['password'] = $_POST['password'];
          }
          
          if($valid->checkEmail($_POST['email'], 'email')==TRUE)
@@ -74,16 +74,21 @@ if($_POST){
          //$SecDataedit['adress'] = $_POST['address'];
          //$isd=$SecDataedit['id']; 
          if(isset($_FILES)){
+             
              $filename = $_FILES['image']['name'];
-             $fileext  = strtolower(end(explode('.', $filename)));
+             if($filename!=NULL){
+                 @$fileext  = strtolower(end(explode('.', $filename)));
              $filetempname =$_FILES['image']['tmp_name'];
              $destination = '../../test-samer/assets/img/'.$filename;
              move_uploaded_file($filetempname, $destination);
              $SecDataedit['image']='../'.$destination;
+             $_SESSION['image']=$SecDataedit['image'];
+             }
              
          }
          else{
               $SecDataedit['image']= $recSecdata['image'];
+              $_SESSION['image'] = $SecDataedit['image'];              
          }
          //print_r($SecDataedit);
          try {                        
@@ -92,7 +97,7 @@ if($_POST){
             $updtSec = $SecUpdate->editData($SecDataedit['id']);
             if($updtSec)
             {
-                echo '<script type="text/javascript"> alert("The Section was updated !"); history.back();</script>';
+                echo '<script type="text/javascript">  history.back();</script>';
             }            
          } catch (Exception $exc) {
              echo $exc->getMessage();
@@ -102,8 +107,8 @@ if($_POST){
     
 }
 else {
-    include '../../models/list.php';
- $tablename = 'users';
+    include_once '../../models/list.php';
+ $tablename = 'users';  
  $displaySec = new Display($tablename);
  //session_start();
  $SecDataDisplaya = $displaySec->getRecordByusername($_SESSION['username'],$tablename,"*","username");

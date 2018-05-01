@@ -32,7 +32,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="name" placeholder="Name" class="form-control"  type="text">
+  <input  name="name" placeholder="Name" class="form-control"  type="text" pattern="/^[a-zA-Z\p{Cyrillic}0-9\s\-]+$/u">
     </div>
   </div>
 </div>
@@ -43,7 +43,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="username" placeholder="User Name" class="form-control"  type="text">
+  <input name="username" placeholder="User Name" class="form-control"  type="text"  pattern="/^[a-zA-Z\p{Cyrillic}0-9\s\-]+$/u">
     </div>
   </div>
 </div>
@@ -54,7 +54,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon-oi glyphicon-lock"></i></span>
-        <input name="password" type="password" placeholder="password" class="form-control"  type="text">
+        <input name="password" type="password" placeholder="password" class="form-control" min="5"  type="text"  pattern="/^[a-zA-Z\p{Cyrillic}0-9\s\-]+$/u">
     </div>
   </div>
 </div>
@@ -68,7 +68,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+        <input name="email" placeholder="E-Mail Address" class="form-control" required="" type="text" >
     </div>
   </div>
 </div>
@@ -81,7 +81,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
-  <input name="adress" placeholder="Address" class="form-control" type="text">
+        <input name="adress" placeholder="Address" class="form-control" type="text" required="" pattern="/^[a-zA-Z\p{Cyrillic}0-9\s\-]+$/u">
     </div>
   </div>
 </div>

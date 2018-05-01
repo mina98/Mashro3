@@ -102,14 +102,9 @@ if (@$_SESSION['username'] != null ){
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><img ';     echo "src='{$_SESSION['image']}' "; echo ' class="img-rounded" width="100"></p>
-              	  <h5 class="centered"> '; $_SESSION['username'];  echo '</h5>
+              	  <h5 class="centered"> ';echo $_SESSION['username'];  echo '</h5>
               	  	
-                  <li class="mt">
-                      <a href="index.php">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Home</span>
-                      </a>
-                  </li>
+                 
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
@@ -133,16 +128,7 @@ if (@$_SESSION['username'] != null ){
                          
                       </ul>
                   </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>Report</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="?page=report">Report</a></li>
-                          
-                      </ul>
-                  </li>
+                  
                   
 
               </ul>
@@ -177,7 +163,7 @@ if (@$_SESSION['username'] != null ){
                             echo 'requested file is not found !';
                         }
                     }else {
-                        echo 'lsa mfe4 7aga';
+                        include_once 'addInvoice.php';
                     }
                     echo '
               </section>

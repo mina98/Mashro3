@@ -23,8 +23,8 @@ include '../../models/list.php';
                 $dlgk= new Display('invoices');
                 $gkhj=$dlgk->getAllData();
                   for ($i = 0; $i < count($dataa); $i++){
-      $dataPoints[$i] = array("label"=>$dataa[$i]['name'] , "y"=> ($dataa[$i]['soldMount']/$dataa[$i]['existMount']));
-      $dataPointss[$i]=array("y" => $dataa[$i]['existMount'], "label" => $dataa[$i]['name'] );    
+      @$dataPoints[$i] = array("label"=>$dataa[$i]['name'] , "y"=> ($dataa[$i]['soldMount']/$dataa[$i]['existMount']));
+      @$dataPointss[$i]=array("y" => $dataa[$i]['existMount'], "label" => $dataa[$i]['name'] );    
   }
    for($i=0;$i < count($dataaa);$i++){
        $counts[$i]=0;

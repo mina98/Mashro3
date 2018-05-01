@@ -68,7 +68,7 @@
 					<td>{$datap[$i]}</td>
                                         <td>{$data[$i]['unitPrice']}</td>
                                         <td>{$data[$i]['description']}</td>
-                                        <td><input type ='text' name ='Mmount' placeholder='Mount you Need'></td>
+                                        <td><input type ='number' name ='Mmount' placeholder='Mount you Need' min='0'></td>
                                         <input type=text  style='display:none; ' name='Andrew' value= {$data[$i]['id']}>
                                         <td><input type ='submit' name ='submit' value='order'></td>
                                         </form>

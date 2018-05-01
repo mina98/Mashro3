@@ -59,8 +59,8 @@
 				<tr>
 					<th>id</th>
 					<th>medicin</th>
-					<th>exist amount</th>
                                         <th>sold amount</th>
+                                        <th>exist amount</th>
 					<th>unit Price</th>
                                         <th>discription</th>
 					<th>Update</th>

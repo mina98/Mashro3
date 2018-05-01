@@ -13,7 +13,8 @@ class Update extends abastractConnect {
         $this->tablename = $tablename;
         $this->connectToDb();
     }
-
+     
+    
     function editData($id) {
         $id = intval($id);
         
@@ -41,7 +42,23 @@ class Update extends abastractConnect {
     }
     
      
-
+    function updateRecordByID($id,$colom,$newvar,$wherecond)
+    {
+        $id = intval($id);
+        $sql = "UPDATE `$this->tablename`
+                SET  `$colom` = '$newvar'
+               WHERE  `$wherecond` = $id";
+        $query = $this->db->conn->prepare($sql);
+        if(!$query->execute())
+        {
+            throw new Exception("Error: not UPDATE.");
+        }
+        else
+        {
+            return TRUE;
+        }
+    
+}
 }
 
 ?>

@@ -30,12 +30,13 @@
                    
                     }
                elseif (isset($_POST['submit']) AND $_POST['submit'] == "unconfirm")
-                    {$delete=new Supply_Models('order_supply');
+                    { include_once '../../models/Supply_Models.php';
+                   $delete=new Supply_Models('order_supply');
                     $delete->deletRecordByID($_POST['Andrew']);
                     @header("location:../../views/admin/index.php?page=listOrder");}
  else {
-      include "../../models/Supply_Models.php";
-                include "../../models/list.php";
+      include_once "../../models/Supply_Models.php";
+                include_once "../../models/list.php";
                 $tablename="order_supply";
         	$displaypage=new Supply_Models($tablename);  
                 $data =$displaypage->getAllDataBy(1);

@@ -137,7 +137,7 @@ if ($_POST) {
         die();
     }
      if (isset($_POST['submit']) AND $_POST['submit'] == "unconfirm")
-              {         include '../../models/Supply_Models.php';
+              {         include_once '../../models/Supply_Models.php';
                     $delete=new Supply_Models('order_supply');
                     $delete->deletRecordByID($_POST['Andrew']);
                     @header("location:../../views/vendor/index.php?page=requested");}

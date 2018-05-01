@@ -13,7 +13,7 @@ $mail->Password = 'KokoComputer1998';
 $mail->setFrom('kirloesboles98@gmail.com', 'Senaid Bacinovic');
 
     
-   include '../models/list.php';
+   include_once '../models/list.php';
     $recobj= new Display("users");
     $recored=$recobj->getLastRecordDESC();
     $id=$recored['id'];

@@ -13,6 +13,8 @@ class Register extends abastractConnect
     private $password;
     private $adress;
     private $image;
+    private $acesscode ;
+    private $acess;
    // private $type = 3;
    // private $db;   // Database Object
     
@@ -40,7 +42,8 @@ class Register extends abastractConnect
         $this->email    = $data['email'];
         $this->image = $data['image'];
         //$this->type = $data['type'];
-    
+        $this->acesscode = $data['acesscode'];
+        $this->acess = $data['acess'];
         
     }
     
@@ -49,9 +52,9 @@ class Register extends abastractConnect
     function rgisterUser()
     {
          //`id`, `name`, `username`, `password`, `adress`, `email`, `image`, `type`
-        $sql = "INSERT INTO `users` (`id`, `name`, `username`, `password`, `adress` ,`email` ,`image`,`type`,`active`)
+        $sql = "INSERT INTO `users` (`id`, `name`, `username`, `password`, `adress` ,`email` ,`image`,`type`,`active`,`acesscode`,`acess`)
           VALUES 
-            ('','$this->name','$this->username','$this->password','$this->adress','$this->email','$this->image','5','active')";
+            ('','$this->name','$this->username','$this->password','$this->adress','$this->email','$this->image','5','active','$this->acesscode','$this->acess')";
         
         $this->db->conn->exec($sql);
         

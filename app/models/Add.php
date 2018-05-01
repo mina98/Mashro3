@@ -37,7 +37,7 @@ class Add extends abastractConnect {
 
         $sql = "INSERT INTO $this->tablename ($tblKeys) VALUES ($keyss)";
         $query = $this->db->conn->prepare($sql);
-
+        print_r($query);
         foreach ($keys as $key) {
             $query->bindParam(":$key", $data[$key]);
         }

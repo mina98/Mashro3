@@ -75,7 +75,7 @@ if (@$_SESSION['username'] != null) {
               
 
               	  <p class="centered"><img ';     echo "src='{$_SESSION['image']}' "; echo ' class="img-rounded" width="100"></p>
-              	  <h5 class="centered"> '; $_SESSION['username'];  echo '</h5>
+              	  <h5 class="centered"> ';echo $_SESSION['username'];  echo '</h5>
 
               	  	
                   <li class="mt">

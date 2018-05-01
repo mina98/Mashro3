@@ -36,6 +36,14 @@ class Display extends abastractConnect {
         $data = $query->fetch();
         return $data;
     }
+    function getLastRecordaESC() {
+
+        $sql = "SELECT * FROM `$this->tablename` ORDER BY `id` ASC LIMIT 1";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $data = $query->fetch();
+        return $data;
+    }
     function getLastUNEEDDESC($num) {
         $sql = "SELECT * FROM `$this->tablename` ORDER BY `id` DESC LIMIT 1";
         $query = $this->db->conn->prepare($sql);
@@ -104,7 +112,6 @@ class Display extends abastractConnect {
     function getAllDataByID($id, $column = "id") {  // (5 , "sectionID")
         $id = intval($id);
         $sql = "SELECT * FROM `$this->tablename` WHERE `$column`= $id ORDER By `id` ASC";
-        echo $sql;
         $query = $this->db->conn->prepare($sql);
         $query->execute();
         $data = $query->fetchAll();
@@ -157,6 +164,16 @@ class Display extends abastractConnect {
        
         return $data;
     }
+    function getAllDataByacesscode($acesscode,$tablename) {  // (5 , "sectionID")
+        //SELECT id FROM `users` WHERE `username`= "kiro";
+        $sql = "SELECT * FROM `$tablename` WHERE `acesscode`= '$acesscode'";
+        $query = $this->db->conn->prepare($sql);
+        $query->execute();
+        $data = $query->fetchAll();
+       
+        return $data;
+    }
+
     }
 
 

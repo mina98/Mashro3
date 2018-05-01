@@ -66,8 +66,8 @@ if (@$_SESSION['username'] != null ){
                         
      <!-- inbox dropdown start-->
                     ';
-                     include_once '../../controllers/notfiyyyyyyyy.php';
-                     
+                    include_once '../../controllers/notfiyyyyyyyy.php';
+                    
                      echo '
                     <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
@@ -122,15 +122,9 @@ if (@$_SESSION['username'] != null ){
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><img ';     echo "src='{$_SESSION['image']}' "; echo ' class="img-rounded" width="100"></p>
-              	  <h5 class="centered"> '; $_SESSION['username'];  echo '</h5>
+              	  <h5 class="centered"> ';echo $_SESSION['username'];  echo '</h5>
               	  	
-                  <li class="mt">
-                      <a href="index.php">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Home</span>
-                      </a>
-                  </li>
-                  <li class="mt">
+                             <li class="mt">
                       <a href="?page=addOffer">
                           <i class="fa fa-dashboard"></i>
                           <span>Add Offer</span>
@@ -148,11 +142,7 @@ if (@$_SESSION['username'] != null ){
                           <span>reguested</span>
                       </a>
                   </li>
-                  <li class="mt">
-                      <a href="?page=report">
-                          <i class="fa fa-dashboard"></i>
-                          <span>reports</span>
-                      </a>
+                 
             
                   
 
@@ -180,7 +170,7 @@ if (@$_SESSION['username'] != null ){
                             echo 'requested file is not found !';
                         }
                     } else {
-                        echo 'lsa mfe4 7aga';
+                        include_once './addOffer.php';
                     }
                    echo '
               </section>
